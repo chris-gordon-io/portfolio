@@ -1,0 +1,33 @@
+@keyframes chris-bubble-in {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.chris-bubble {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  animation: chris-bubble-in 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top left;
+}
+
+.chris-bubble-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.chris-bubble-box {
+  position: relative;
+  margin-top: 12px;
+  margin-left: 12px;
+  background: #F0B4A4;
+  border: 1.5px solid #E16949;
+  border-radius: 0 9999px 9999px 9999px;
+  padding: 6px 12px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #272737;
+  white-space: nowrap;
+  filter: drop-shadow(0 4px 14px rgba(225, 105, 73, 0.35));
+}

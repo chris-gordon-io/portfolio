@@ -1,0 +1,49 @@
+@keyframes pill-overlay-in {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+.pill-overlay {
+  position: fixed;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 9999;
+  pointer-events: none;
+  animation: pill-overlay-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: left 0.12s cubic-bezier(0.16, 1, 0.3, 1), top 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pill-overlay-img {
+  width: 100%;
+  height: 200px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.pill-overlay-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pill-overlay-body {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: #272737;
+  margin: 0;
+  padding: 16px 20px 20px;
+}

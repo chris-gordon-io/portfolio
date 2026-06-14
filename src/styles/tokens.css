@@ -1,0 +1,116 @@
+/* ─────────────────────────────────────────
+   Fonts — Safiro (from chrisgordon.io)
+───────────────────────────────────────── */
+@font-face {
+  font-family: "Safiro";
+  src: url("https://framerusercontent.com/assets/tbCo2hKl42F22GMCoQUNzYgoC8.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Safiro";
+  src: url("https://framerusercontent.com/assets/odGBefxvL7yYMsr7pPRxwZW1qE.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Safiro";
+  src: url("https://framerusercontent.com/assets/fD1OtfUUAyDVVWNCtjrjM1z2aU.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Safiro";
+  src: url("https://framerusercontent.com/assets/3CFHiBJX9zxVpoozuBAEMPaUbw.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────
+   Colour tokens
+───────────────────────────────────────── */
+:root {
+  /* Core palette — exact values from chrisgordon.io Framer tokens */
+  --color-ink:        #272737;   /* Primary dark — headings, buttons */
+  --color-body:       #3d3d4b;   /* Body text */
+  --color-secondary:  #52525f;   /* Secondary text */
+  --color-muted:      #7d7d87;   /* Muted / meta text */
+  --color-subtle:     #a9a9af;   /* Labels, caps */
+  --color-border:     #d4d4d7;   /* Dividers, borders */
+  --color-border-light: #e9e9eb; /* Lighter border */
+  --color-white:      #ffffff;
+  --color-bg:         #fbece8;   /* Warm peach background */
+
+  /* Accent (orange-red) */
+  --color-accent:     #da441b;
+  --color-accent-2:   #de5732;
+
+  /* Nav */
+  --color-nav-bg:     rgba(255, 255, 255, 0.6);
+
+  /* ─────────────────────────────────────────
+     Typography scale
+  ───────────────────────────────────────── */
+  --font-family:      "Safiro", system-ui, sans-serif;
+
+  --text-xs:          12px;   /* Caps / labels        */
+  --text-sm:          14px;   /* Small body           */
+  --text-base:        16px;   /* Default body         */
+  --text-md:          20px;   /* Cards / sub-headings */
+  --text-lg:          24px;   /* Sub-heading          */
+  --text-xl:          32px;   /* Heading sm           */
+  --text-2xl:         40px;   /* Heading md           */
+  --text-3xl:         52px;   /* Heading lg           */
+  --text-4xl:         68px;   /* Hero                 */
+
+  --leading-tight:    1.1;
+  --leading-snug:     1.2;
+  --leading-normal:   1.4;
+
+  --tracking-tight:   -1px;
+  --tracking-wide:    5.4px;
+
+  /* ─────────────────────────────────────────
+     Spacing scale (4px base)
+  ───────────────────────────────────────── */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+
+  /* ─────────────────────────────────────────
+     Radii
+  ───────────────────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 999px;
+
+  /* ─────────────────────────────────────────
+     Shadows
+  ───────────────────────────────────────── */
+  --shadow-nav:
+    0px 0.5px 2px -0.8px rgba(39, 39, 55, 0.03),
+    0px 1.8px 7.7px -1.7px rgba(39, 39, 55, 0.03),
+    0px 8px 33.6px -2.5px rgba(39, 39, 55, 0.03),
+    inset 0px 2px 4px 0px rgba(255, 255, 255, 0.4);
+
+  /* ─────────────────────────────────────────
+     Layout
+  ───────────────────────────────────────── */
+  --max-width: 900px;
+  --page-padding: var(--space-8);
+}

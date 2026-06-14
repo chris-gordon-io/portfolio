@@ -1,0 +1,33 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import Motorway from './pages/Motorway'
+import Project2 from './pages/Project2'
+import Project3 from './pages/Project3'
+import Benchmark from './pages/Benchmark'
+import Components from './pages/Components'
+import { useLenis } from './hooks/useLenis'
+
+function ScrollApp() {
+  useLenis()
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/project/motorway" element={<Motorway />} />
+      <Route path="/project/2" element={<Project2 />} />
+      <Route path="/project/3" element={<Project3 />} />
+      <Route path="/project/benchmark" element={<Benchmark />} />
+      <Route path="/components" element={<Components />} />
+    </Routes>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ScrollApp />
+    </BrowserRouter>
+  )
+}
+

@@ -1,0 +1,390 @@
+/* ─────────────────────────────────────────
+   Shared project-page component styles
+   prefix: pc-
+───────────────────────────────────────── */
+
+/* ── Title block ── */
+.pc-title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 80px 24px 40px;
+  text-align: center;
+}
+
+.pc-title {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.pc-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+/* ── Layout shell ── */
+.pc-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 120px;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.pc-section--slim {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.pc-content-block {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+}
+
+.pc-col-heading {
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.pc-col-body {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Topline container ── */
+.pc-topline-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 48px;
+  border: 1px solid #F8DAD1;
+  border-radius: 12px;
+  background: #FDF5F3;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Hero ── */
+.pc-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 120px;
+  overflow: hidden;
+  min-height: 70vh;
+}
+
+.pc-hero-image {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  justify-content: center;
+}
+
+.pc-hero-image img {
+  width: 100%;
+  display: block;
+}
+
+.pc-hero-image--wide {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.pc-hero-image--wide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Headings ── */
+.pc-heading {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  line-height: 1.4;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.pc-heading.accent {
+  color: var(--color-accent);
+}
+
+.pc-heading.muted {
+  color: #d4d4d7;
+}
+
+.pc-heading-light {
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+/* ── Body text ── */
+.pc-body {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.pc-body.light {
+  color: #ffffff;
+}
+
+.pc-body-lg {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+  color: var(--color-secondary);
+  margin: 0;
+}
+
+/* ── Image caption ── */
+.pc-image-caption {
+  font-size: 14px;
+  color: var(--color-secondary);
+  text-align: center;
+  margin: 16px 0 32px;
+}
+
+/* ── Phone card ── */
+.pc-phone-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  background: #fdf5f3;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.pc-phone-fig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  flex: 1;
+  max-width: 280px;
+}
+
+.pc-phone-fig img {
+  width: 100%;
+  display: block;
+}
+
+.pc-phone-fig figcaption {
+  font-size: 14px;
+  color: var(--color-ink);
+  text-align: center;
+}
+
+/* ── Wide card ── */
+.pc-wide-card {
+  background: #FDF5F3;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+}
+
+.pc-wide-card img {
+  width: 100%;
+  display: block;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Metrics block ── */
+.pc-metrics-block {
+  background: #272737;
+  display: flex;
+  justify-content: center;
+  padding: 80px 120px;
+}
+
+.pc-stat-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.pc-stat-card {
+  background: #3d3d4b;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.pc-stat-number {
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: #d4d4d7;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.pc-stat-label {
+  font-size: 22px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* ── Callout ── */
+.pc-callout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.pc-callout-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.pc-callout-headline {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  line-height: 1.3;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.pc-callout-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.pc-callout-body p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-secondary);
+  margin: 0;
+}
+
+/* ── Hypothesis ── */
+.pc-hypothesis {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 48px;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pc-hypothesis-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-subtle);
+  margin: 0;
+}
+
+.pc-hypothesis-text {
+  font-size: 20px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+/* ── See all work ── */
+.pc-see-all {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: background 0.15s;
+  align-self: flex-start;
+}
+
+.pc-see-all:hover {
+  background: rgba(39, 39, 55, 0.06);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pc-section,
+  .pc-metrics-block,
+  .pc-hero {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .pc-content-block {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pc-body-lg {
+    font-size: 20px;
+  }
+
+  .pc-heading {
+    font-size: 24px;
+  }
+
+  .pc-phone-card {
+    flex-wrap: wrap;
+    padding: 24px;
+  }
+
+  .pc-phone-fig {
+    max-width: 100%;
+  }
+
+  .pc-phone-card--trio .pc-phone-fig {
+    flex: 1 1 calc(50% - 12px);
+  }
+
+  .pc-stat-label {
+    font-size: 16px;
+  }
+}
