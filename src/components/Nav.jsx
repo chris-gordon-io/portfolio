@@ -41,7 +41,12 @@ export default function Nav() {
           }}
         />
 
-        <Link to="/" className="nav-logo" onMouseEnter={moveTo}>
+        <Link
+          to="/"
+          className="nav-logo"
+          onMouseEnter={moveTo}
+          onClick={e => { e.preventDefault(); window.location.href = '/#work'; window.lenis?.scrollTo('#work') }}
+        >
           <CGLogo size={22} />
         </Link>
         <a

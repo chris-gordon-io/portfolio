@@ -219,33 +219,6 @@
   color: var(--color-muted);
 }
 
-/* ── Footer ── */
-.footer {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  width: 100%;
-  padding: 40px 80px;
-  font-size: 13px;
-  color: var(--color-subtle);
-}
-
-.footer-links {
-  display: flex;
-  gap: 40px;
-}
-
-.footer-links a {
-  color: var(--color-muted);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-
-.footer-links a:hover {
-  color: var(--color-ink);
-}
 
 .hero-mobile-break {
   display: block;
@@ -271,10 +244,4 @@
     grid-template-columns: 1fr;
   }
 
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 40px 24px;
-    gap: 16px;
-  }
 }

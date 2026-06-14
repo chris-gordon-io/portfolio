@@ -5,6 +5,7 @@ import ProjectText from '../components/project/ProjectText'
 import ProjectImage from '../components/project/ProjectImage'
 import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
+import Footer from '../components/Footer'
 import './Project1.css'
 
 const IMG = 'https://framerusercontent.com/images/'
@@ -172,14 +173,7 @@ export default function Project1() {
         <Link to="/" className="pc-see-all">← See all work</Link>
       </ProjectText>
 
-      <footer className="footer">
-        <div className="footer-links">
-          <a href="https://www.linkedin.com/in/cpgordon/" target="_blank" rel="noreferrer">Linkedin</a>
-          <a href="https://app.yunojuno.com/p/chris-gordon/" target="_blank" rel="noreferrer">YunoJuno</a>
-          <a href="https://www.instagram.com/chrisg116/" target="_blank" rel="noreferrer">Instagram</a>
-        </div>
-        <p>All content © 2025</p>
-      </footer>
+      <Footer />
 
     </div>
   )

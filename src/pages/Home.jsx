@@ -5,6 +5,7 @@ import ChrisBubble from '../components/ChrisBubble'
 import { useReveal } from '../hooks/useReveal'
 import CGLogo from '../components/CGLogo'
 import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import './Home.css'
 
 /* variant: "light" | "solid" | "outline" */
@@ -156,14 +157,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="footer-links">
-          <a href="https://www.linkedin.com/in/cpgordon/" target="_blank" rel="noreferrer">Linkedin</a>
-          <a href="https://app.yunojuno.com/p/chris-gordon/" target="_blank" rel="noreferrer">YunoJuno</a>
-          <a href="https://www.instagram.com/chrisg116/" target="_blank" rel="noreferrer">Instagram</a>
-        </div>
-        <p>All content © 2025</p>
-      </footer>
+      <Footer />
 
     </div>
   )

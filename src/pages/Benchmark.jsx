@@ -7,6 +7,7 @@ import ProjectHypothesis from '../components/project/ProjectHypothesis'
 import ProjectTopline from '../components/project/ProjectTopline'
 import ProjectCallout from '../components/project/ProjectCallout'
 import ProjectBackButton from '../components/project/ProjectBackButton'
+import Footer from '../components/Footer'
 import './Benchmark.css'
 
 export default function Benchmark() {
@@ -69,14 +70,7 @@ export default function Benchmark() {
 
       <ProjectBackButton />
 
-      <footer className="footer">
-        <div className="footer-links">
-          <a href="https://www.linkedin.com/in/cpgordon/" target="_blank" rel="noreferrer">Linkedin</a>
-          <a href="https://app.yunojuno.com/p/chris-gordon/" target="_blank" rel="noreferrer">YunoJuno</a>
-          <a href="https://www.instagram.com/chrisg116/" target="_blank" rel="noreferrer">Instagram</a>
-        </div>
-        <p>All content © 2025</p>
-      </footer>
+      <Footer />
 
     </div>
   )
