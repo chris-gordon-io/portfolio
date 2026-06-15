@@ -70,7 +70,7 @@ const projects = [
     image: 'https://framerusercontent.com/images/uxJV8RIR1IpcytkQgqSpaBWaz4.jpg',
   },
   {
-    to: '/project/2',
+    to: '/project/toyota',
     name: 'Toyota One App',
     description: 'A sprints worth of problem solving to delivery quickly',
     tags: ['App', 'User Interviews'],
