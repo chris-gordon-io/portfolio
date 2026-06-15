@@ -4,7 +4,6 @@ import ProjectHero from '../components/project/ProjectHero'
 import ProjectTopline from '../components/project/ProjectTopline'
 import ProjectCallout from '../components/project/ProjectCallout'
 import ProjectImage from '../components/project/ProjectImage'
-import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
 import ProjectBackButton from '../components/project/ProjectBackButton'
 import './Toyota.css'
@@ -29,24 +28,15 @@ export default function Toyota() {
         Redesigning onboarding for a global Toyota app — and changing the goal along the way.
       </ProjectTopline>
 
-      <ProjectMetrics
-        intro="What started as a project to help users understand Connected Services became something more fundamental: a discovery that they didn't want to be educated at all."
-        metrics={[
-          { number: '1.4★', label: 'App Store rating at start' },
-          { number: '3', label: 'Timezones across engineering' },
-          { number: '5+', label: 'User types to design for' },
-          { number: '4', label: 'Goal pivots before launch' },
-        ]}
-      />
 
-      {/* ── Context ── */}
+{/* ── Context ── */}
       <ProjectCallout
         eyebrow="Context"
         headline="A new CEO. One global app. A 1.4-star rating to fix."
       >
         <p>Toyota's car companion apps had grown organically — different tech stacks for different regions, different generations of car, different markets. A new CEO set out to consolidate them into a single global product. That meant building an onboarding experience that could work for everyone, everywhere, across every Toyota.</p>
         <p>I was Lead UX Designer on the Onboarding team, working alongside Product Owners and an offshore engineering team spread across three time zones. My focus was the first experience every new Toyota owner would have — the moment they open the app for the first time and try to set up their vehicle.</p>
-        <p>This wasn't a case of redesigning a single flow. Every decision had downstream consequences across a matrix of combinations — multiple regions, car generations, trim levels, and user types — we had to design for simultaneously.</p>
+        <p>This wasn't a case of redesigning a single flow. Every decision had downstream consequences across a matrix of combinations, multiple regions, car generations, trim levels, and user types. We had to consider all user types, not just the new user happy path.</p>
       </ProjectCallout>
 
       {/* ── Problem ── */}
