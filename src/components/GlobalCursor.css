@@ -1,0 +1,15 @@
+.global-cursor {
+  position: fixed;
+  z-index: 99999;
+  pointer-events: none;
+  width: 12px;
+  height: 12px;
+  background: #272737;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.15s;
+}
+
+body[data-cursor-hidden] .global-cursor {
+  opacity: 0 !important;
+}

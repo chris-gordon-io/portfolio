@@ -19,6 +19,7 @@
   justify-content: center;
   align-items: center;
   padding: 80px 40px 0;
+  position: relative;
 }
 
 .hero-text {
@@ -119,10 +120,20 @@
   color: var(--color-accent);
 }
 
-/* Solid — accent bg, white text */
+/* Solid — accent bg via ::before so burst (z-index:-2) can sit behind it */
 .hero-pill--solid {
-  background: var(--color-accent);
+  background: transparent;
   color: #ffffff;
+  isolation: isolate;
+}
+
+.hero-pill--solid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent);
+  border-radius: inherit;
+  z-index: -1;
 }
 
 /* Outline — transparent with accent border + text */

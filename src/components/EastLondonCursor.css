@@ -1,0 +1,87 @@
+@keyframes el-in {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes od-roll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-19px); }
+}
+
+/* Outer card */
+.el-cursor {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px;
+  gap: 2px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9EB;
+  border-radius: 8px;
+  animation: el-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: center center;
+  white-space: nowrap;
+}
+
+/* Gray digit pill */
+.el-digit-tile {
+  width: 18px;
+  height: 23px;
+  background: #E9E9EB;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Odometer strip — absolutely positioned inside the tile */
+.od-strip {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.od-strip > span {
+  height: 19px;
+  line-height: 19px;
+  font-family: 'Safiro', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #52525F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.od-strip--rolling {
+  animation: od-roll 0.12s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+/* Static tiles — dots, labels, separator */
+.el-tile {
+  height: 23px;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: 'Safiro', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #52525F;
+  flex-shrink: 0;
+}
+
+.el-sep {
+  color: #E9E9EB;
+}

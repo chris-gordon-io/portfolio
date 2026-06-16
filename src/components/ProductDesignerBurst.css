@@ -1,0 +1,37 @@
+@keyframes pd-icon-burst {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
+  12%  { opacity: 1; transform: translate(calc(-50% + var(--tx) * 0.15), calc(-50% + var(--ty) * 0.15)) scale(0.85) rotate(calc(var(--rot) * 0.15)); }
+  55%  { opacity: 0; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.3) rotate(var(--rot)); }
+}
+
+/* Inline inside .hero-pill — spans the pill width at its vertical centre.
+   z-index: -2 so the pill's ::before orange background (z-index: -1) covers
+   icons while they're still inside the pill bounds. */
+.pd-burst {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+  z-index: -2;
+  overflow: visible;
+}
+
+.pd-burst-icon {
+  position: absolute;
+  left: var(--sx);
+  top: 0;
+  display: block;
+  animation: pd-icon-burst 1400ms ease-out forwards;
+  border-radius: 10px;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.pd-burst-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

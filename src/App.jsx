@@ -8,10 +8,13 @@ import Benchmark from './pages/Benchmark'
 import Toyota from './pages/Toyota'
 import Components from './pages/Components'
 import { useLenis } from './hooks/useLenis'
+import GlobalCursor from './components/GlobalCursor'
 
 function ScrollApp() {
   useLenis()
   return (
+    <>
+    <GlobalCursor />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
@@ -22,6 +25,7 @@ function ScrollApp() {
       <Route path="/project/benchmark" element={<Benchmark />} />
       <Route path="/components" element={<Components />} />
     </Routes>
+    </>
   )
 }
 

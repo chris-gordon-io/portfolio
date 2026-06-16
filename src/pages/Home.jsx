@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import PillOverlay from '../components/PillOverlay'
 import ChrisBubble from '../components/ChrisBubble'
 import ProjectCursor from '../components/ProjectCursor'
+import ProductDesignerBurst from '../components/ProductDesignerBurst'
+import EastLondonCursor from '../components/EastLondonCursor'
 import { useReveal } from '../hooks/useReveal'
 import CGLogo from '../components/CGLogo'
 import Nav from '../components/Nav'
@@ -13,22 +15,33 @@ import './Home.css'
 function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cursor }) {
   const [open, setOpen] = useState(false)
   const [pos, setPos] = useState({ x: 0, y: 0 })
+  const [chipCenter, setChipCenter] = useState({ cx: 0, cy: 0 })
+  const spanRef = useRef(null)
 
   function handleMouseMove(e) {
     setPos({ x: e.clientX, y: e.clientY })
   }
 
+  function handleMouseEnter() {
+    if (spanRef.current) {
+      const r = spanRef.current.getBoundingClientRect()
+      setChipCenter({ cx: r.left + r.width / 2, cy: r.top + r.height / 2, rect: r })
+    }
+    setOpen(true)
+  }
+
   return (
     <span
+      ref={spanRef}
       className={`hero-pill hero-pill--${variant}`}
       style={cursor ? { cursor } : undefined}
-      onMouseEnter={() => setOpen(true)}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={() => setOpen(false)}
       onMouseMove={handleMouseMove}
     >
       {label}
       {open && (renderOverlay
-        ? renderOverlay({ x: pos.x, y: pos.y })
+        ? renderOverlay({ x: pos.x, y: pos.y, cx: chipCenter.cx, cy: chipCenter.cy, rect: chipCenter.rect })
         : <PillOverlay src={src} body={body} chip={chip} x={pos.x} y={pos.y} />
       )}
     </span>
@@ -152,14 +165,14 @@ export default function Home() {
               label="Product Designer"
               body="detail one, detail two"
               variant="solid"
+              renderOverlay={() => <ProductDesignerBurst />}
             /><br className="hero-mobile-break" /> who turns trust into conversion,</h1>
           </div>
           <div className="hero-row">
             <h1>based in <HeroPill
-              src="https://framerusercontent.com/images/Ac8hFJuz0jMErLTB2zGqHZgdUVo.png"
               label="East London"
-              body="detail one, detail two"
               variant="outline"
+              renderOverlay={({ x, y, rect }) => <EastLondonCursor x={x} y={y} rect={rect} />}
             /></h1>
           </div>
         </div>
