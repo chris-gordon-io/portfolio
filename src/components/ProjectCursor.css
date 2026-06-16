@@ -1,0 +1,37 @@
+@keyframes project-cursor-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.project-cursor {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  animation: project-cursor-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #272737;
+  color: #ffffff;
+  padding: 10px 16px 10px 20px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+.project-cursor-label {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.project-cursor-arrow {
+  flex-shrink: 0;
+}

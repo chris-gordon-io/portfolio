@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import PillOverlay from '../components/PillOverlay'
 import ChrisBubble from '../components/ChrisBubble'
+import ProjectCursor from '../components/ProjectCursor'
 import { useReveal } from '../hooks/useReveal'
 import CGLogo from '../components/CGLogo'
 import Nav from '../components/Nav'
@@ -92,6 +93,38 @@ const projects = [
   },
 ]
 
+function ProjectCardWithCursor({ project }) {
+  const [hovered, setHovered] = useState(false)
+  const [pos, setPos] = useState({ x: 0, y: 0 })
+
+  return (
+    <RevealCard delay={0}>
+      <Link
+        to={project.to}
+        className="project-card"
+        style={hovered ? { cursor: 'none' } : undefined}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onMouseMove={e => setPos({ x: e.clientX, y: e.clientY })}
+      >
+        <div className="project-image">
+          <img src={project.image} alt={project.name} />
+        </div>
+        <div className="project-info">
+          <span className="project-name">{project.name}</span>
+          <p className="project-description">{project.description}</p>
+          <ul className="project-tags">
+            {project.tags.map(tag => (
+              <li key={tag}>{tag}</li>
+            ))}
+          </ul>
+        </div>
+        {hovered && <ProjectCursor x={pos.x} y={pos.y} label={project.name} />}
+      </Link>
+    </RevealCard>
+  )
+}
+
 export default function Home() {
   const heroRef    = useReveal({ threshold: 0.05, rootMargin: '0px' })
   const workLabelRef = useReveal()
@@ -137,22 +170,7 @@ export default function Home() {
         <p ref={workLabelRef} className="work-label reveal">Selected work</p>
         <div className="project-grid">
           {projects.map((project, i) => (
-            <RevealCard key={project.to} delay={0}>
-              <Link to={project.to} className="project-card">
-                <div className="project-image">
-                  <img src={project.image} alt={project.name} />
-                </div>
-                <div className="project-info">
-                  <span className="project-name">{project.name}</span>
-                  <p className="project-description">{project.description}</p>
-                  <ul className="project-tags">
-                    {project.tags.map((tag) => (
-                      <li key={tag}>{tag}</li>
-                    ))}
-                  </ul>
-                </div>
-              </Link>
-            </RevealCard>
+            <ProjectCardWithCursor key={project.to} project={project} />
           ))}
         </div>
       </section>
