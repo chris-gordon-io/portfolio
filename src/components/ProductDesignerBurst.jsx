@@ -56,9 +56,8 @@ export default function ProductDesignerBurst({ entryX = null, rect = null }) {
     return ICON_COMPONENTS.map((Icon, i) => {
       const sxPct = (entryPct - 25) + (i / (ICON_COMPONENTS.length - 1)) * 50
       const distFromCentre = (sxPct - entryPct) / 50
-      const tx   = distFromCentre * 380 + rand(-10, 10)
-      // All icons go up; centre icons arc highest, edge icons go more sideways
-      const ty   = -(rand(120, 180) * (1 - Math.abs(distFromCentre) * 0.4))
+      const tx   = distFromCentre * 200 + rand(-10, 10)
+      const ty   = -(rand(220, 320) * (1 - Math.abs(distFromCentre) * 0.25))
       return {
         id:       i,
         Icon,
