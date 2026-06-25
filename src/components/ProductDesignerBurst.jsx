@@ -54,18 +54,18 @@ export default function ProductDesignerBurst({ entryX = null, rect = null }) {
       : 50
 
     return ICON_COMPONENTS.map((Icon, i) => {
-      const sxPct = (entryPct - 25) + (i / (ICON_COMPONENTS.length - 1)) * 50
-      const distFromCentre = (sxPct - entryPct) / 50
-      const tx   = distFromCentre * 200 + rand(-10, 10)
-      const ty   = -(rand(220, 320) * (1 - Math.abs(distFromCentre) * 0.25))
+      // All icons start from the entry point; tx/ty do all the spreading
+      const spread = (i / (ICON_COMPONENTS.length - 1) - 0.5) * 2  // -1 to 1
+      const tx   = spread * 160 + rand(-10, 10)
+      const ty   = -(rand(220, 320) * (1 - Math.abs(spread) * 0.25))
       return {
         id:       i,
         Icon,
-        sx:       `${sxPct}%`,
+        sx:       `${entryPct}%`,
         tx,
         ty,
         rot:      (Math.random() > 0.5 ? 1 : -1) * rand(12, 25),
-        delay:    rand(0, 100),
+        delay:    i * 60 + rand(0, 30),
         size:     rand(51, 64),
         duration: rand(1200, 1600),
       }
