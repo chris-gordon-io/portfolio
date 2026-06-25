@@ -22,6 +22,36 @@
   position: relative;
 }
 
+.availability-badge {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 12px 4px 8px;
+  gap: 6px;
+  background: #FBECE8;
+  border: 1px solid #F8DAD1;
+  border-radius: 9999px;
+  margin-bottom: 20px;
+}
+
+.availability-dot {
+  width: 10px;
+  height: 10px;
+  background: #FF1C20;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.availability-text {
+  font-family: 'Safiro', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: #52525F;
+}
+
 .hero-text {
   display: flex;
   flex-direction: column;

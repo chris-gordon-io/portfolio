@@ -153,6 +153,10 @@ export default function Home() {
       {/* Hero — fades up on load */}
       <section className="hero">
         <div ref={heroRef} className="hero-text reveal reveal--hero">
+          <div className="availability-badge">
+            <span className="availability-dot" />
+            <span className="availability-text">Currently unavailable</span>
+          </div>
           <div className="hero-row">
             <h1>Hi, I'm <HeroPill
               src="https://framerusercontent.com/images/7JaK76epjAcaHSNBbj2wWGOWQI.jpeg"
