@@ -22,10 +22,13 @@ function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cu
     setPos({ x: e.clientX, y: e.clientY })
   }
 
-  function handleMouseEnter() {
+  const [entryX, setEntryX] = useState(null)
+
+  function handleMouseEnter(e) {
     if (spanRef.current) {
       const r = spanRef.current.getBoundingClientRect()
       setChipCenter({ cx: r.left + r.width / 2, cy: r.top + r.height / 2, rect: r })
+      setEntryX(e.clientX)
     }
     setOpen(true)
   }
@@ -41,7 +44,7 @@ function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cu
     >
       {label}
       {open && (renderOverlay
-        ? renderOverlay({ x: pos.x, y: pos.y, cx: chipCenter.cx, cy: chipCenter.cy, rect: chipCenter.rect })
+        ? renderOverlay({ x: pos.x, y: pos.y, cx: chipCenter.cx, cy: chipCenter.cy, rect: chipCenter.rect, entryX })
         : <PillOverlay src={src} body={body} chip={chip} x={pos.x} y={pos.y} />
       )}
     </span>
@@ -165,7 +168,7 @@ export default function Home() {
               label="Product Designer"
               body="detail one, detail two"
               variant="solid"
-              renderOverlay={() => <ProductDesignerBurst />}
+              renderOverlay={({ entryX, rect }) => <ProductDesignerBurst entryX={entryX} rect={rect} />}
             /><br className="hero-mobile-break" /> who turns trust into conversion,</h1>
           </div>
           <div className="hero-row">
@@ -180,7 +183,12 @@ export default function Home() {
 
       {/* Work — label + cards stagger in on scroll */}
       <section id="work" className="work">
-        <p ref={workLabelRef} className="work-label reveal">Selected work</p>
+        <div ref={workLabelRef} className="work-label reveal">
+          <span>Selected work</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 3.5L8 12.5M8 12.5L4.5 9M8 12.5L11.5 9" stroke="#272737" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
         <div className="project-grid">
           {projects.map((project, i) => (
             <ProjectCardWithCursor key={project.to} project={project} />

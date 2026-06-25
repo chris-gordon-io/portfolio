@@ -23,14 +23,6 @@ const Sketch = () => (
   </svg>
 )
 
-const Maze = () => (
-  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="40" height="40" rx="10" fill="#FB4500"/>
-    <polygon points="20,8 31,14.5 31,27.5 20,34 9,27.5 9,14.5" fill="none" stroke="white" strokeWidth="2.5"/>
-    <circle cx="20" cy="21" r="4" fill="white"/>
-  </svg>
-)
-
 const Miro = () => (
   <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="40" height="40" rx="10" fill="#FFD02F"/>
@@ -46,15 +38,6 @@ const Claude = () => (
   </svg>
 )
 
-const Jitter = () => (
-  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="40" height="40" rx="10" fill="#6C3CE1"/>
-    <path d="M12 30 C12 24 17 22 20 20 C23 18 28 16 28 10" stroke="white" strokeWidth="3" strokeLinecap="round"/>
-    <circle cx="12" cy="30" r="3.5" fill="white"/>
-    <circle cx="28" cy="10" r="3.5" fill="white"/>
-  </svg>
-)
-
 const Cursor = () => (
   <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="40" height="40" rx="10" fill="#161618"/>
@@ -62,21 +45,17 @@ const Cursor = () => (
   </svg>
 )
 
-const FigJam = () => (
-  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="40" height="40" rx="10" fill="#F24E1E"/>
-    <path d="M27.5 8.5 L33 14 L16.5 30.5 L10 33 L12.5 26.5 Z" fill="white"/>
-    <line x1="24" y1="12" x2="29.5" y2="17.5" stroke="#F24E1E" strokeWidth="2"/>
-  </svg>
-)
+const ICON_COMPONENTS = [Figma, Sketch, Miro, Claude, Cursor]
 
-const ICON_COMPONENTS = [Figma, Sketch, Maze, Miro, Claude, Jitter, Cursor, FigJam]
+export default function ProductDesignerBurst({ entryX = null, rect = null }) {
+  const [icons] = useState(() => {
+    const entryPct = (entryX !== null && rect)
+      ? Math.max(10, Math.min(90, ((entryX - rect.left) / rect.width) * 100))
+      : 50
 
-export default function ProductDesignerBurst() {
-  const [icons] = useState(() =>
-    ICON_COMPONENTS.map((Icon, i) => {
-      const sxPct = 25 + (i / (ICON_COMPONENTS.length - 1)) * 50
-      const distFromCentre = (sxPct - 50) / 50
+    return ICON_COMPONENTS.map((Icon, i) => {
+      const sxPct = (entryPct - 25) + (i / (ICON_COMPONENTS.length - 1)) * 50
+      const distFromCentre = (sxPct - entryPct) / 50
       const tx   = distFromCentre * 400 + rand(-15, 15)
       const goUp = i % 2 === 0
       const ty   = (goUp ? -1 : 1) * rand(130, 200)
@@ -92,7 +71,7 @@ export default function ProductDesignerBurst() {
         duration: rand(1200, 1600),
       }
     })
-  )
+  })
 
   return (
     <div className="pd-burst" aria-hidden="true">
