@@ -36,7 +36,7 @@
 :root {
   /* Core palette — exact values from chrisgordon.io Framer tokens */
   --color-ink:        #272737;   /* Primary dark — headings, buttons */
-  --color-body:       #3d3d4b;   /* Body text */
+  --color-body:       #52525f;   /* Body text */
   --color-secondary:  #52525f;   /* Secondary text */
   --color-muted:      #7d7d87;   /* Muted / meta text */
   --color-subtle:     #a9a9af;   /* Labels, caps */
