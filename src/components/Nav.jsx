@@ -1,11 +1,13 @@
 import { useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import CGLogo from './CGLogo'
 import './Nav.css'
 
 export default function Nav() {
   const pillRef = useRef(null)
   const [pill, setPill] = useState({ opacity: 0, left: 0, top: 0, width: 0, height: 0 })
+  const navigate = useNavigate()
+  const location = useLocation()
 
   function moveTo(e) {
     const el = e.currentTarget
@@ -50,10 +52,18 @@ export default function Nav() {
           <CGLogo size={22} />
         </Link>
         <a
-          href="#work"
+          href="/#work"
           className="nav-link"
           onMouseEnter={moveTo}
-          onClick={e => { e.preventDefault(); window.lenis?.scrollTo('#work') }}
+          onClick={e => {
+            e.preventDefault()
+            if (location.pathname === '/') {
+              window.lenis?.scrollTo('#work')
+            } else {
+              navigate('/')
+              setTimeout(() => window.lenis?.scrollTo('#work'), 100)
+            }
+          }}
         >Work</a>
         <Link to="/about" className="nav-link" onMouseEnter={moveTo}>About</Link>
         <a href="mailto:c.p.gordon@me.com" className="nav-link" onMouseEnter={moveTo}>Email</a>
