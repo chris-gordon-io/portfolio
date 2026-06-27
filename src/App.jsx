@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Home from './pages/Home'
 import About from './pages/About'
 import Motorway from './pages/Motorway'
@@ -12,6 +13,10 @@ import GlobalCursor from './components/GlobalCursor'
 
 function ScrollApp() {
   useLenis()
+  const location = useLocation()
+  useEffect(() => {
+    document.body.removeAttribute('data-cursor-hidden')
+  }, [location.pathname])
   return (
     <>
     <GlobalCursor />
