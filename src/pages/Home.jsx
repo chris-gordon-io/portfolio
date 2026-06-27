@@ -113,6 +113,10 @@ function ProjectCardWithCursor({ project }) {
   const [hovered, setHovered] = useState(false)
   const [pos, setPos] = useState({ x: 0, y: 0 })
 
+  useEffect(() => {
+    return () => document.body.removeAttribute('data-cursor-hidden')
+  }, [])
+
   return (
     <RevealCard delay={0}>
       <Link
