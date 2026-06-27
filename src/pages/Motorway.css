@@ -5,44 +5,6 @@
   flex-direction: column;
 }
 
-/* ── Nav ── */
-.p1-page .nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  width: 100%;
-  padding: 24px 40px 0;
-  display: flex;
-  align-items: flex-start;
-}
-
-.p1-page .nav-pill {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  gap: 4px;
-  padding: 8px 12px;
-  background: var(--color-nav-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-nav);
-}
-
-.p1-page .nav-link {
-  color: var(--color-ink);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 6px 10px;
-  border-radius: var(--radius-full);
-  transition: background 0.15s;
-  white-space: nowrap;
-}
-
-.p1-page .nav-link:hover {
-  background: rgba(39, 39, 55, 0.07);
-}
 
 /* ── Title block ── */
 .p1-title-block {
