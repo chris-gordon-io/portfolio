@@ -13,7 +13,7 @@ export default function ProjectImage({ variant = 'wide', caption, src, alt, phon
   const isTrio = variant === 'phones' && phones.length >= 3
 
   return (
-    <div className="pc-section pc-section--slim">
+    <div className="pc-image-section">
       {variant === 'wide' && (
         <div className="pc-wide-card">
           <img src={src} alt={alt ?? ''} />
