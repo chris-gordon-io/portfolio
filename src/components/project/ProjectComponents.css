@@ -188,17 +188,22 @@
   margin: 0;
 }
 
-/* ── Image caption ── */
-.pc-image-caption {
-  font-size: 14px;
-  color: var(--color-secondary);
+/* ── Image title (inside card, top-centred) ── */
+.pc-image-title {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-subtle);
   text-align: center;
-  margin: 16px 0 32px;
+  margin: 0 0 24px;
+  width: 100%;
 }
 
 /* ── Phone card ── */
 .pc-phone-card {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   align-items: flex-start;
   justify-content: center;

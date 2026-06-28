@@ -16,12 +16,14 @@ export default function ProjectImage({ variant = 'wide', caption, src, alt, phon
     <div className="pc-image-section">
       {variant === 'wide' && (
         <div className="pc-wide-card">
+          {caption && <p className="pc-image-title">{caption}</p>}
           <img src={src} alt={alt ?? ''} />
         </div>
       )}
 
       {variant === 'phones' && (
         <div className={`pc-phone-card${isTrio ? ' pc-phone-card--trio' : ''}`}>
+          {caption && <p className="pc-image-title">{caption}</p>}
           {phones.map((phone, i) => (
             <figure key={i} className="pc-phone-fig">
               <img src={phone.src} alt={phone.alt ?? ''} />
@@ -30,8 +32,6 @@ export default function ProjectImage({ variant = 'wide', caption, src, alt, phon
           ))}
         </div>
       )}
-
-      {caption && <p className="pc-image-caption">{caption}</p>}
     </div>
   )
 }
