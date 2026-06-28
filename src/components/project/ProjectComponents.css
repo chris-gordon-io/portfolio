@@ -190,7 +190,7 @@
 
 /* ── Image title (inside card, top-centred) ── */
 .pc-image-title {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--color-subtle);
   text-align: center;
