@@ -194,7 +194,7 @@
   font-weight: 500;
   color: #7D7D87;
   text-align: center;
-  margin: 0 0 40px;
+  margin: 0;
   width: 100%;
 }
 
@@ -427,9 +427,6 @@
     padding: 24px;
   }
 
-  .pc-image-title {
-    margin-bottom: 24px;
-  }
 
   .pc-phone-fig {
     max-width: 100%;
