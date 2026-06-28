@@ -192,8 +192,6 @@
 .pc-image-title {
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--color-subtle);
   text-align: center;
   margin: 0 0 24px;
