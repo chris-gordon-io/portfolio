@@ -8,6 +8,7 @@ import Project3 from './pages/Project3'
 import Benchmark from './pages/Benchmark'
 import Toyota from './pages/Toyota'
 import Components from './pages/Components'
+import HeroExperiments from './pages/HeroExperiments'
 import { useLenis } from './hooks/useLenis'
 import GlobalCursor from './components/GlobalCursor'
 
@@ -29,6 +30,7 @@ function ScrollApp() {
       <Route path="/project/3" element={<Project3 />} />
       <Route path="/project/benchmark" element={<Benchmark />} />
       <Route path="/components" element={<Components />} />
+      <Route path="/hero-experiments" element={<HeroExperiments />} />
     </Routes>
     </>
   )
