@@ -5,7 +5,7 @@ import { useReveal } from '../hooks/useReveal'
 import Nav from '../components/Nav'
 import './Home.css'
 
-function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cursor, children }) {
+function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cursor, children, onMouseEnter: onMouseEnterProp }) {
   const [open, setOpen] = useState(false)
   const [pos, setPos] = useState({ x: 0, y: 0 })
   const [chipCenter, setChipCenter] = useState({ cx: 0, cy: 0 })
@@ -23,6 +23,7 @@ function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cu
       setEntryX(e.clientX)
     }
     setOpen(true)
+    onMouseEnterProp?.()
   }
 
   return (
@@ -81,8 +82,15 @@ function CyclingDesignerPill() {
 
   const nextIndex = (index + 1) % PREFIXES.length
 
+  function handleReplay() {
+    if (index < PREFIXES.length - 1) return
+    setIndex(0)
+    setPhase('entering')
+    requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
+  }
+
   return (
-    <HeroPill variant="solid">
+    <HeroPill variant="solid" onMouseEnter={handleReplay}>
       <span style={{
         display: 'inline-block',
         position: 'relative',
