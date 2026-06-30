@@ -5,7 +5,7 @@
 
 @keyframes od-roll {
   from { transform: translateY(0); }
-  to   { transform: translateY(-19px); }
+  to   { transform: translateY(-15px); }
 }
 
 /* Outer card */
@@ -16,13 +16,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 4px;
+  padding: 3px;
   gap: 2px;
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(6px) saturate(140%);
   -webkit-backdrop-filter: blur(6px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.7);
   animation: el-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-origin: center center;
@@ -31,10 +31,10 @@
 
 /* Gray digit pill */
 .el-digit-tile {
-  width: 18px;
-  height: 23px;
+  width: 14px;
+  height: 18px;
   background: rgba(255, 255, 255, 0.35);
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
   position: relative;
   flex-shrink: 0;
@@ -52,11 +52,11 @@
 }
 
 .od-strip > span {
-  height: 19px;
-  line-height: 19px;
+  height: 15px;
+  line-height: 15px;
   font-family: 'Safiro', sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 13px;
   color: #52525F;
   display: flex;
   align-items: center;
@@ -71,16 +71,16 @@
 
 /* Static tiles — dots, labels, separator */
 .el-tile {
-  height: 23px;
-  padding: 2px 4px;
+  height: 18px;
+  padding: 2px 3px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   font-family: 'Safiro', sans-serif;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 13px;
+  line-height: 15px;
   color: #52525F;
   flex-shrink: 0;
 }
