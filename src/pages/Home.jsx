@@ -96,7 +96,7 @@ function CyclingDesignerPill() {
   return (
     <HeroPill variant="solid" onMouseEnter={handleReplay}>
       <span style={{ display: 'inline-block', position: 'relative', width: containerWidth ? `${containerWidth}px` : 'auto', transition: 'width 0.28s ease', marginRight: '0.25em' }}>
-        <span ref={currentRef} style={{ display: 'inline-block', whiteSpace: 'nowrap', color: index === PREFIXES.length - 1 ? '#ffffff' : '#F8DAD1', ...wordStyle }}>{PREFIXES[index]}</span>
+        <span ref={currentRef} style={{ display: 'inline-block', whiteSpace: 'nowrap', color: index === PREFIXES.length - 1 ? '#ffffff' : '#F0B4A4', ...wordStyle }}>{PREFIXES[index]}</span>
         <span ref={nextRef} style={{ position: 'absolute', visibility: 'hidden', whiteSpace: 'nowrap', pointerEvents: 'none', top: 0, left: 0 }} aria-hidden="true">{PREFIXES[nextIndex]}</span>
       </span>
       <span>Designer</span>
