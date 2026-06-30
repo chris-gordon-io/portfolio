@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react'
 import PillOverlay from '../components/PillOverlay'
 import ChrisBubble from '../components/ChrisBubble'
-import ProductDesignerBurst from '../components/ProductDesignerBurst'
 import EastLondonCursor from '../components/EastLondonCursor'
 import { useReveal } from '../hooks/useReveal'
 import Nav from '../components/Nav'
@@ -69,11 +68,8 @@ export default function HeroExperiments() {
           </div>
           <div className="hero-row">
             <h1>a <HeroPill
-              src="https://framerusercontent.com/images/tTYgdPiTGbhzeaXafXDvw1XpY.jpeg"
               label="Product Designer"
-              body="detail one, detail two"
               variant="solid"
-              renderOverlay={({ entryX, rect }) => <ProductDesignerBurst entryX={entryX} rect={rect} />}
             /><br className="hero-mobile-break" /> who turns trust into conversion,</h1>
           </div>
           <div className="hero-row">
