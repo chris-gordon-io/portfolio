@@ -67,7 +67,7 @@ function CyclingDesignerPill() {
         setPhase('entering')
         requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
       }, 110)
-    }, 550)
+    }, 450)
     return () => clearTimeout(timer)
   }, [index])
 
