@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import PillOverlay from '../components/PillOverlay'
 import ChrisBubble from '../components/ChrisBubble'
 import ProjectCursor from '../components/ProjectCursor'
-import ProductDesignerBurst from '../components/ProductDesignerBurst'
 import EastLondonCursor from '../components/EastLondonCursor'
 import { useReveal } from '../hooks/useReveal'
 import CGLogo from '../components/CGLogo'
@@ -12,17 +11,16 @@ import Footer from '../components/Footer'
 import './Home.css'
 
 /* variant: "light" | "solid" | "outline" */
-function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cursor }) {
+function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cursor, children, onMouseEnter: onMouseEnterProp }) {
   const [open, setOpen] = useState(false)
   const [pos, setPos] = useState({ x: 0, y: 0 })
   const [chipCenter, setChipCenter] = useState({ cx: 0, cy: 0 })
   const spanRef = useRef(null)
+  const [entryX, setEntryX] = useState(null)
 
   function handleMouseMove(e) {
     setPos({ x: e.clientX, y: e.clientY })
   }
-
-  const [entryX, setEntryX] = useState(null)
 
   function handleMouseEnter(e) {
     if (spanRef.current) {
@@ -31,6 +29,7 @@ function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cu
       setEntryX(e.clientX)
     }
     setOpen(true)
+    onMouseEnterProp?.()
   }
 
   return (
@@ -42,12 +41,69 @@ function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cu
       onMouseLeave={() => setOpen(false)}
       onMouseMove={handleMouseMove}
     >
-      {label}
+      {children ?? label}
       {open && (renderOverlay
         ? renderOverlay({ x: pos.x, y: pos.y, cx: chipCenter.cx, cy: chipCenter.cy, rect: chipCenter.rect, entryX })
         : <PillOverlay src={src} body={body} chip={chip} x={pos.x} y={pos.y} />
       )}
     </span>
+  )
+}
+
+const PREFIXES = ['Digital', 'Interaction', 'UI/UX', 'Experience', 'Product']
+
+function CyclingDesignerPill() {
+  const [index, setIndex] = useState(0)
+  const [phase, setPhase] = useState('entering')
+  const [containerWidth, setContainerWidth] = useState(null)
+  const currentRef = useRef(null)
+  const nextRef = useRef(null)
+
+  useEffect(() => {
+    if (currentRef.current) setContainerWidth(currentRef.current.offsetWidth)
+    requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
+  }, [])
+
+  useEffect(() => {
+    if (index >= PREFIXES.length - 1) return
+
+    const delay = index === 0 ? 200 : 450
+    const timer = setTimeout(() => {
+      const nextWidth = nextRef.current?.offsetWidth
+      if (nextWidth) setContainerWidth(nextWidth)
+      setPhase('exiting')
+      setTimeout(() => {
+        setIndex(i => i + 1)
+        setPhase('entering')
+        requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
+      }, 110)
+    }, delay)
+    return () => clearTimeout(timer)
+  }, [index])
+
+  const wordStyle = {
+    visible:  { opacity: 1, transform: 'translateY(0)',     transition: 'opacity 0.1s ease-out, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1)' },
+    exiting:  { opacity: 0, transform: 'translateY(8px)',   transition: 'opacity 0.08s, transform 0.08s' },
+    entering: { opacity: 0, transform: 'translateY(-14px)', transition: 'none' },
+  }[phase]
+
+  const nextIndex = (index + 1) % PREFIXES.length
+
+  function handleReplay() {
+    if (index < PREFIXES.length - 1) return
+    setIndex(0)
+    setPhase('entering')
+    requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
+  }
+
+  return (
+    <HeroPill variant="solid" onMouseEnter={handleReplay}>
+      <span style={{ display: 'inline-block', position: 'relative', width: containerWidth ? `${containerWidth}px` : 'auto', transition: 'width 0.28s ease', marginRight: '0.25em' }}>
+        <span ref={currentRef} style={{ display: 'inline-block', whiteSpace: 'nowrap', ...wordStyle }}>{PREFIXES[index]}</span>
+        <span ref={nextRef} style={{ position: 'absolute', visibility: 'hidden', whiteSpace: 'nowrap', pointerEvents: 'none', top: 0, left: 0 }} aria-hidden="true">{PREFIXES[nextIndex]}</span>
+      </span>
+      <span>Designer</span>
+    </HeroPill>
   )
 }
 
@@ -171,13 +227,7 @@ export default function Home() {
             />,</h1>
           </div>
           <div className="hero-row">
-            <h1>a <HeroPill
-              src="https://framerusercontent.com/images/tTYgdPiTGbhzeaXafXDvw1XpY.jpeg"
-              label="Product Designer"
-              body="detail one, detail two"
-              variant="solid"
-              renderOverlay={({ entryX, rect }) => <ProductDesignerBurst entryX={entryX} rect={rect} />}
-            /><br className="hero-mobile-break" /> who turns trust into conversion,</h1>
+            <h1>a <CyclingDesignerPill /><br className="hero-mobile-break" /> who turns trust into conversion,</h1>
           </div>
           <div className="hero-row">
             <h1>based in <HeroPill
