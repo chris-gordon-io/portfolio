@@ -42,10 +42,7 @@ function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cu
       onMouseMove={handleMouseMove}
     >
       {children ?? label}
-      {open && (renderOverlay
-        ? renderOverlay({ x: pos.x, y: pos.y, cx: chipCenter.cx, cy: chipCenter.cy, rect: chipCenter.rect, entryX })
-        : <PillOverlay src={src} body={body} chip={chip} x={pos.x} y={pos.y} />
-      )}
+      {open && renderOverlay && renderOverlay({ x: pos.x, y: pos.y, cx: chipCenter.cx, cy: chipCenter.cy, rect: chipCenter.rect, entryX })}
     </span>
   )
 }
