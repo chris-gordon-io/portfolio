@@ -58,7 +58,7 @@ function CyclingDesignerPill() {
   useEffect(() => {
     if (index >= PREFIXES.length - 1) return // stop at Product Designer
 
-    const delay = index === 0 ? 250 : 450
+    const delay = index === 0 ? 150 : 450
     const timer = setTimeout(() => {
       const nextWidth = nextRef.current?.offsetWidth
       if (nextWidth) setContainerWidth(nextWidth)
