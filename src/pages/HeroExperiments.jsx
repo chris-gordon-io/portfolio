@@ -44,29 +44,58 @@ const PREFIXES = ['Digital', 'Interaction', 'UI/UX', 'Experience', 'Product']
 
 function CyclingDesignerPill() {
   const [index, setIndex] = useState(0)
-  const [phase, setPhase] = useState('visible') // 'visible' | 'exiting' | 'entering'
+  const [phase, setPhase] = useState('visible')
+  const [containerWidth, setContainerWidth] = useState(null)
+  const currentRef = useRef(null)
+  const nextRef = useRef(null)
+
+  // Measure initial width
+  useEffect(() => {
+    if (currentRef.current) setContainerWidth(currentRef.current.offsetWidth)
+  }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
+      // Transition container to next word's width before swapping
+      const nextWidth = nextRef.current?.offsetWidth
+      if (nextWidth) setContainerWidth(nextWidth)
+
       setPhase('exiting')
       setTimeout(() => {
         setIndex(i => (i + 1) % PREFIXES.length)
         setPhase('entering')
         requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
-      }, 200)
+      }, 220)
     }, 2500)
     return () => clearInterval(interval)
-  }, [])
+  }, [index])
 
   const wordStyle = {
-    visible:  { opacity: 1, transform: 'translateY(0)',   transition: 'opacity 0.2s, transform 0.2s' },
-    exiting:  { opacity: 0, transform: 'translateY(-10px)', transition: 'opacity 0.2s, transform 0.2s' },
+    visible:  { opacity: 1, transform: 'translateY(0)',    transition: 'opacity 0.22s, transform 0.22s' },
+    exiting:  { opacity: 0, transform: 'translateY(-10px)', transition: 'opacity 0.18s, transform 0.18s' },
     entering: { opacity: 0, transform: 'translateY(10px)',  transition: 'none' },
   }[phase]
 
+  const nextIndex = (index + 1) % PREFIXES.length
+
   return (
     <HeroPill variant="solid">
-      <span style={{ display: 'inline-block', marginRight: '0.25em', ...wordStyle }}>{PREFIXES[index]}</span>
+      <span style={{
+        display: 'inline-block',
+        position: 'relative',
+        width: containerWidth ? `${containerWidth}px` : 'auto',
+        transition: 'width 0.28s ease',
+        marginRight: '0.25em',
+      }}>
+        {/* Visible/animated word */}
+        <span ref={currentRef} style={{ display: 'inline-block', whiteSpace: 'nowrap', ...wordStyle }}>
+          {PREFIXES[index]}
+        </span>
+        {/* Hidden next word — used only for measuring */}
+        <span ref={nextRef} style={{ position: 'absolute', visibility: 'hidden', whiteSpace: 'nowrap', pointerEvents: 'none', top: 0, left: 0 }} aria-hidden="true">
+          {PREFIXES[nextIndex]}
+        </span>
+      </span>
       <span>Designer</span>
     </HeroPill>
   )
