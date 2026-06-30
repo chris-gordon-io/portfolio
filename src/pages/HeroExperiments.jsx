@@ -66,14 +66,14 @@ function CyclingDesignerPill() {
         setIndex(i => i + 1)
         setPhase('entering')
         requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
-      }, 220)
-    }, 800)
+      }, 110)
+    }, 400)
     return () => clearTimeout(timer)
   }, [index])
 
   const wordStyle = {
-    visible:  { opacity: 1, transform: 'translateY(0)',    transition: 'opacity 0.2s ease-out, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)' },
-    exiting:  { opacity: 0, transform: 'translateY(8px)',  transition: 'opacity 0.15s, transform 0.15s' },
+    visible:  { opacity: 1, transform: 'translateY(0)',    transition: 'opacity 0.1s ease-out, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1)' },
+    exiting:  { opacity: 0, transform: 'translateY(8px)',  transition: 'opacity 0.08s, transform 0.08s' },
     entering: { opacity: 0, transform: 'translateY(-14px)', transition: 'none' },
   }[phase]
 
