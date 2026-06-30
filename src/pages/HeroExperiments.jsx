@@ -1,6 +1,4 @@
 import { useState, useRef } from 'react'
-import PillOverlay from '../components/PillOverlay'
-import ChrisBubble from '../components/ChrisBubble'
 import EastLondonCursor from '../components/EastLondonCursor'
 import { useReveal } from '../hooks/useReveal'
 import Nav from '../components/Nav'
@@ -59,11 +57,8 @@ export default function HeroExperiments() {
           </div>
           <div className="hero-row">
             <h1>Hi, I'm <HeroPill
-              src="https://framerusercontent.com/images/7JaK76epjAcaHSNBbj2wWGOWQI.jpeg"
               label="Chris"
               variant="light"
-              cursor="none"
-              renderOverlay={({ x, y }) => <ChrisBubble x={x} y={y} />}
             />,</h1>
           </div>
           <div className="hero-row">
