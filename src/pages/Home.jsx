@@ -135,7 +135,7 @@ const projects = [
   {
     to: '/project/motorway',
     name: 'Motorway',
-    description: 'Optimising top of funnel though multiple A/B tests',
+    description: 'Increasing conversion by 6+% through multiple A/B tests',
     tags: ['A/B testing', 'Web App', 'Growth'],
     image: 'https://framerusercontent.com/images/uxJV8RIR1IpcytkQgqSpaBWaz4.jpg',
   },
