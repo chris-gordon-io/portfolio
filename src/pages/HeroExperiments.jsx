@@ -1,11 +1,11 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import ChrisBubble from '../components/ChrisBubble'
 import EastLondonCursor from '../components/EastLondonCursor'
 import { useReveal } from '../hooks/useReveal'
 import Nav from '../components/Nav'
 import './Home.css'
 
-function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cursor }) {
+function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cursor, children }) {
   const [open, setOpen] = useState(false)
   const [pos, setPos] = useState({ x: 0, y: 0 })
   const [chipCenter, setChipCenter] = useState({ cx: 0, cy: 0 })
@@ -34,12 +34,41 @@ function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cu
       onMouseLeave={() => setOpen(false)}
       onMouseMove={handleMouseMove}
     >
-      {label}
-      {open && (renderOverlay
-        ? renderOverlay({ x: pos.x, y: pos.y, cx: chipCenter.cx, cy: chipCenter.cy, rect: chipCenter.rect, entryX })
-        : <PillOverlay src={src} body={body} chip={chip} x={pos.x} y={pos.y} />
-      )}
+      {children ?? label}
+      {open && renderOverlay && renderOverlay({ x: pos.x, y: pos.y, cx: chipCenter.cx, cy: chipCenter.cy, rect: chipCenter.rect, entryX })}
     </span>
+  )
+}
+
+const PREFIXES = ['Digital', 'Interaction', 'UI/UX', 'Experience', 'Product']
+
+function CyclingDesignerPill() {
+  const [index, setIndex] = useState(0)
+  const [phase, setPhase] = useState('visible') // 'visible' | 'exiting' | 'entering'
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPhase('exiting')
+      setTimeout(() => {
+        setIndex(i => (i + 1) % PREFIXES.length)
+        setPhase('entering')
+        requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
+      }, 200)
+    }, 2500)
+    return () => clearInterval(interval)
+  }, [])
+
+  const wordStyle = {
+    visible:  { opacity: 1, transform: 'translateY(0)',   transition: 'opacity 0.2s, transform 0.2s' },
+    exiting:  { opacity: 0, transform: 'translateY(-10px)', transition: 'opacity 0.2s, transform 0.2s' },
+    entering: { opacity: 0, transform: 'translateY(10px)',  transition: 'none' },
+  }[phase]
+
+  return (
+    <HeroPill variant="solid">
+      <span style={{ display: 'inline-block', marginRight: '0.25em', ...wordStyle }}>{PREFIXES[index]}</span>
+      <span>Designer</span>
+    </HeroPill>
   )
 }
 
@@ -66,10 +95,7 @@ export default function HeroExperiments() {
             />,</h1>
           </div>
           <div className="hero-row">
-            <h1>a <HeroPill
-              label="Product Designer"
-              variant="solid"
-            /><br className="hero-mobile-break" /> who turns trust into conversion,</h1>
+            <h1>a <CyclingDesignerPill /><br className="hero-mobile-break" /> who turns trust into conversion,</h1>
           </div>
           <div className="hero-row">
             <h1>based in <HeroPill
