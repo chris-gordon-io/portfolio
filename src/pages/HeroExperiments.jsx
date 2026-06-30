@@ -72,9 +72,9 @@ function CyclingDesignerPill() {
   }, [index])
 
   const wordStyle = {
-    visible:  { opacity: 1, transform: 'translateY(0)',    transition: 'opacity 0.22s, transform 0.22s' },
-    exiting:  { opacity: 0, transform: 'translateY(-10px)', transition: 'opacity 0.18s, transform 0.18s' },
-    entering: { opacity: 0, transform: 'translateY(10px)',  transition: 'none' },
+    visible:  { opacity: 1, transform: 'translateY(0)',    transition: 'opacity 0.2s ease-out, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)' },
+    exiting:  { opacity: 0, transform: 'translateY(8px)',  transition: 'opacity 0.15s, transform 0.15s' },
+    entering: { opacity: 0, transform: 'translateY(-14px)', transition: 'none' },
   }[phase]
 
   const nextIndex = (index + 1) % PREFIXES.length
