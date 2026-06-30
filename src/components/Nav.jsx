@@ -6,6 +6,7 @@ import './Nav.css'
 export default function Nav() {
   const pillRef = useRef(null)
   const [pill, setPill] = useState({ opacity: 0, left: 0, top: 0, width: 0, height: 0 })
+  const [logoTrigger, setLogoTrigger] = useState(0)
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -46,10 +47,10 @@ export default function Nav() {
         <Link
           to="/"
           className="nav-logo"
-          onMouseEnter={moveTo}
+          onMouseEnter={e => { moveTo(e); setLogoTrigger(n => n + 1) }}
           onClick={e => { e.preventDefault(); window.location.href = '/#work'; window.lenis?.scrollTo('#work') }}
         >
-          <CGLogo size={22} />
+          <CGLogo size={22} trigger={logoTrigger} />
         </Link>
         <a
           href="/#work"

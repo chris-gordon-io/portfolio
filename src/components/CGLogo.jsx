@@ -1,12 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './CGLogo.css'
 
-export default function CGLogo({ size = 32, color = '#272737' }) {
+export default function CGLogo({ size = 32, color = '#272737', trigger = 0 }) {
   const [winking, setWinking] = useState(false)
 
-  function handleEnter() {
-    if (!winking) setWinking(true)
-  }
+  useEffect(() => {
+    if (trigger > 0 && !winking) setWinking(true)
+  }, [trigger])
 
   function handleAnimationEnd() {
     setWinking(false)
@@ -19,7 +19,6 @@ export default function CGLogo({ size = 32, color = '#272737' }) {
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      onMouseEnter={handleEnter}
     >
       {/* C shape */}
       <path
