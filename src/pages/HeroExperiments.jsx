@@ -44,14 +44,15 @@ const PREFIXES = ['Digital', 'Interaction', 'UI/UX', 'Experience', 'Product']
 
 function CyclingDesignerPill() {
   const [index, setIndex] = useState(0)
-  const [phase, setPhase] = useState('visible')
+  const [phase, setPhase] = useState('entering')
   const [containerWidth, setContainerWidth] = useState(null)
   const currentRef = useRef(null)
   const nextRef = useRef(null)
 
-  // Measure initial width
+  // Animate first word in on mount
   useEffect(() => {
     if (currentRef.current) setContainerWidth(currentRef.current.offsetWidth)
+    requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
   }, [])
 
   useEffect(() => {
