@@ -55,19 +55,20 @@ function CyclingDesignerPill() {
   }, [])
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Transition container to next word's width before swapping
+    if (index >= PREFIXES.length - 1) return // stop at Product Designer
+
+    const timer = setTimeout(() => {
       const nextWidth = nextRef.current?.offsetWidth
       if (nextWidth) setContainerWidth(nextWidth)
 
       setPhase('exiting')
       setTimeout(() => {
-        setIndex(i => (i + 1) % PREFIXES.length)
+        setIndex(i => i + 1)
         setPhase('entering')
         requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
       }, 220)
-    }, 2500)
-    return () => clearInterval(interval)
+    }, 1250)
+    return () => clearTimeout(timer)
   }, [index])
 
   const wordStyle = {
