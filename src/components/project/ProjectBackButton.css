@@ -1,5 +1,6 @@
 .pb-wrapper {
-  width: 100%;
+  align-self: stretch;
+  margin: 0 40px 12px;
   background: #FFFFFF;
   border-radius: 12px;
   display: flex;
@@ -7,7 +8,6 @@
   align-items: center;
   justify-content: center;
   padding: 80px 24px;
-  margin-bottom: 12px;
   box-sizing: border-box;
 }
 
