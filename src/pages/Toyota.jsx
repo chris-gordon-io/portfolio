@@ -34,8 +34,8 @@ export default function Toyota() {
         eyebrow="Context"
         headline="A new CEO. One global app. A fragmented starting point."
       >
-        <p>Toyota's car companion apps had grown organically across regions, each on its own tech stack. The new CEO wanted a single unified global product. I was Lead UX Designer on the Onboarding team — responsible for the first experience every new Toyota owner would have, working across Product Owners and an offshore engineering team in three time zones.</p>
-        <p>The complexity was real: the onboarding had to work across multiple regions, car generations, trim levels, and user types — each combination affecting what users could see and do.</p>
+        <p>I was Lead UX Designer on the Onboarding team, working alongside Product Owners and an offshore engineering team spread across three time zones. My focus was the first experience every new Toyota owner would have — the moment they open the app for the first time and try to set up their vehicle.</p>
+        <p>This wasn't a case of redesigning a single flow. Every decision had downstream consequences across a matrix of combinations, multiple regions, car generations, trim levels, and user types. We had to consider all user types, not just the new user happy path.</p>
       </ProjectCallout>
 
       {/* ── Problem ── */}
