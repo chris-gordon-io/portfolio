@@ -84,6 +84,7 @@
 }
 
 .hero h1 {
+  font-family: 'Instrument Serif', serif;
   font-size: var(--hero-font);
   font-weight: 400;
   line-height: 1.15;
@@ -91,6 +92,10 @@
   color: var(--color-ink);
   margin: 0;
   white-space: nowrap;
+}
+
+.hero h1 .hero-pill {
+  font-family: 'Safiro', sans-serif;
 }
 
 .hero h1.muted {
