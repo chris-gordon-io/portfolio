@@ -160,32 +160,17 @@
   opacity: 0.85;
 }
 
-/* Light — peach bg, accent text */
-.hero-pill--light {
-  background: #F8DAD1;
-  color: var(--color-accent);
-}
-
-/* Solid — accent bg via ::before so burst (z-index:-2) can sit behind it */
-.hero-pill--solid {
+/* All variants — no fill, 80% dark outline */
+.hero-pill--light,
+.hero-pill--solid,
+.hero-pill--outline {
   background: transparent;
-  color: #ffffff;
-  isolation: isolate;
+  color: var(--color-ink);
+  border: 2px solid #52525F;
 }
 
 .hero-pill--solid::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--color-accent);
-  border-radius: inherit;
-  z-index: -1;
-}
-
-/* Outline — transparent with accent border + text */
-.hero-pill--outline {
-  background: #ffffff;
-  color: var(--color-accent);
+  display: none;
 }
 
 
