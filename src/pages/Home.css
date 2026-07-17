@@ -1,5 +1,6 @@
 .home {
-  background: linear-gradient(136.13deg, #FBECE8 24.51%, #E9E9EB 99.32%);
+  background: linear-gradient(136.13deg, #FBECE8 24.51%, #E9E9EB 99.32%) fixed;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
