@@ -224,7 +224,7 @@ export default function Home() {
             />,</h1>
           </div>
           <div className="hero-row">
-            <h1>a <CyclingDesignerPill /><br className="hero-mobile-break" /> who turns trust into conversion,</h1>
+            <h1>a <CyclingDesignerPill /><br className="hero-mobile-break" /> who turns <em>trust into conversion</em>,</h1>
           </div>
           <div className="hero-row">
             <h1>based in <HeroPill
