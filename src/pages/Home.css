@@ -98,6 +98,11 @@
   font-family: 'Safiro', sans-serif;
 }
 
+.hero h1 em {
+  color: #52525F;
+  font-style: italic;
+}
+
 .hero h1.muted {
   color: var(--color-secondary);
 }
