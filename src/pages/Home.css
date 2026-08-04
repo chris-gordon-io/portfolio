@@ -201,6 +201,11 @@
   padding: 40px;
 }
 
+.work-bottom .footer-outer {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .work-label {
   display: inline-flex;
   flex-direction: row;
