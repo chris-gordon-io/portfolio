@@ -201,6 +201,23 @@ function ProjectCardWithCursor({ project }) {
 export default function Home() {
   const heroRef    = useReveal({ threshold: 0.05, rootMargin: '0px' })
   const workLabelRef = useReveal()
+  const heroSectionRef = useRef(null)
+
+  useEffect(() => {
+    const section = heroSectionRef.current
+    const text = heroRef.current
+    if (!section || !text) return
+
+    function onScroll() {
+      const h = section.offsetHeight
+      const progress = Math.min(1, Math.max(0, window.scrollY / h))
+      text.style.opacity = 1 - progress
+      text.style.transform = `translateY(${text.classList.contains('revealed') ? 0 : 16}px) scale(${1 - progress * 0.06})`
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <div className="home">
@@ -208,7 +225,7 @@ export default function Home() {
       <Nav />
 
       {/* Hero — fades up on load */}
-      <section className="hero">
+      <section className="hero" ref={heroSectionRef}>
         <div ref={heroRef} className="hero-text reveal reveal--hero">
           <div className="hero-row">
             <h1>Hi, I'm <HeroPill
