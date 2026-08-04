@@ -202,21 +202,35 @@ export default function Home() {
   const heroRef    = useReveal({ threshold: 0.05, rootMargin: '0px' })
   const workLabelRef = useReveal()
   const heroSectionRef = useRef(null)
+  const heroInnerRef = useRef(null)
+
+  useEffect(() => {
+    const home = document.querySelector('.home')
+    if (!home) return
+    function onMove(e) {
+      home.style.setProperty('--mx', `${(e.clientX / window.innerWidth) * 100}%`)
+      home.style.setProperty('--my', `${(e.clientY / window.innerHeight) * 100}%`)
+    }
+    window.addEventListener('mousemove', onMove)
+    return () => window.removeEventListener('mousemove', onMove)
+  }, [])
 
   useEffect(() => {
     const section = heroSectionRef.current
-    const text = heroRef.current
-    if (!section || !text) return
+    const inner = heroInnerRef.current
+if (!section || !inner) return
 
-    function onScroll() {
+    let rafId
+    function tick() {
+      const scroll = window.lenis?.scroll ?? window.scrollY
       const h = section.offsetHeight
-      const progress = Math.min(1, Math.max(0, window.scrollY / h))
-      text.style.opacity = 1 - progress
-      text.style.transform = `translateY(${text.classList.contains('revealed') ? 0 : 16}px) scale(${1 - progress * 0.06})`
+      const progress = Math.min(1, Math.max(0, scroll / h))
+      inner.style.filter = `blur(${progress * 20}px)`
+      inner.style.transform = `scale(${1 - progress * 0.2})`
+      rafId = requestAnimationFrame(tick)
     }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    rafId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafId)
   }, [])
 
   return (
@@ -226,6 +240,7 @@ export default function Home() {
 
       {/* Hero — fades up on load */}
       <section className="hero" ref={heroSectionRef}>
+        <div ref={heroInnerRef} className="hero-inner">
         <div ref={heroRef} className="hero-text reveal reveal--hero">
           <div className="hero-row">
             <h1>Hi, I'm <HeroPill
@@ -246,6 +261,7 @@ export default function Home() {
               renderOverlay={({ x, y, rect }) => <EastLondonCursor x={x} y={y} rect={rect} />}
             /></h1>
           </div>
+        </div>
         </div>
       </section>
 
