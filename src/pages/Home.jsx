@@ -249,14 +249,15 @@ export default function Home() {
             <path d="M8 3.5L8 12.5M8 12.5L4.5 9M8 12.5L11.5 9" stroke="#272737" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <div id="project-grid" className="project-grid">
-          {projects.map((project, i) => (
-            <ProjectCardWithCursor key={project.to} project={project} />
-          ))}
+        <div className="work-bottom">
+          <div id="project-grid" className="project-grid">
+            {projects.map((project, i) => (
+              <ProjectCardWithCursor key={project.to} project={project} />
+            ))}
+          </div>
+          <Footer />
         </div>
       </section>
-
-      <Footer />
 
     </div>
   )

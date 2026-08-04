@@ -193,6 +193,14 @@
   gap: 40px;
 }
 
+.work-bottom {
+  background: #FDF5F3;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .work-label {
   display: inline-flex;
   flex-direction: row;
