@@ -240,8 +240,7 @@ export default function Home() {
       <section id="work" className="work">
         <div className="work-bottom">
           <div
-            ref={workLabelRef}
-            className="work-label reveal"
+            className="work-label"
             onClick={() => document.getElementById('project-grid')?.scrollIntoView({ behavior: 'smooth' })}
             style={{ cursor: 'pointer' }}
           >
