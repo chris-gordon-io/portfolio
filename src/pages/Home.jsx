@@ -104,32 +104,6 @@ function CyclingDesignerPill() {
   )
 }
 
-/** Reveals each child with a staggered delay using IntersectionObserver */
-function RevealCard({ children, delay = 0 }) {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add('revealed')
-          observer.unobserve(el)
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  return (
-    <div ref={ref} className="reveal" style={{ transitionDelay: `${delay}ms` }}>
-      {children}
-    </div>
-  )
-}
 
 const projects = [
   {
@@ -171,7 +145,7 @@ function ProjectCardWithCursor({ project }) {
   }, [])
 
   return (
-    <RevealCard delay={0}>
+    <div>
       <Link
         to={project.to}
         className="project-card"
@@ -194,7 +168,7 @@ function ProjectCardWithCursor({ project }) {
         </div>
         {hovered && <ProjectCursor x={pos.x} y={pos.y} label={project.name} />}
       </Link>
-    </RevealCard>
+    </div>
   )
 }
 
