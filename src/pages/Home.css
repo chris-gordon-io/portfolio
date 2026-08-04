@@ -14,7 +14,7 @@
      content = viewport − 2×40px padding − 2×12px gap = viewport − 104px
      longest row ≈ 21.5em of text+pill content */
   --hero-font: clamp(12px, calc((90vw - 104px) / 16.5), 120px);
-  height: 100vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
