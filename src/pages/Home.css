@@ -218,15 +218,9 @@
   align-items: center;
   width: 40px;
   height: 40px;
+  flex-shrink: 0;
   border-radius: 50%;
   border: 1px solid #272737;
-  font-family: 'Safiro', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  color: #52525F;
-  width: fit-content;
   align-self: center;
 }
 
