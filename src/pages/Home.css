@@ -347,7 +347,7 @@
 
   .hero {
     /* mobile: split to 4 lines, longest is "with a bias for action," ≈ 10em */
-    --hero-font: clamp(16px, calc((100vw - 48px) / 12), 46px);
+    --hero-font: clamp(18px, calc((100vw - 48px) / 10.5), 52px);
     padding: 0 24px 40px;
   }
 
@@ -361,6 +361,11 @@
 
   .work-bottom {
     margin: 0 -24px;
+  }
+
+  .work-label {
+    width: 32px;
+    height: 32px;
   }
 
   .work-label svg {
