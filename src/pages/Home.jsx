@@ -239,7 +239,6 @@ export default function Home() {
           onClick={() => document.getElementById('project-grid')?.scrollIntoView({ behavior: 'smooth' })}
           style={{ cursor: 'pointer' }}
         >
-          <span>Selected work</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 3.5L8 12.5M8 12.5L4.5 9M8 12.5L11.5 9" stroke="#272737" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
