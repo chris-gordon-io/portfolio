@@ -361,11 +361,13 @@
 
   .work-bottom {
     margin: 0 -24px;
+    padding: 24px;
   }
 
   .work-label {
     width: 32px;
     height: 32px;
+    margin-bottom: -16px;
   }
 
   .work-label svg {
