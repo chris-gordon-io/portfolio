@@ -352,7 +352,11 @@
   }
 
   .work {
-    padding: 0 24px 80px;
+    padding: 0 24px;
+  }
+
+  .work-bottom {
+    margin: 0 -24px;
   }
 
   .project-grid {
