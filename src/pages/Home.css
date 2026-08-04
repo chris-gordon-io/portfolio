@@ -13,7 +13,7 @@
   --mx: 30%;
   --my: 35%;
   background:
-    radial-gradient(ellipse 120% 110% at var(--mx) var(--my), #F8DAD1 0%, transparent 65%),
+    radial-gradient(ellipse 120% 110% at var(--mx) var(--my), #FBECE8 0%, transparent 65%),
     radial-gradient(ellipse 100% 90% at 75% 70%, #F8DAD1 0%, transparent 60%),
     #D4D4D7;
   background-attachment: fixed;
@@ -235,7 +235,7 @@
 
 .work-bottom {
   background: #FDF5F3;
-  border-top: 1px solid #F8DAD1;
+  border-top: 1px solid #FFFFFF;
   border-radius: 24px 24px 0 0;
   box-shadow: 0 -4px 24px 0 rgba(39, 39, 55, 0.04);
   display: flex;
@@ -258,7 +258,7 @@
   flex-shrink: 0;
   border-radius: 50%;
   background: #ffffff;
-  border: 1px solid #272737;
+  border: none;
   align-self: center;
   position: relative;
   z-index: 2;
