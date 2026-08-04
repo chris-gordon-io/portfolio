@@ -351,12 +351,21 @@
     padding: 0 24px 40px;
   }
 
+  .hero {
+    height: 90vh;
+  }
+
   .work {
     padding: 0 24px;
   }
 
   .work-bottom {
     margin: 0 -24px;
+  }
+
+  .work-label svg {
+    width: 20px;
+    height: 20px;
   }
 
   .project-grid {
