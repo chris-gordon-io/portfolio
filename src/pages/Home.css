@@ -13,7 +13,7 @@
   --mx: 30%;
   --my: 35%;
   background:
-    radial-gradient(ellipse 120% 110% at var(--mx) var(--my), #FBECE8 0%, transparent 65%),
+    radial-gradient(ellipse 120% 110% at var(--mx) var(--my), #FFF8F5 0%, transparent 65%),
     radial-gradient(ellipse 100% 90% at 75% 70%, #F8DAD1 0%, transparent 60%),
     #A9A9AF;
   background-attachment: fixed;
