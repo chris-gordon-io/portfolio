@@ -148,7 +148,7 @@
 }
 
 .p1-section-heading.muted {
-  color: #d4d4d7;
+  color: #E9E9EB;
 }
 
 .p1-heading-light {
@@ -246,7 +246,7 @@
 
 /* ── Results block — dark ── */
 .p1-results-block {
-  background: #272737;
+  background: #23233B;
   display: flex;
   justify-content: center;
   padding: 80px 120px;
@@ -260,7 +260,7 @@
 }
 
 .p1-stat-card {
-  background: #52525F;
+  background: #4F4F62;
   border-radius: 16px;
   padding: 24px;
   display: flex;
@@ -273,7 +273,7 @@
   font-size: 40px;
   font-weight: 400;
   letter-spacing: -1px;
-  color: #d4d4d7;
+  color: #E9E9EB;
   text-align: center;
   line-height: 1.2;
 }

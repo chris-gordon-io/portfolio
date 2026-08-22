@@ -19,7 +19,7 @@ export default function Toyota() {
       </div>
 
       <ProjectHero
-        background="linear-gradient(180deg, #272737 0%, #272737 100%)"
+        background="linear-gradient(180deg, #23233B 0%, #23233B 100%)"
         image={{ src: '/images/toyota/0.0.0 Splash - OPT02.png', alt: 'Toyota One App splash screen' }}
         wide
         fullWidth

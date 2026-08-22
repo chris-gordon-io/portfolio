@@ -54,7 +54,7 @@
 }
 
 .nav-link {
-  color: #52525f;
+  color: #4F4F62;
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
@@ -69,5 +69,5 @@
 
 /* Darken the hovered link's text */
 .nav-link:hover {
-  color: #272737;
+  color: #23233B;
 }

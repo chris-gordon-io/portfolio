@@ -35,13 +35,13 @@
 ───────────────────────────────────────── */
 :root {
   /* Core palette — exact values from chrisgordon.io Framer tokens */
-  --color-ink:        #272737;   /* Primary dark — headings, buttons */
-  --color-body:       #52525f;   /* Body text */
-  --color-secondary:  #52525f;   /* Secondary text */
-  --color-muted:      #7d7d87;   /* Muted / meta text */
-  --color-subtle:     #a9a9af;   /* Labels, caps */
-  --color-border:     #d4d4d7;   /* Dividers, borders */
-  --color-border-light: #e9e9eb; /* Lighter border */
+  --color-ink:        #23233B;   /* 100% dark — headings, buttons */
+  --color-body:       #4F4F62;   /* 80% dark — body text */
+  --color-secondary:  #4F4F62;   /* 80% dark — secondary text */
+  --color-muted:      #7B7B89;   /* 60% dark — muted / meta text */
+  --color-subtle:     #A7A7B1;   /* 40% dark — labels, caps */
+  --color-border:     #E9E9EB;   /* 20% dark — dividers, borders */
+  --color-border-light: #F4F4F5; /* 10% dark — lighter border */
   --color-white:      #ffffff;
   --color-bg:         #fbece8;   /* Warm peach background */
 

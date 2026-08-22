@@ -57,7 +57,7 @@
   font-family: 'Safiro', sans-serif;
   font-weight: 500;
   font-size: 13px;
-  color: #52525F;
+  color: #4F4F62;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,10 +81,10 @@
   font-weight: 500;
   font-size: 13px;
   line-height: 15px;
-  color: #52525F;
+  color: #4F4F62;
   flex-shrink: 0;
 }
 
 .el-sep {
-  color: #E9E9EB;
+  color: #F4F4F5;
 }

@@ -96,7 +96,7 @@ function CyclingDesignerPill() {
   return (
     <HeroPill variant="solid" onMouseEnter={handleReplay}>
       <span style={{ display: 'inline-block', position: 'relative', width: containerWidth ? `${containerWidth}px` : 'auto', transition: 'width 0.28s ease', marginRight: '0.25em' }}>
-        <span ref={currentRef} style={{ display: 'inline-block', whiteSpace: 'nowrap', color: index === PREFIXES.length - 1 ? 'inherit' : '#7D7D87', ...wordStyle }}>{PREFIXES[index]}</span>
+        <span ref={currentRef} style={{ display: 'inline-block', whiteSpace: 'nowrap', color: index === PREFIXES.length - 1 ? 'inherit' : '#7B7B89', ...wordStyle }}>{PREFIXES[index]}</span>
         <span ref={nextRef} style={{ position: 'absolute', visibility: 'hidden', whiteSpace: 'nowrap', pointerEvents: 'none', top: 0, left: 0 }} aria-hidden="true">{PREFIXES[nextIndex]}</span>
       </span>
       <span>Designer</span>
@@ -236,7 +236,7 @@ if (!section || !inner) return
           style={{ cursor: 'pointer' }}
         >
           <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 3.5L8 12.5M8 12.5L4.5 9M8 12.5L11.5 9" stroke="#52525F" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M8 3.5L8 12.5M8 12.5L4.5 9M8 12.5L11.5 9" stroke="#4F4F62" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
         <div className="work-bottom">

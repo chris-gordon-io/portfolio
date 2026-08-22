@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './CGLogo.css'
 
-export default function CGLogo({ size = 32, color = '#272737', trigger = 0 }) {
+export default function CGLogo({ size = 32, color = '#23233B', trigger = 0 }) {
   const [winking, setWinking] = useState(false)
 
   useEffect(() => {

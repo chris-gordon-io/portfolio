@@ -159,7 +159,7 @@
 }
 
 .pc-heading.muted {
-  color: #d4d4d7;
+  color: #E9E9EB;
 }
 
 .pc-heading-light {
@@ -192,7 +192,7 @@
 .pc-image-title {
   font-size: 16px;
   font-weight: 500;
-  color: #7D7D87;
+  color: #7B7B89;
   text-align: center;
   margin: 0;
   width: 100%;
@@ -228,7 +228,7 @@
 
 .pc-phone-fig figcaption {
   font-size: 14px;
-  color: #7D7D87;
+  color: #7B7B89;
   text-align: center;
 }
 
@@ -249,7 +249,7 @@
 
 /* ── Metrics block ── */
 .pc-metrics-block {
-  background: #272737;
+  background: #23233B;
   display: flex;
   justify-content: center;
   padding: 80px 120px;
@@ -263,7 +263,7 @@
 }
 
 .pc-stat-card {
-  background: #52525F;
+  background: #4F4F62;
   border-radius: 12px;
   padding: 24px;
   display: flex;
@@ -276,7 +276,7 @@
   font-size: 40px;
   font-weight: 400;
   letter-spacing: -1px;
-  color: #d4d4d7;
+  color: #E9E9EB;
   text-align: center;
   line-height: 1.2;
 }
@@ -302,7 +302,7 @@
   font-weight: 700;
   letter-spacing: -0.4px;
   line-height: 1.3;
-  color: #272737;
+  color: #23233B;
   margin: 0 0 -8px;
   text-transform: none;
 }
@@ -312,7 +312,7 @@
   font-weight: 500;
   letter-spacing: -0.4px;
   line-height: 1.3;
-  color: #52525F;
+  color: #4F4F62;
   margin: 0;
 }
 
@@ -322,7 +322,7 @@
   font-weight: 700;
   letter-spacing: -0.4px;
   line-height: 1.3;
-  color: #272737;
+  color: #23233B;
   margin: 0 0 12px;
   text-transform: none;
 }
@@ -332,7 +332,7 @@
   font-weight: 500;
   letter-spacing: -0.3px;
   line-height: 1.4;
-  color: #52525F;
+  color: #4F4F62;
   margin: 0;
 }
 
