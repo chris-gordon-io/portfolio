@@ -179,17 +179,6 @@ export default function Home() {
   const heroInnerRef = useRef(null)
 
   useEffect(() => {
-    const home = document.querySelector('.home')
-    if (!home) return
-    function onMove(e) {
-      home.style.setProperty('--mx', `${(e.clientX / window.innerWidth) * 100}%`)
-      home.style.setProperty('--my', `${(e.clientY / window.innerHeight) * 100}%`)
-    }
-    window.addEventListener('mousemove', onMove)
-    return () => window.removeEventListener('mousemove', onMove)
-  }, [])
-
-  useEffect(() => {
     const section = heroSectionRef.current
     const inner = heroInnerRef.current
 if (!section || !inner) return

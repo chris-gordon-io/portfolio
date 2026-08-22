@@ -1,36 +1,9 @@
-@property --mx {
-  syntax: '<percentage>';
-  inherits: false;
-  initial-value: 30%;
-}
-@property --my {
-  syntax: '<percentage>';
-  inherits: false;
-  initial-value: 35%;
-}
-
 .home {
-  --mx: 30%;
-  --my: 35%;
-  background:
-    radial-gradient(ellipse 120% 110% at var(--mx) var(--my), #FFF8F5 0%, transparent 65%),
-    radial-gradient(ellipse 100% 90% at 75% 70%, #D4D4D7 0%, transparent 60%),
-    #F6D1C6;
-  background-attachment: fixed;
-  background-size: cover;
+  background: #FBECE8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: clip;
-  transition: --mx 1.6s cubic-bezier(0.16, 1, 0.3, 1), --my 1.6s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: bg-float 10s ease-in-out infinite;
-}
-
-@keyframes bg-float {
-  0%   { background-position: 0% 0%, 100% 100%; }
-  33%  { background-position: 5% 8%, 95% 90%; }
-  66%  { background-position: -3% 5%, 103% 95%; }
-  100% { background-position: 0% 0%, 100% 100%; }
 }
 
 
