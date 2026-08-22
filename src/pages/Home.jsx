@@ -150,7 +150,7 @@ function ProjectCardWithCursor({ project }) {
         to={project.to}
         className="project-card"
         style={hovered ? { cursor: 'none' } : undefined}
-        onMouseEnter={() => { setHovered(true); document.body.setAttribute('data-cursor-hidden', 'true') }}
+        onMouseEnter={e => { setPos({ x: e.clientX, y: e.clientY }); setHovered(true); document.body.setAttribute('data-cursor-hidden', 'true') }}
         onMouseLeave={() => { setHovered(false); document.body.removeAttribute('data-cursor-hidden') }}
         onMouseMove={e => setPos({ x: e.clientX, y: e.clientY })}
       >
