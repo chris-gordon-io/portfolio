@@ -5,6 +5,10 @@
   flex-direction: column;
 }
 
+.about-page .footer-outer {
+  padding-bottom: 24px;
+}
+
 /* ── Bento grid ── */
 /*
   Layout (3 cols × 3 rows):
@@ -27,7 +31,7 @@
   grid-template-rows: 1fr 1fr 1.1fr;
   gap: 12px;
   padding: 120px 40px 24px;
-  height: 95vh;
+  height: 110vh;
   box-sizing: border-box;
 }
 
@@ -51,7 +55,7 @@
 /* ── Cell base ── */
 .bento-cell {
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid color-mix(in srgb, var(--color-accent) 10%, white);
+  border: 1px solid #FFFFFF;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -156,6 +160,8 @@
 
 /* Hero cell — text centred */
 .bento-cell--c {
+  background: #FDF5F3;
+  border: 1px solid #FFFFFF;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -212,6 +218,7 @@
 .bento-cell__text--hero {
   font-size: 16px;
   max-width: 40ch;
+  text-wrap: balance;
 }
 
 .bento-cell__text--nowrap {
@@ -294,8 +301,47 @@
 
   .bento-cell--a { grid-column: 1 / 2; grid-row: auto; min-height: 160px; }
   .bento-cell--b { grid-column: 2 / 3; grid-row: auto; min-height: 300px; }
-  .bento-cell--c { grid-column: 1 / 3; grid-row: auto; min-height: 220px; }
+  .bento-cell--c { grid-column: 1 / 3; grid-row: auto; min-height: 300px; }
   .bento-cell--d { grid-column: 1 / 3; grid-row: auto; min-height: 180px; }
   .bento-cell--e { grid-column: 1 / 2; grid-row: auto; min-height: 160px; }
   .bento-cell--f { grid-column: 2 / 3; grid-row: auto; min-height: 160px; }
+
+  .bento-cell__body {
+    padding: 16px;
+  }
+
+  .bento-link-btn {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .bento-cell__label {
+    font-size: 12px;
+  }
+
+  .bento-cell__title,
+  .bento-cell--a .bento-cell__text {
+    font-size: 18px;
+  }
+
+  .bento-cell__title--hero {
+    font-size: 20px;
+  }
+
+  .bento-cell__text {
+    font-size: 12px;
+  }
+
+  .bento-cell__text--hero {
+    font-size: 14px;
+    max-width: none;
+  }
+
+  .bento-cell__text--nowrap {
+    white-space: normal;
+  }
+
+  .bento-cta {
+    font-size: 14px;
+  }
 }

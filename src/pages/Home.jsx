@@ -119,6 +119,7 @@ const projects = [
     description: 'A sprints worth of problem solving to delivery quickly',
     tags: ['App', 'User Interviews'],
     image: 'https://framerusercontent.com/images/ErArvAXIhunriTeaNeFJeOzS1s.jpg',
+    disabled: true,
   },
   {
     to: '/project/benchmark',
@@ -150,6 +151,7 @@ function ProjectCardWithCursor({ project }) {
         to={project.to}
         className="project-card"
         style={hovered ? { cursor: 'none' } : undefined}
+        onClick={e => { if (project.disabled) e.preventDefault() }}
         onMouseEnter={e => { setPos({ x: e.clientX, y: e.clientY }); setHovered(true); document.body.setAttribute('data-cursor-hidden', 'true') }}
         onMouseLeave={() => { setHovered(false); document.body.removeAttribute('data-cursor-hidden') }}
         onMouseMove={e => setPos({ x: e.clientX, y: e.clientY })}
@@ -166,7 +168,14 @@ function ProjectCardWithCursor({ project }) {
             ))}
           </ul>
         </div>
-        {hovered && <ProjectCursor x={pos.x} y={pos.y} label={project.name} />}
+        {hovered && (
+          <ProjectCursor
+            x={pos.x}
+            y={pos.y}
+            label={project.disabled ? 'Sorry, not ready right now' : project.name}
+            hideArrow={project.disabled}
+          />
+        )}
       </Link>
     </div>
   )

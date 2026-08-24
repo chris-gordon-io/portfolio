@@ -64,7 +64,7 @@ export default function About() {
         <div className="bento-cell bento-cell--d" style={{ backgroundImage: `url(${pizzaImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="bento-link-btn"><BentoArrow size={12} /></div>
           <div className="bento-cell__body">
-            <p className="bento-cell__label">A project</p>
+            <p className="bento-cell__label">Eating</p>
             <h2 className="bento-cell__title">Pizza</h2>
             <p className="bento-cell__text">Bore yourself with 5 years of research and experiments on my Notion page.</p>
           </div>
