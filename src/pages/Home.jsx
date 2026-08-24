@@ -8,6 +8,7 @@ import { useReveal } from '../hooks/useReveal'
 import CGLogo from '../components/CGLogo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import toyotaThumb from '../assets/ToyotaThumb.jpg'
 import './Home.css'
 
 /* variant: "light" | "solid" | "outline" */
@@ -108,17 +109,17 @@ function CyclingDesignerPill() {
 const projects = [
   {
     to: '/project/motorway',
-    name: 'Motorway',
+    name: 'Motorway top of funnel',
     description: 'Increasing conversion by 6+% through multiple A/B tests',
     tags: ['A/B testing', 'Web App', 'Growth'],
     image: 'https://framerusercontent.com/images/uxJV8RIR1IpcytkQgqSpaBWaz4.jpg',
   },
   {
     to: '/project/toyota',
-    name: 'Toyota One App',
-    description: 'A sprints worth of problem solving to delivery quickly',
+    name: 'Toyota One App Onboarding',
+    description: 'Shifting the goal from education to speed',
     tags: ['App', 'User Interviews'],
-    image: 'https://framerusercontent.com/images/ErArvAXIhunriTeaNeFJeOzS1s.jpg',
+    image: toyotaThumb,
     disabled: true,
   },
   {
