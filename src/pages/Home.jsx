@@ -182,38 +182,17 @@ function ProjectCardWithCursor({ project }) {
 }
 
 export default function Home() {
-  const heroRef    = useReveal({ threshold: 0.05, rootMargin: '0px' })
   const workLabelRef = useReveal()
-  const heroSectionRef = useRef(null)
-  const heroInnerRef = useRef(null)
-
-  useEffect(() => {
-    const section = heroSectionRef.current
-    const inner = heroInnerRef.current
-if (!section || !inner) return
-
-    let rafId
-    function tick() {
-      const scroll = window.lenis?.scroll ?? window.scrollY
-      const h = section.offsetHeight
-      const progress = Math.min(1, Math.max(0, scroll / h))
-      inner.style.filter = `blur(${progress * 20}px)`
-      inner.style.transform = `scale(${1 - progress * 0.2})`
-      rafId = requestAnimationFrame(tick)
-    }
-    rafId = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(rafId)
-  }, [])
 
   return (
     <div className="home">
 
       <Nav />
 
-      {/* Hero — fades up on load */}
-      <section className="hero" ref={heroSectionRef}>
-        <div ref={heroInnerRef} className="hero-inner">
-        <div ref={heroRef} className="hero-text reveal reveal--hero">
+      {/* Hero */}
+      <section className="hero">
+        <div className="hero-inner">
+        <div className="hero-text">
           <div className="hero-row">
             <h1>Hi, I'm <HeroPill
               src="https://framerusercontent.com/images/7JaK76epjAcaHSNBbj2wWGOWQI.jpeg"

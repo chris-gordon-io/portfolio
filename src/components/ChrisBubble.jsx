@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import './ChrisBubble.css'
 
-const CHARS = Array.from('Hi 👋')
-const CHAR_DELAY = 110   // ms between characters
+const CHARS = Array.from('Nice to meet you 👋')
+const CHAR_DELAY = 45    // ms between characters
 const START_DELAY = 260  // ms before first char (bubble animate-in is 250ms)
 
 export default function ChrisBubble({ x = 0, y = 0 }) {
@@ -25,14 +25,17 @@ export default function ChrisBubble({ x = 0, y = 0 }) {
     return () => clearTimeout(t)
   }, [typed])
 
-  const displayText = CHARS.slice(0, typed).join('')
+  const emojiRevealed = typed >= CHARS.length
+  const textChars = emojiRevealed ? CHARS.slice(0, -1) : CHARS.slice(0, typed)
+  const displayText = textChars.join('')
 
   return createPortal(
     <div className="chris-bubble" style={{ left: x, top: y }}>
       <div className="chris-bubble-box">
-        <span className="chris-bubble-anchor" aria-hidden="true">Hi 👋</span>
+        <span className="chris-bubble-anchor" aria-hidden="true">Nice to meet you 👋</span>
         <span className="chris-bubble-display">
           {displayText}
+          {emojiRevealed && <span className="chris-bubble-wave">👋</span>}
           {showCaret && <span className="chris-bubble-caret" />}
         </span>
       </div>
