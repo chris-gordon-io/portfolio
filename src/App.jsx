@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import Home from './pages/Home'
 import About from './pages/About'
 import Motorway from './pages/Motorway'
@@ -40,6 +41,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollApp />
+      <Analytics />
     </BrowserRouter>
   )
 }
