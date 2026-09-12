@@ -8,6 +8,7 @@ import Project2 from './pages/Project2'
 import Project3 from './pages/Project3'
 import Benchmark from './pages/Benchmark'
 import Toyota from './pages/Toyota'
+import Tu from './pages/Tu'
 import Components from './pages/Components'
 import HeroExperiments from './pages/HeroExperiments'
 import { useLenis } from './hooks/useLenis'
@@ -27,6 +28,7 @@ function ScrollApp() {
       <Route path="/about" element={<About />} />
       <Route path="/project/motorway" element={<Motorway />} />
       <Route path="/project/toyota" element={<Toyota />} />
+      <Route path="/project/4" element={<Tu />} />
       <Route path="/project/2" element={<Project2 />} />
       <Route path="/project/3" element={<Project3 />} />
       <Route path="/project/benchmark" element={<Benchmark />} />
