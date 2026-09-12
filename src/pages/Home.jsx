@@ -130,7 +130,7 @@ const projects = [
     image: 'https://framerusercontent.com/images/LLDFfpjjrcOi88bo03WcWV6lufg.jpg',
   },
   {
-    to: '/project/4',
+    to: '/project/tu-help-pages',
     name: 'Tu',
     description: 'Reimagining the Help experience for TU Web',
     tags: ['Benchmarking', 'Design System', 'Cross Squad'],
