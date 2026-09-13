@@ -6,10 +6,118 @@ const AVAILABLE = [
   'Callout', 'Text', 'Image', 'Metrics', 'Back Button',
 ]
 
-
 export default function DevPanel() {
   if (!import.meta.env.DEV) return null
   return <Panel />
+}
+
+// The "root" moveable/deleteable node for a component element
+function getRootNode(el) {
+  return el.closest('.pc-intro-wrapper') || el
+}
+
+// Stable key: "name:indexWithinSameName"
+function makeKey(name, idx) { return `${name}:${idx}` }
+
+// Build a {key -> el} map from an elements array
+function buildElMap(els) {
+  const counts = {}
+  const map = {}
+  els.forEach(el => {
+    const name = el.getAttribute('data-dev-component')
+    const idx = counts[name] ?? 0
+    counts[name] = idx + 1
+    map[makeKey(name, idx)] = el
+  })
+  return map
+}
+
+// ── Content persistence ──────────────────────────────────────────────────────
+
+function contentKey(pathname, name, idx) {
+  return `dev:${pathname}:${name}:${idx}`
+}
+
+function structureKey(pathname) {
+  return `dev:${pathname}:__structure__`
+}
+
+function saveAll(pathname, els) {
+  // Save content
+  const counts = {}
+  els.forEach(el => {
+    const name = el.getAttribute('data-dev-component')
+    const idx = counts[name] ?? 0
+    counts[name] = idx + 1
+    localStorage.setItem(contentKey(pathname, name, idx), el.innerHTML)
+  })
+  // Save structure (ordered list of {name, idx})
+  const counts2 = {}
+  const structure = els.map(el => {
+    const name = el.getAttribute('data-dev-component')
+    const idx = counts2[name] ?? 0
+    counts2[name] = idx + 1
+    return { name, idx }
+  })
+  localStorage.setItem(structureKey(pathname), JSON.stringify(structure))
+}
+
+function restoreAll(pathname, els) {
+  const savedStructure = localStorage.getItem(structureKey(pathname))
+  if (!savedStructure) {
+    // No structure saved — just restore content
+    const counts = {}
+    els.forEach(el => {
+      const name = el.getAttribute('data-dev-component')
+      const idx = counts[name] ?? 0
+      counts[name] = idx + 1
+      const saved = localStorage.getItem(contentKey(pathname, name, idx))
+      if (saved) el.innerHTML = saved
+    })
+    return
+  }
+
+  const structure = JSON.parse(savedStructure)
+  const elMap = buildElMap(els)
+  const savedKeys = new Set(structure.map(({ name, idx }) => makeKey(name, idx)))
+
+  // Remove elements not in saved structure
+  els.forEach(el => {
+    // find this el's key
+    const name = el.getAttribute('data-dev-component')
+    // recompute idx inline: count how many same-name els come before this one
+    const sameNameBefore = els.slice(0, els.indexOf(el)).filter(e => e.getAttribute('data-dev-component') === name).length
+    const key = makeKey(name, sameNameBefore)
+    if (!savedKeys.has(key)) {
+      getRootNode(el).remove()
+    }
+  })
+
+  // Restore content on remaining elements
+  const remaining = Array.from(document.querySelectorAll('[data-dev-component]'))
+  const remainingMap = buildElMap(remaining)
+  structure.forEach(({ name, idx }) => {
+    const el = remainingMap[makeKey(name, idx)]
+    if (!el) return
+    const saved = localStorage.getItem(contentKey(pathname, name, idx))
+    if (saved) el.innerHTML = saved
+  })
+
+  // Reorder remaining root nodes to match saved structure
+  const orderedRoots = structure
+    .map(({ name, idx }) => remainingMap[makeKey(name, idx)])
+    .filter(Boolean)
+    .map(getRootNode)
+    // deduplicate (Title + Hero share the same pc-intro-wrapper root)
+    .filter((root, i, arr) => arr.indexOf(root) === i)
+
+  if (orderedRoots.length === 0) return
+  const parent = orderedRoots[0].parentElement
+  if (!parent) return
+  // appendChild moves each node to end in order — effectively sorts them
+  orderedRoots.forEach(root => {
+    if (root.parentElement === parent) parent.appendChild(root)
+  })
 }
 
 function Panel() {
@@ -21,32 +129,6 @@ function Panel() {
   const [editingUid, setEditingUid] = useState(null)
   const dragSrc = useRef(null)
 
-  function storageKey(pathname, name, index) {
-    return `dev:${pathname}:${name}:${index}`
-  }
-
-  function saveEdits(pathname, els) {
-    // group by name to get stable index
-    const counts = {}
-    els.forEach(el => {
-      const name = el.getAttribute('data-dev-component')
-      const idx = counts[name] ?? 0
-      counts[name] = idx + 1
-      localStorage.setItem(storageKey(pathname, name, idx), el.innerHTML)
-    })
-  }
-
-  function restoreEdits(pathname, els) {
-    const counts = {}
-    els.forEach(el => {
-      const name = el.getAttribute('data-dev-component')
-      const idx = counts[name] ?? 0
-      counts[name] = idx + 1
-      const saved = localStorage.getItem(storageKey(pathname, name, idx))
-      if (saved) el.innerHTML = saved
-    })
-  }
-
   const scan = useCallback(() => {
     const els = Array.from(document.querySelectorAll('[data-dev-component]'))
     els.forEach(el => {
@@ -54,8 +136,15 @@ function Panel() {
         el.dataset.devUid = Math.random().toString(36).slice(2)
       }
     })
-    restoreEdits(location.pathname, els)
-    setItems(els.map(el => ({
+    restoreAll(location.pathname, els)
+    // Re-query after restore (removes may have happened)
+    const afterRestore = Array.from(document.querySelectorAll('[data-dev-component]'))
+    afterRestore.forEach(el => {
+      if (!el.dataset.devUid) {
+        el.dataset.devUid = Math.random().toString(36).slice(2)
+      }
+    })
+    setItems(afterRestore.map(el => ({
       label: el.getAttribute('data-dev-component'),
       el,
       uid: el.dataset.devUid,
@@ -67,66 +156,61 @@ function Panel() {
     return () => clearTimeout(t)
   }, [scan, location.pathname])
 
+  function persistCurrent() {
+    const els = Array.from(document.querySelectorAll('[data-dev-component]'))
+    saveAll(location.pathname, els)
+  }
+
   // Turn edit mode on/off for a component
   function toggleEdit(item) {
     if (editingUid === item.uid) {
-      item.el.removeAttribute('contenteditable')
-      item.el.style.outline = ''
-      item.el.style.cursor = ''
-      if (item.el._pasteHandler) {
-        item.el.removeEventListener('paste', item.el._pasteHandler)
-        delete item.el._pasteHandler
-      }
-      if (item.el._inputHandler) {
-        item.el.removeEventListener('input', item.el._inputHandler)
-        delete item.el._inputHandler
-      }
-      // persist all current content
-      const els = Array.from(document.querySelectorAll('[data-dev-component]'))
-      saveEdits(location.pathname, els)
+      stopEditing(item)
+      persistCurrent()
       setEditingUid(null)
     } else {
-      // turn off previous
       if (editingUid) {
         const prev = items.find(x => x.uid === editingUid)
-        if (prev) {
-          prev.el.removeAttribute('contenteditable')
-          prev.el.style.outline = ''
-          prev.el.style.cursor = ''
-          if (prev.el._pasteHandler) {
-            prev.el.removeEventListener('paste', prev.el._pasteHandler)
-            delete prev.el._pasteHandler
-          }
-          if (prev.el._inputHandler) {
-            prev.el.removeEventListener('input', prev.el._inputHandler)
-            delete prev.el._inputHandler
-          }
-        }
+        if (prev) stopEditing(prev)
       }
-      item.el.setAttribute('contenteditable', 'true')
-      item.el.style.outline = '1.5px dashed #F4691A'
-      item.el.style.outlineOffset = '4px'
-      item.el.style.cursor = 'text'
-      item.el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      // strip formatting on paste — insert plain text only
-      const pasteHandler = e => {
-        e.preventDefault()
-        const text = e.clipboardData.getData('text/plain')
-        document.execCommand('insertText', false, text)
-      }
-      item.el.addEventListener('paste', pasteHandler)
-      item.el._pasteHandler = pasteHandler
-      // auto-save on every keystroke
-      const inputHandler = () => {
-        const els = Array.from(document.querySelectorAll('[data-dev-component]'))
-        saveEdits(location.pathname, els)
-      }
-      item.el.addEventListener('input', inputHandler)
-      item.el._inputHandler = inputHandler
-      // focus first text node
-      const first = item.el.querySelector('p, h1, h2, h3, div')
-      first?.focus()
+      startEditing(item)
       setEditingUid(item.uid)
+    }
+  }
+
+  function startEditing(item) {
+    item.el.setAttribute('contenteditable', 'true')
+    item.el.style.outline = '1.5px dashed #F4691A'
+    item.el.style.outlineOffset = '4px'
+    item.el.style.cursor = 'text'
+    item.el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+
+    const pasteHandler = e => {
+      e.preventDefault()
+      const text = e.clipboardData.getData('text/plain')
+      document.execCommand('insertText', false, text)
+    }
+    item.el.addEventListener('paste', pasteHandler)
+    item.el._pasteHandler = pasteHandler
+
+    const inputHandler = () => persistCurrent()
+    item.el.addEventListener('input', inputHandler)
+    item.el._inputHandler = inputHandler
+
+    const first = item.el.querySelector('p, h1, h2, h3, div')
+    first?.focus()
+  }
+
+  function stopEditing(item) {
+    item.el.removeAttribute('contenteditable')
+    item.el.style.outline = ''
+    item.el.style.cursor = ''
+    if (item.el._pasteHandler) {
+      item.el.removeEventListener('paste', item.el._pasteHandler)
+      delete item.el._pasteHandler
+    }
+    if (item.el._inputHandler) {
+      item.el.removeEventListener('input', item.el._inputHandler)
+      delete item.el._inputHandler
     }
   }
 
@@ -139,8 +223,8 @@ function Panel() {
     const src = items[dragSrc.current]
     const target = items[i]
     if (src.el.parentNode !== target.el.parentNode) {
-      const srcNode = src.el.closest('.pc-intro-wrapper') || src.el
-      const targetNode = target.el.closest('.pc-intro-wrapper') || target.el
+      const srcNode = getRootNode(src.el)
+      const targetNode = getRootNode(target.el)
       if (dragSrc.current < i) {
         targetNode.parentNode?.insertBefore(srcNode, targetNode.nextSibling)
       } else {
@@ -155,13 +239,18 @@ function Panel() {
     }
     dragSrc.current = null
     setDragOver(null)
+    persistCurrent()
     scan()
   }
 
   function handleDelete(i) {
     const el = items[i].el
-    if (editingUid === items[i].uid) setEditingUid(null)
-    ;(el.closest('.pc-intro-wrapper') || el).remove()
+    if (editingUid === items[i].uid) {
+      stopEditing(items[i])
+      setEditingUid(null)
+    }
+    getRootNode(el).remove()
+    persistCurrent()
     scan()
   }
 
@@ -262,6 +351,7 @@ function Panel() {
     if (last) last.parentNode.insertBefore(div, last.nextSibling)
     else document.body.appendChild(div)
     setShowAdd(false)
+    persistCurrent()
     scan()
   }
 

@@ -20,23 +20,33 @@ function ScrollApp() {
   const location = useLocation()
   useEffect(() => {
     document.body.removeAttribute('data-cursor-hidden')
+    // scroll to top instantly on route change
+    requestAnimationFrame(() => {
+      if (window.lenis) {
+        window.lenis.scrollTo(0, { immediate: true })
+      } else {
+        window.scrollTo(0, 0)
+      }
+    })
   }, [location.pathname])
   return (
     <>
     <GlobalCursor />
     <DevPanel />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/project/motorway" element={<Motorway />} />
-      <Route path="/project/toyota" element={<Toyota />} />
-      <Route path="/project/tu-help-pages" element={<Tu />} />
-      <Route path="/project/2" element={<Project2 />} />
-      <Route path="/project/3" element={<Project3 />} />
-      <Route path="/project/benchmark" element={<Benchmark />} />
-      <Route path="/components" element={<Components />} />
-      <Route path="/hero-experiments" element={<HeroExperiments />} />
-    </Routes>
+    <div key={location.pathname} className="page-enter">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/project/motorway" element={<Motorway />} />
+        <Route path="/project/toyota" element={<Toyota />} />
+        <Route path="/project/tu-help-pages" element={<Tu />} />
+        <Route path="/project/2" element={<Project2 />} />
+        <Route path="/project/3" element={<Project3 />} />
+        <Route path="/project/benchmark" element={<Benchmark />} />
+        <Route path="/components" element={<Components />} />
+        <Route path="/hero-experiments" element={<HeroExperiments />} />
+      </Routes>
+    </div>
     </>
   )
 }
