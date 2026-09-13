@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 
 const AVAILABLE = [
-  'Title', 'Hero', 'Topline', 'Hypothesis',
+  'Title', 'Hero', 'Topline', 'Impact', 'Hypothesis',
   'Callout', 'Text', 'Image', 'Metrics', 'Back Button',
 ]
 
@@ -73,6 +73,10 @@ function Panel() {
       item.el.removeAttribute('contenteditable')
       item.el.style.outline = ''
       item.el.style.cursor = ''
+      if (item.el._pasteHandler) {
+        item.el.removeEventListener('paste', item.el._pasteHandler)
+        delete item.el._pasteHandler
+      }
       // persist all current content
       const els = Array.from(document.querySelectorAll('[data-dev-component]'))
       saveEdits(location.pathname, els)
@@ -85,6 +89,10 @@ function Panel() {
           prev.el.removeAttribute('contenteditable')
           prev.el.style.outline = ''
           prev.el.style.cursor = ''
+          if (prev.el._pasteHandler) {
+            prev.el.removeEventListener('paste', prev.el._pasteHandler)
+            delete prev.el._pasteHandler
+          }
         }
       }
       item.el.setAttribute('contenteditable', 'true')
@@ -92,6 +100,14 @@ function Panel() {
       item.el.style.outlineOffset = '4px'
       item.el.style.cursor = 'text'
       item.el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      // strip formatting on paste — insert plain text only
+      const pasteHandler = e => {
+        e.preventDefault()
+        const text = e.clipboardData.getData('text/plain')
+        document.execCommand('insertText', false, text)
+      }
+      item.el.addEventListener('paste', pasteHandler)
+      item.el._pasteHandler = pasteHandler
       // focus first text node
       const first = item.el.querySelector('p, h1, h2, h3, div')
       first?.focus()
@@ -157,6 +173,15 @@ function Panel() {
             <div class="pc-topline-inner">
               <p class="pc-topline-eyebrow">Topline</p>
               <div class="pc-topline-headline">How I identified a larger problem and created a holistic solution.</div>
+            </div>
+          </div>
+        </div>`,
+      'Impact': `
+        <div class="pc-impact-section">
+          <div class="pc-impact-container">
+            <div class="pc-topline-inner">
+              <p class="pc-impact-eyebrow">Impact</p>
+              <div class="pc-impact-headline">A meaningful outcome that changed how users experience the product.</div>
             </div>
           </div>
         </div>`,

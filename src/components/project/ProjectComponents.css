@@ -14,7 +14,7 @@
 
 .pc-intro-wrapper .pc-hero-section {
   flex: 1;
-  padding: 0 20px;
+  padding: 0 var(--space-m);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -33,8 +33,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 40px 24px 40px;
+  gap: var(--space-s);
+  padding: var(--space-l) var(--space-m) var(--space-l);
   text-align: center;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .pc-subtitle {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: -0.3px;
   line-height: 1.4;
@@ -61,7 +61,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 120px 80px;
+  padding: 0 120px var(--space-xl);
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -70,21 +70,21 @@
 
 .pc-section--slim {
   padding-top: 0;
-  padding-bottom: 80px;
+  padding-bottom: var(--space-xl);
 }
 
 .pc-image-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px 80px;
+  padding: 0 var(--space-m) var(--space-xl);
   width: 100%;
   box-sizing: border-box;
 }
 
 .pc-content-block {
   display: flex;
-  gap: 16px;
+  gap: var(--space-m);
   align-items: flex-start;
   width: 100%;
   max-width: 900px;
@@ -100,7 +100,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--space-m);
 }
 
 /* ── Topline section wrapper ── */
@@ -108,7 +108,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 20px 80px;
+  padding: var(--space-xl) var(--space-m) var(--space-xl);
   width: 100%;
   box-sizing: border-box;
 }
@@ -117,7 +117,7 @@
 .pc-topline-container {
   width: 100%;
   min-height: 72vh;
-  padding: 120px 48px;
+  padding: 120px var(--space-l);
   border: 1px solid #ffffff;
   border-radius: 12px;
   background: #FDF5F3;
@@ -137,7 +137,7 @@
 
 /* ── Hero section wrapper ── */
 .pc-hero-section {
-  padding: 0 20px 80px;
+  padding: 0 var(--space-m) var(--space-xl);
   width: 100%;
   box-sizing: border-box;
 }
@@ -156,7 +156,7 @@
 
 .pc-hero--full {
   width: 100%;
-  padding: 40px;
+  padding: var(--space-l);
   min-height: unset;
   overflow: visible;
 }
@@ -188,7 +188,7 @@
 
 .pc-hero-image--wide {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1200px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -258,12 +258,12 @@
 .pc-phone-card {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: var(--space-m);
   align-items: flex-start;
   justify-content: center;
   background: #fdf5f3;
   border-radius: 12px;
-  padding: 80px;
+  padding: var(--space-xl);
   width: 100%;
 }
 
@@ -271,7 +271,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-m);
   margin: 0;
   flex: 1;
   max-width: 280px;
@@ -292,14 +292,17 @@
 .pc-wide-card {
   background: #FDF5F3;
   border-radius: 12px;
-  padding: 80px;
+  padding: var(--space-xl);
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
 }
 
 .pc-wide-card img {
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   display: block;
   margin: 0 auto;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
@@ -307,7 +310,7 @@
 
 /* ── Metrics section wrapper ── */
 .pc-metrics-section {
-  padding: 0 20px 80px;
+  padding: 0 var(--space-m) var(--space-xl);
   width: 100%;
   box-sizing: border-box;
 }
@@ -318,24 +321,24 @@
   border-radius: 12px;
   display: flex;
   justify-content: center;
-  padding: 80px 120px;
+  padding: var(--space-xl) 120px;
 }
 
 .pc-stat-cards {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-m);
   width: 100%;
 }
 
 .pc-stat-card {
   background: #4F4F62;
   border-radius: 12px;
-  padding: 24px;
+  padding: var(--space-m);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-xs);
 }
 
 .pc-stat-number {
@@ -358,7 +361,7 @@
 .pc-callout {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-s);
   width: 100%;
   max-width: 620px;
 }
@@ -389,7 +392,7 @@
   letter-spacing: -0.4px;
   line-height: 1.3;
   color: #23233B;
-  margin: 0 0 12px;
+  margin: 0 0 var(--space-s);
   text-transform: none;
 }
 
@@ -405,8 +408,8 @@
 .pc-callout-body {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 4px;
+  gap: var(--space-m);
+  margin-top: var(--space-xs);
 }
 
 .pc-callout-body p {
@@ -422,12 +425,12 @@
   background: #FDF5F3;
   border: 1px solid #ffffff;
   border-radius: 12px;
-  padding: 48px;
+  padding: var(--space-l);
   width: 100%;
   max-width: 620px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-m);
 }
 
 .pc-hypothesis-label {
@@ -448,6 +451,47 @@
   letter-spacing: -0.2px;
 }
 
+/* ── Impact section wrapper ── */
+.pc-impact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-xl) var(--space-m) var(--space-xl);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pc-impact-container {
+  width: 100%;
+  min-height: 72vh;
+  padding: 120px var(--space-l);
+  border-radius: 12px;
+  background: #23233B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.pc-impact-eyebrow {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 1.3;
+  color: #F4F4F5;
+  margin: 0 0 var(--space-s);
+  text-transform: none;
+}
+
+.pc-impact-headline {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  line-height: 1.4;
+  color: #E9E9EB;
+  margin: 0;
+}
+
 /* ── See all work ── */
 .pc-see-all {
   display: inline-flex;
@@ -456,7 +500,7 @@
   font-weight: 600;
   color: var(--color-ink);
   text-decoration: none;
-  padding: 10px 20px;
+  padding: var(--space-s) var(--space-m);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   transition: background 0.15s;
@@ -472,13 +516,13 @@
   .pc-section,
   .pc-metrics-block,
   .pc-hero {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: var(--space-m);
+    padding-right: var(--space-m);
   }
 
   .pc-content-block {
     flex-direction: column;
-    gap: 20px;
+    gap: var(--space-m);
   }
 
   .pc-body-lg {
@@ -491,9 +535,8 @@
 
   .pc-phone-card {
     flex-wrap: wrap;
-    padding: 24px;
+    padding: var(--space-m);
   }
-
 
   .pc-phone-fig {
     max-width: 100%;
