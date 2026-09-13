@@ -18,7 +18,7 @@ import './ProjectComponents.css'
  */
 export default function ProjectMetrics({ heading = 'Results', intro, metrics = [] }) {
   return (
-    <div className="pc-metrics-section">
+    <div className="pc-metrics-section" data-dev-component="Metrics">
       <div className="pc-metrics-block">
         <div className="pc-content-block">
           <div className="pc-col-heading">

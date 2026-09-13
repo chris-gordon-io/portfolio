@@ -3,7 +3,7 @@ import './ProjectBackButton.css'
 
 export default function ProjectBackButton() {
   return (
-    <div className="pb-wrapper">
+    <div className="pb-wrapper" data-dev-component="Back Button">
       <Link to="/" className="pb-button">
         <span className="pb-button-text">See all work</span>
         <svg className="pb-button-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

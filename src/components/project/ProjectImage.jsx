@@ -13,7 +13,7 @@ export default function ProjectImage({ variant = 'wide', caption, src, alt, phon
   const isTrio = variant === 'phones' && phones.length >= 3
 
   return (
-    <div className="pc-image-section">
+    <div className="pc-image-section" data-dev-component={`Image${caption ? ` — ${caption}` : ''}`}>
       {variant === 'wide' && (
         <div className="pc-wide-card">
           {caption && <p className="pc-image-title">{caption}</p>}

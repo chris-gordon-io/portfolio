@@ -1,0 +1,147 @@
+/* ── Measure block ── */
+.tu-measure-block {
+  background: #23233B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  padding: 80px 120px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tu-measure-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #7B7B89;
+  margin: 0;
+  text-align: center;
+}
+
+.tu-measure-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 620px;
+}
+
+.tu-measure-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.tu-measure-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #da441b;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.tu-measure-label {
+  font-size: 20px;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+}
+
+/* ── Results before/after block ── */
+.tu-results-block {
+  background: #23233B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 80px 120px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tu-results-group {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tu-results-group + .tu-results-group {
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 1px solid #39394F;
+}
+
+.tu-results-group-label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #7B7B89;
+  margin: 0;
+  text-align: center;
+}
+
+.tu-results-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.tu-result-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.tu-result-arrow {
+  font-size: 18px;
+  line-height: 1;
+  color: #da441b;
+}
+
+.tu-result-kpi-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #7B7B89;
+}
+
+.tu-result-number {
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  color: #E9E9EB;
+  line-height: 1.1;
+}
+
+.tu-result-sublabel {
+  font-size: 12px;
+  color: #7B7B89;
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .tu-measure-block,
+  .tu-results-block {
+    padding: 60px 24px;
+    gap: 32px;
+  }
+
+  .tu-measure-grid,
+  .tu-results-metrics {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .tu-measure-label {
+    font-size: 16px;
+  }
+
+  .tu-result-number {
+    font-size: 28px;
+  }
+}

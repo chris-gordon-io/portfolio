@@ -13,6 +13,7 @@ import Components from './pages/Components'
 import HeroExperiments from './pages/HeroExperiments'
 import { useLenis } from './hooks/useLenis'
 import GlobalCursor from './components/GlobalCursor'
+import DevPanel from './components/DevPanel'
 
 function ScrollApp() {
   useLenis()
@@ -23,6 +24,7 @@ function ScrollApp() {
   return (
     <>
     <GlobalCursor />
+    <DevPanel />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />

@@ -6,6 +6,7 @@ import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
 import ProjectTopline from '../components/project/ProjectTopline'
 import ProjectCallout from '../components/project/ProjectCallout'
+import ProjectText from '../components/project/ProjectText'
 import ProjectTitle from '../components/project/ProjectTitle'
 import ProjectBackButton from '../components/project/ProjectBackButton'
 import Footer from '../components/Footer'
@@ -66,6 +67,15 @@ export default function Benchmark() {
         src="/images/benchmark/benchmark-3.png"
         alt="Settings Screen"
       />
+
+      <ProjectText heading="Section heading">
+        <p className="pc-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, bringing structure and clarity to complex workflows.
+        </p>
+        <p className="pc-body">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Working closely with stakeholders to validate assumptions and iterate toward a solution that scales.
+        </p>
+      </ProjectText>
 
       <ProjectBackButton />
 

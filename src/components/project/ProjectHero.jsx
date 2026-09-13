@@ -14,7 +14,7 @@ export default function ProjectHero({
   fullWidth = false,
 }) {
   return (
-    <div className="pc-hero-section">
+    <div className="pc-hero-section" data-dev-component="Hero">
       <div
         className={fullWidth ? 'pc-hero pc-hero--full' : 'pc-hero'}
         style={{ background }}

@@ -10,7 +10,7 @@ import './ProjectComponents.css'
  */
 export default function ProjectText({ heading, accent = false, slim = false, children }) {
   return (
-    <div className={`pc-section${slim ? ' pc-section--slim' : ''}`}>
+    <div className={`pc-section${slim ? ' pc-section--slim' : ''}`} data-dev-component={`Text${heading ? ` — ${heading}` : ''}`}>
       <div className="pc-content-block">
         <div className="pc-col-heading">
           <h2 className={`pc-heading${accent ? ' accent' : ''}`}>{heading}</h2>
