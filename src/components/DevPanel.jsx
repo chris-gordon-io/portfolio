@@ -77,6 +77,10 @@ function Panel() {
         item.el.removeEventListener('paste', item.el._pasteHandler)
         delete item.el._pasteHandler
       }
+      if (item.el._inputHandler) {
+        item.el.removeEventListener('input', item.el._inputHandler)
+        delete item.el._inputHandler
+      }
       // persist all current content
       const els = Array.from(document.querySelectorAll('[data-dev-component]'))
       saveEdits(location.pathname, els)
@@ -93,6 +97,10 @@ function Panel() {
             prev.el.removeEventListener('paste', prev.el._pasteHandler)
             delete prev.el._pasteHandler
           }
+          if (prev.el._inputHandler) {
+            prev.el.removeEventListener('input', prev.el._inputHandler)
+            delete prev.el._inputHandler
+          }
         }
       }
       item.el.setAttribute('contenteditable', 'true')
@@ -108,6 +116,13 @@ function Panel() {
       }
       item.el.addEventListener('paste', pasteHandler)
       item.el._pasteHandler = pasteHandler
+      // auto-save on every keystroke
+      const inputHandler = () => {
+        const els = Array.from(document.querySelectorAll('[data-dev-component]'))
+        saveEdits(location.pathname, els)
+      }
+      item.el.addEventListener('input', inputHandler)
+      item.el._inputHandler = inputHandler
       // focus first text node
       const first = item.el.querySelector('p, h1, h2, h3, div')
       first?.focus()
