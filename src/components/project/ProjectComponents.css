@@ -301,7 +301,9 @@
 
 .pc-wide-card img {
   width: 100%;
+  max-width: 900px;
   display: block;
+  margin: 0 auto;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
