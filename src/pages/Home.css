@@ -198,7 +198,7 @@
 
 /* ── Work ── */
 .work {
-  padding: 0 40px;
+  padding: 0 var(--space-m);
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -213,9 +213,9 @@
   box-shadow: 0 -4px 24px 0 rgba(39, 39, 55, 0.04);
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  margin: 0 -40px;
-  padding: 40px;
+  gap: var(--space-m);
+  margin: 0 calc(-1 * var(--space-m));
+  padding: var(--space-m);
 }
 
 .work-bottom .footer-outer {
@@ -241,7 +241,7 @@
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  gap: var(--space-m);
 }
 
 .project-card {
