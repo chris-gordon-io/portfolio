@@ -28,6 +28,19 @@
   overflow: hidden;
 }
 
+.pc-intro-wrapper .pc-hero-image--wide {
+  align-self: stretch;
+  height: 100%;
+  max-width: 100%;
+}
+
+.pc-intro-wrapper .pc-hero-image--wide img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 /* ── Title block ── */
 .pc-title-block {
   display: flex;
