@@ -6,6 +6,7 @@ import ProjectCallout from '../components/project/ProjectCallout'
 import ProjectImage from '../components/project/ProjectImage'
 import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
+import ProjectTitle from '../components/project/ProjectTitle'
 import ProjectBackButton from '../components/project/ProjectBackButton'
 
 const IMG = 'https://framerusercontent.com/images/'
@@ -16,14 +17,12 @@ export default function Motorway() {
 
       <Nav />
 
-      <div className="pc-title-block">
-        <h1 className="pc-title">Motorway</h1>
-        <p className="pc-subtitle">Customer activation journey</p>
+      <div className="pc-intro-wrapper">
+        <ProjectTitle title="Motorway" subtitle="Customer activation journey" />
+        <ProjectHero
+          image={{ src: `${IMG}Mo5jOj0hktd1x8y6UqpC3MH9Nc.png`, alt: 'Motorway offer select page' }}
+        />
       </div>
-
-      <ProjectHero
-        image={{ src: `${IMG}Mo5jOj0hktd1x8y6UqpC3MH9Nc.png`, alt: 'Motorway offer select page' }}
-      />
 
       <ProjectTopline>
         How I ran multiple A/B tests in a high focus area to optimise the customer activation flow and increase primary KPIs multiple times.

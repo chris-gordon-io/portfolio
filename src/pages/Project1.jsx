@@ -5,6 +5,7 @@ import ProjectText from '../components/project/ProjectText'
 import ProjectImage from '../components/project/ProjectImage'
 import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
+import ProjectTitle from '../components/project/ProjectTitle'
 import Footer from '../components/Footer'
 import './Project1.css'
 
@@ -16,14 +17,12 @@ export default function Project1() {
 
       <Nav />
 
-      <div className="p1-title-block">
-        <h1 className="p1-title">Motorway</h1>
-        <p className="p1-subtitle">Customer activation journey</p>
+      <div className="pc-intro-wrapper">
+        <ProjectTitle title="Motorway" subtitle="Customer activation journey" />
+        <ProjectHero
+          image={{ src: `${IMG}Mo5jOj0hktd1x8y6UqpC3MH9Nc.png`, alt: 'Motorway offer select page' }}
+        />
       </div>
-
-      <ProjectHero
-        image={{ src: `${IMG}Mo5jOj0hktd1x8y6UqpC3MH9Nc.png`, alt: 'Motorway offer select page' }}
-      />
 
       <ProjectText heading="Topline" accent>
         <p className="pc-body-lg">How I ran multiple A/B tests in a high focus area to optimise the customer activation flow and increase primary KPIs multiple times.</p>

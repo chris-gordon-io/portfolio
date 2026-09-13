@@ -4,6 +4,7 @@ import ProjectHero from '../components/project/ProjectHero'
 import ProjectTopline from '../components/project/ProjectTopline'
 import ProjectCallout from '../components/project/ProjectCallout'
 import ProjectImage from '../components/project/ProjectImage'
+import ProjectTitle from '../components/project/ProjectTitle'
 import ProjectBackButton from '../components/project/ProjectBackButton'
 import './Toyota.css'
 
@@ -13,17 +14,15 @@ export default function Toyota() {
 
       <Nav />
 
-      <div className="pc-title-block">
-        <h1 className="pc-title">Toyota One App</h1>
-        <p className="pc-subtitle">Connected Services Onboarding</p>
+      <div className="pc-intro-wrapper">
+        <ProjectTitle title="Toyota One App" subtitle="Connected Services Onboarding" />
+        <ProjectHero
+          background="linear-gradient(180deg, #23233B 0%, #23233B 100%)"
+          image={{ src: '/images/toyota/0.0.0 Splash - OPT02.png', alt: 'Toyota One App splash screen' }}
+          wide
+          fullWidth
+        />
       </div>
-
-      <ProjectHero
-        background="linear-gradient(180deg, #23233B 0%, #23233B 100%)"
-        image={{ src: '/images/toyota/0.0.0 Splash - OPT02.png', alt: 'Toyota One App splash screen' }}
-        wide
-        fullWidth
-      />
 
       <ProjectTopline>
         Redesigning the first-time experience for a new global Toyota app — and discovering that the original goal was wrong.

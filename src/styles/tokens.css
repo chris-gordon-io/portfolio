@@ -1,4 +1,10 @@
 /* ─────────────────────────────────────────
+   Design system — github.com/chris-gordon-io/Design-System
+───────────────────────────────────────── */
+@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@main/css/colors.css");
+@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@main/css/typography.css");
+
+/* ─────────────────────────────────────────
    Fonts — Safiro (from chrisgordon.io)
 ───────────────────────────────────────── */
 @font-face {
@@ -34,20 +40,20 @@
    Colour tokens
 ───────────────────────────────────────── */
 :root {
-  /* Core palette — exact values from chrisgordon.io Framer tokens */
-  --color-ink:        #23233B;   /* 100% dark — headings, buttons */
-  --color-body:       #4F4F62;   /* 80% dark — body text */
-  --color-secondary:  #4F4F62;   /* 80% dark — secondary text */
-  --color-muted:      #7B7B89;   /* 60% dark — muted / meta text */
-  --color-subtle:     #A7A7B1;   /* 40% dark — labels, caps */
-  --color-border:     #E9E9EB;   /* 20% dark — dividers, borders */
-  --color-border-light: #F4F4F5; /* 10% dark — lighter border */
-  --color-white:      #ffffff;
-  --color-bg:         #fbece8;   /* Warm peach background */
+  /* Semantic aliases → DS primitives */
+  --color-ink:          var(--color-neutral-100); /* headings, buttons */
+  --color-body:         var(--color-neutral-80);  /* body text */
+  --color-secondary:    var(--color-neutral-80);  /* secondary text */
+  --color-muted:        var(--color-neutral-60);  /* muted / meta */
+  --color-subtle:       var(--color-neutral-40);  /* labels, caps */
+  --color-border:       var(--color-neutral-20);  /* dividers, borders */
+  --color-border-light: var(--color-neutral-10);  /* lighter border */
+  --color-white:        #ffffff;
+  --color-bg:           var(--color-orange-10);   /* warm peach background */
 
-  /* Accent (orange-red) */
-  --color-accent:     #da441b;
-  --color-accent-2:   #de5732;
+  /* Accent */
+  --color-accent:       var(--color-brand-primary);
+  --color-accent-2:     var(--color-orange-90);
 
   /* Nav */
   --color-nav-bg:     rgba(255, 255, 255, 0.6);
@@ -55,7 +61,7 @@
   /* ─────────────────────────────────────────
      Typography scale
   ───────────────────────────────────────── */
-  --font-family:      "Safiro", system-ui, sans-serif;
+  --font-family:      var(--font-family-base);
 
   --text-xs:          12px;   /* Caps / labels        */
   --text-sm:          14px;   /* Small body           */

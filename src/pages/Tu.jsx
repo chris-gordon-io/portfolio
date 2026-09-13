@@ -1,6 +1,7 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import ProjectHero from '../components/project/ProjectHero'
+import ProjectTitle from '../components/project/ProjectTitle'
 import ProjectTopline from '../components/project/ProjectTopline'
 import ProjectCallout from '../components/project/ProjectCallout'
 import ProjectImage from '../components/project/ProjectImage'
@@ -16,14 +17,12 @@ export default function Tu() {
 
       <Nav />
 
-      <div className="pc-title-block">
-        <h1 className="pc-title">Tu</h1>
-        <p className="pc-subtitle">Reimagining the Help experience for TU</p>
+      <div className="pc-intro-wrapper">
+        <ProjectTitle title="Tu" subtitle="Reimagining the Help experience for TU" />
+        <ProjectHero
+          image={{ src: `${IMG}zmvDVSiKkFHUyUYT7SD4nH0US8E.png`, alt: 'Tu Help experience desktop and mobile' }}
+        />
       </div>
-
-      <ProjectHero
-        image={{ src: `${IMG}zmvDVSiKkFHUyUYT7SD4nH0US8E.png`, alt: 'Tu Help experience desktop and mobile' }}
-      />
 
       <ProjectTopline>
         How I identified a larger problem within an experience and created a holistic vision for self serve Help.

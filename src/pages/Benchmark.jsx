@@ -6,6 +6,7 @@ import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
 import ProjectTopline from '../components/project/ProjectTopline'
 import ProjectCallout from '../components/project/ProjectCallout'
+import ProjectTitle from '../components/project/ProjectTitle'
 import ProjectBackButton from '../components/project/ProjectBackButton'
 import Footer from '../components/Footer'
 import './Benchmark.css'
@@ -16,16 +17,14 @@ export default function Benchmark() {
 
       <Nav />
 
-      <div className="pc-title-block">
-        <h1 className="pc-title">Benchmark</h1>
-        <p className="pc-subtitle">B2B SaaS App calculating Carbon and Cost over Construction projects lifecycle</p>
+      <div className="pc-intro-wrapper">
+        <ProjectTitle title="Benchmark" subtitle="B2B SaaS App calculating Carbon and Cost over Construction projects lifecycle" />
+        <ProjectHero
+          background="linear-gradient(180deg, #5DD39D 0%, #469E77 100%)"
+          image={{ src: '/images/benchmark-hero.png', alt: 'Benchmark estimating app' }}
+          wide
+        />
       </div>
-
-      <ProjectHero
-        background="linear-gradient(180deg, #5DD39D 0%, #469E77 100%)"
-        image={{ src: '/images/benchmark-hero.png', alt: 'Benchmark estimating app' }}
-        wide
-      />
 
       <ProjectTopline>
         Creating a complex App from the foundations up working with Stakeholders to redefine their workflows.

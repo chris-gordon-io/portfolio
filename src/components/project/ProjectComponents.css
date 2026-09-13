@@ -3,27 +3,55 @@
    prefix: pc-
 ───────────────────────────────────────── */
 
+/* ── Intro wrapper (title + hero = 100vh) ── */
+.pc-intro-wrapper {
+  height: 100vh;
+  padding-top: 76px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.pc-intro-wrapper .pc-hero-section {
+  flex: 1;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.pc-intro-wrapper .pc-hero {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 /* ── Title block ── */
 .pc-title-block {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 80px 24px 40px;
+  padding: 40px 24px 40px;
   text-align: center;
 }
 
 .pc-title {
-  font-size: 40px;
-  font-weight: 600;
-  letter-spacing: -1px;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
   color: var(--color-ink);
   margin: 0;
 }
 
 .pc-subtitle {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 400;
+  letter-spacing: -0.3px;
+  line-height: 1.4;
   color: var(--color-ink);
   margin: 0;
 }
@@ -33,7 +61,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 120px;
+  padding: 0 120px 80px;
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
@@ -42,14 +70,14 @@
 
 .pc-section--slim {
   padding-top: 0;
-  padding-bottom: 0;
+  padding-bottom: 80px;
 }
 
 .pc-image-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 40px 80px;
+  padding: 0 20px 80px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -75,27 +103,55 @@
   gap: 24px;
 }
 
+/* ── Topline section wrapper ── */
+.pc-topline-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px 80px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* ── Topline container ── */
 .pc-topline-container {
   width: 100%;
-  max-width: 620px;
-  padding: 48px;
-  border: 1px solid #F8DAD1;
+  min-height: 72vh;
+  padding: 120px 48px;
+  border: 1px solid #ffffff;
   border-radius: 12px;
   background: #FDF5F3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.pc-topline-inner {
+  width: 100%;
+  max-width: 620px;
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
+/* ── Hero section wrapper ── */
+.pc-hero-section {
+  padding: 0 20px 80px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* ── Hero ── */
 .pc-hero {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 64px 120px;
+  padding: 0 120px;
   overflow: hidden;
-  min-height: 70vh;
+  min-height: 500px;
+  border-radius: 12px;
 }
 
 .pc-hero--full {
@@ -119,14 +175,14 @@
 }
 
 .pc-hero-image {
-  width: 100%;
-  max-width: 360px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .pc-hero-image img {
-  width: 100%;
+  max-height: calc(100vh - 380px);
+  width: auto;
   display: block;
 }
 
@@ -147,7 +203,7 @@
 /* ── Headings ── */
 .pc-heading {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1.4;
   color: var(--color-ink);
@@ -247,9 +303,17 @@
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
+/* ── Metrics section wrapper ── */
+.pc-metrics-section {
+  padding: 0 20px 80px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* ── Metrics block ── */
 .pc-metrics-block {
   background: #23233B;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   padding: 80px 120px;
@@ -353,7 +417,8 @@
 
 /* ── Hypothesis ── */
 .pc-hypothesis {
-  background: #ffffff;
+  background: #FDF5F3;
+  border: 1px solid #ffffff;
   border-radius: 12px;
   padding: 48px;
   width: 100%;

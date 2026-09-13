@@ -14,15 +14,17 @@ export default function ProjectHero({
   fullWidth = false,
 }) {
   return (
-    <div
-      className={fullWidth ? 'pc-hero pc-hero--full' : 'pc-hero'}
-      style={{ background }}
-    >
-      {image && (
-        <div className={wide ? 'pc-hero-image--wide' : 'pc-hero-image'}>
-          <img src={image.src} alt={image.alt ?? ''} />
-        </div>
-      )}
+    <div className="pc-hero-section">
+      <div
+        className={fullWidth ? 'pc-hero pc-hero--full' : 'pc-hero'}
+        style={{ background }}
+      >
+        {image && (
+          <div className={wide ? 'pc-hero-image--wide' : 'pc-hero-image'}>
+            <img src={image.src} alt={image.alt ?? ''} />
+          </div>
+        )}
+      </div>
     </div>
   )
 }

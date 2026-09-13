@@ -1,7 +1,13 @@
+import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import ProjectHero from '../components/project/ProjectHero'
 import ProjectText from '../components/project/ProjectText'
 import ProjectImage from '../components/project/ProjectImage'
 import ProjectMetrics from '../components/project/ProjectMetrics'
+import ProjectTopline from '../components/project/ProjectTopline'
+import ProjectHypothesis from '../components/project/ProjectHypothesis'
+import ProjectTitle from '../components/project/ProjectTitle'
+import phonePlaceholder from '../assets/phone-placeholder.svg'
 
 const IMG = 'https://framerusercontent.com/images/'
 
@@ -9,19 +15,23 @@ export default function Components() {
   return (
     <div style={{ background: 'var(--color-bg)', minHeight: '100vh' }}>
 
-      <ProjectHero
-        background="linear-gradient(180deg, #0560cc 0%, #063165 100%)"
-        image={{
-          src: `${IMG}Mo5jOj0hktd1x8y6UqpC3MH9Nc.png`,
-          alt: 'App screen',
-        }}
-      />
+      <Nav />
 
-      <ProjectText heading="Section heading" accent>
-        <p className="pc-body-lg">
-          This is a large body intro — good for a topline summary or key statement at the top of a section.
-        </p>
-      </ProjectText>
+      <div className="pc-intro-wrapper">
+        <ProjectTitle title="Project title" subtitle="Sub line information" />
+        <ProjectHero
+          background="linear-gradient(180deg, #0560cc 0%, #063165 100%)"
+          image={{ src: phonePlaceholder, alt: 'Phone placeholder' }}
+        />
+      </div>
+
+      <ProjectTopline>
+        How I identified a larger problem within an experience and created a holistic vision for self serve Help.
+      </ProjectTopline>
+
+<ProjectHypothesis>
+        "Hey Chris, can you do the UX for this accordion?" led to the realisation that the Help section of the site was not being properly considered in the replatforming work.
+      </ProjectHypothesis>
 
       <ProjectText heading="Section heading">
         <p className="pc-body">
@@ -56,6 +66,8 @@ export default function Components() {
           { number: '106%',   label: 'Interaction rate' },
         ]}
       />
+
+      <Footer />
 
     </div>
   )

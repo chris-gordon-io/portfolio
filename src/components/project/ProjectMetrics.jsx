@@ -18,20 +18,22 @@ import './ProjectComponents.css'
  */
 export default function ProjectMetrics({ heading = 'Results', intro, metrics = [] }) {
   return (
-    <div className="pc-metrics-block">
-      <div className="pc-content-block">
-        <div className="pc-col-heading">
-          <h2 className="pc-heading muted">{heading}</h2>
-        </div>
-        <div className="pc-col-body">
-          {intro && <p className="pc-body light">{intro}</p>}
-          <div className="pc-stat-cards">
-            {metrics.map((m, i) => (
-              <div key={i} className="pc-stat-card">
-                <span className="pc-stat-number">{m.number}</span>
-                <span className="pc-stat-label">{m.label}</span>
-              </div>
-            ))}
+    <div className="pc-metrics-section">
+      <div className="pc-metrics-block">
+        <div className="pc-content-block">
+          <div className="pc-col-heading">
+            <h2 className="pc-heading muted">{heading}</h2>
+          </div>
+          <div className="pc-col-body">
+            {intro && <p className="pc-body light">{intro}</p>}
+            <div className="pc-stat-cards">
+              {metrics.map((m, i) => (
+                <div key={i} className="pc-stat-card">
+                  <span className="pc-stat-number">{m.number}</span>
+                  <span className="pc-stat-label">{m.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
