@@ -113,6 +113,7 @@
 .hero h1 em {
   color: #4F4F62;
   font-style: normal;
+  font-size: calc(var(--hero-font) * (44 / 52));
 }
 
 .hero h1.muted {
