@@ -5,6 +5,7 @@ import ProjectImage from '../components/project/ProjectImage'
 import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
 import ProjectTopline from '../components/project/ProjectTopline'
+import ProjectImpact from '../components/project/ProjectImpact'
 import ProjectText from '../components/project/ProjectText'
 import ProjectTitle from '../components/project/ProjectTitle'
 import ProjectBackButton from '../components/project/ProjectBackButton'
@@ -42,12 +43,9 @@ export default function Benchmark() {
         </p>
       </ProjectText>
 
-      <ProjectText heading="Section heading">
+      <ProjectText heading="The Problem/Opportunity">
         <p className="pc-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, bringing structure and clarity to complex workflows.
-        </p>
-        <p className="pc-body">
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Working closely with stakeholders to validate assumptions and iterate toward a solution that scales.
+          Benchmarks current workflow involved multiple Apps (including Excel) and ran on a legacy tech stack that was no longer fit for purpose. We had the opportunity to design a whole new experience … Users also needed a way to maintain visibility of Items across whole projects.
         </p>
       </ProjectText>
 
@@ -71,6 +69,10 @@ export default function Benchmark() {
         src="/images/benchmark/benchmark-3.png"
         alt="Settings Screen"
       />
+
+      <ProjectImpact>
+        While I helped guide a delivery-centric, often ambiguous project, I think my biggest impact was spotting the need for a Design System early on — winning stakeholder buy-in for the effort and value, building one from nothing, and working closely with an offshore dev team to bring it to life in code.
+      </ProjectImpact>
 
       <ProjectBackButton />
 

@@ -467,6 +467,7 @@
   padding: 120px var(--space-l);
   border-radius: 12px;
   background: #23233B;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
