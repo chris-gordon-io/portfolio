@@ -181,7 +181,7 @@
   align-items: center;
   position: relative;
   font-size: calc(var(--hero-font) * (44 / 52));
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.15;
   letter-spacing: -1px;
   border-radius: var(--radius-full);
