@@ -154,6 +154,12 @@
   border-radius: var(--radius-lg);
 }
 
+/* More obvious, slower fade-up than the default .reveal--hero timing */
+.pc-hero.reveal {
+  transform: translateY(56px);
+  transition-duration: 2.2s;
+}
+
 .pc-hero--full {
   width: 100%;
   padding: var(--space-l);
