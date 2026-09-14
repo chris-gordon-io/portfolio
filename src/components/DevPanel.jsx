@@ -182,7 +182,10 @@ function Panel() {
     item.el.style.outline = '1.5px dashed #F4691A'
     item.el.style.outlineOffset = '4px'
     item.el.style.cursor = 'text'
-    item.el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    // Instant, not smooth — a smooth scroll leaves a window where a click
+    // meant for the target lands on whatever is still under the cursor,
+    // stealing focus (and silently dropping every keystroke after it).
+    item.el.scrollIntoView({ behavior: 'instant', block: 'center' })
 
     const pasteHandler = e => {
       e.preventDefault()
