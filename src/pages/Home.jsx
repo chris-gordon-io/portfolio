@@ -184,6 +184,7 @@ function ProjectCardWithCursor({ project }) {
 
 export default function Home() {
   const workLabelRef = useReveal()
+  const heroRef = useReveal({ threshold: 0.05, rootMargin: '0px' })
 
   return (
     <div className="home">
@@ -193,7 +194,7 @@ export default function Home() {
       {/* Hero */}
       <section className="hero">
         <div className="hero-inner">
-        <div className="hero-text">
+        <div ref={heroRef} className="hero-text reveal reveal--hero">
           <div className="hero-row">
             <h1>Hi, I'm <HeroPill
               src="https://framerusercontent.com/images/7JaK76epjAcaHSNBbj2wWGOWQI.jpeg"
