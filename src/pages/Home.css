@@ -96,7 +96,7 @@
 }
 
 .hero h1 {
-  font-family: 'Instrument Serif', serif;
+  font-family: var(--font-family);
   font-size: var(--hero-font);
   font-weight: 400;
   line-height: 1.15;
