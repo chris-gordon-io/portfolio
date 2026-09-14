@@ -160,7 +160,7 @@
   align-items: flex-start;
   justify-content: center;
   background: #fdf5f3;
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   padding: 40px;
   width: 100%;
   max-width: 900px;
@@ -183,7 +183,7 @@
 .p1-phone-fig img {
   width: 100%;
   display: block;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .p1-phone-fig figcaption {
@@ -195,7 +195,7 @@
 /* ── Wide card (full-width images) ── */
 .p1-wide-card {
   background: #ffffff;
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
   width: 100%;
   max-width: 900px;
@@ -250,7 +250,7 @@
 /* ── Hypothesis ── */
 .p1-hypothesis {
   background: #ffffff;
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   padding: 48px;
   width: 100%;
   max-width: 900px;

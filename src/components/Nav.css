@@ -19,7 +19,7 @@
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   box-shadow: 0px 4px 40px 0px rgba(39, 39, 55, 0.1);
   position: relative;
   pointer-events: all;
@@ -30,7 +30,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.6);
   pointer-events: none;
   transition:
@@ -47,7 +47,7 @@
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   text-decoration: none;
   position: relative;
   z-index: 1;
@@ -61,7 +61,7 @@
   letter-spacing: -0.02em;
   white-space: nowrap;
   padding: var(--space-s) 12px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   position: relative;
   z-index: 1;
   transition: color 0.2s;

@@ -15,7 +15,7 @@
   background: #23233B;
   color: #ffffff;
   padding: 10px 16px 10px 20px;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   white-space: nowrap;
   transform: translate(-50%, -50%);
 }

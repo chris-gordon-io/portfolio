@@ -20,7 +20,7 @@
   position: relative;
   background: #F0B4A4;
   border: 1.5px solid #E16949;
-  border-radius: 0 9999px 9999px 9999px;
+  border-radius: 0 var(--radius-full) var(--radius-full) var(--radius-full);
   padding: 6px 12px;
   font-size: 17px;
   font-weight: 400;

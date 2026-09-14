@@ -10,7 +10,7 @@
   width: 100%;
   max-width: 900px;
   background: #23233B;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: 48px;
   display: flex;
   flex-direction: column;

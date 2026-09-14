@@ -6,7 +6,7 @@
 
 .footer {
   background: #23233B;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: var(--space-l) var(--space-xl);
   width: 100%;
   box-sizing: border-box;
