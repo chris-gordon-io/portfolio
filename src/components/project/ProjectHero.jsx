@@ -1,3 +1,4 @@
+import { useReveal } from '../../hooks/useReveal'
 import './ProjectComponents.css'
 
 /**
@@ -13,10 +14,12 @@ export default function ProjectHero({
   wide = false,
   fullWidth = false,
 }) {
+  const ref = useReveal({ threshold: 0.05, rootMargin: '0px' })
   return (
     <div className="pc-hero-section" data-dev-component="Hero">
       <div
-        className={fullWidth ? 'pc-hero pc-hero--full' : 'pc-hero'}
+        ref={ref}
+        className={`${fullWidth ? 'pc-hero pc-hero--full' : 'pc-hero'} reveal reveal--hero`}
         style={{ background }}
       >
         {image && (
