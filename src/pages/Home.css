@@ -196,13 +196,20 @@
   opacity: 0.85;
 }
 
-/* All variants — no fill, 80% dark outline */
-.hero-pill--light,
-.hero-pill--solid,
+/* Chip fills — matches Figma node 3183:3853 */
+.hero-pill--light {
+  background: #272737;
+  color: #e9e9eb;
+}
+
+.hero-pill--solid {
+  background: #da441b;
+  color: #fbece8;
+}
+
 .hero-pill--outline {
-  background: transparent;
-  color: var(--color-ink);
-  border: 2px solid #4F4F62;
+  background: #ffffff;
+  color: #e16949;
 }
 
 .hero-pill--solid::before {
