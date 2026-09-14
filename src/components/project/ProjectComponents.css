@@ -474,6 +474,21 @@
   box-sizing: border-box;
 }
 
+.pc-impact-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 40px;
+  height: 40px;
+  background: #DA441B;
+  border-radius: 12px;
+  margin: 0 0 var(--space-s);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
 .pc-impact-eyebrow {
   font-size: 28px;
   font-weight: 700;
