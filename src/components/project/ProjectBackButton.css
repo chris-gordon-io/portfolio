@@ -16,8 +16,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: var(--space-xs) var(--space-s) var(--space-xs) var(--space-m);
-  width: 141px;
+  padding: var(--space-xs) var(--space-m) var(--space-xs) var(--space-s);
+  width: max-content;
   height: 44px;
   border-radius: var(--radius-full);
   border: 2px solid #23233B;
