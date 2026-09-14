@@ -116,7 +116,7 @@
 /* ── Topline container ── */
 .pc-topline-container {
   width: 100%;
-  min-height: 72vh;
+  min-height: 60vh;
   padding: 120px var(--space-l);
   border: 1px solid #ffffff;
   border-radius: var(--radius-lg);
@@ -132,7 +132,9 @@
   max-width: 620px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0;
+  text-align: center;
 }
 
 /* ── Hero section wrapper ── */
@@ -487,7 +489,7 @@
 
 .pc-impact-container {
   width: 100%;
-  min-height: 72vh;
+  min-height: 60vh;
   padding: 120px var(--space-l);
   border-radius: var(--radius-lg);
   background: #23233B;
