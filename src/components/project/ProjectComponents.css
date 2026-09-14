@@ -61,8 +61,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 60vh;
   padding: 0 120px var(--space-xl);
   width: 100%;
   max-width: 1200px;
@@ -86,23 +84,22 @@
 
 .pc-content-block {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: var(--space-m);
+  align-items: flex-start;
   width: 100%;
-  max-width: 700px;
-  text-align: center;
+  max-width: 900px;
 }
 
 .pc-col-heading {
+  flex: 1 0 0;
   min-width: 0;
 }
 
 .pc-col-body {
+  flex: 1 0 0;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: var(--space-m);
 }
 
