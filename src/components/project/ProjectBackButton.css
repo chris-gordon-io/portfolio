@@ -1,7 +1,7 @@
 .pb-wrapper {
   align-self: stretch;
   margin: 0 var(--space-m) var(--space-m);
-  background: #FFFFFF;
+  background: var(--color-accent);
   border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
