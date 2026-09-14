@@ -28,7 +28,7 @@ export default function Benchmark() {
       </div>
 
       <ProjectTopline>
-        Creating a complex, multi-app estimating and reporting tool from the ground up — working closely with Stakeholders, some of whom weren't even sure how the existing product worked, to redefine fragmented workflows into a single, coherent experience.
+        Creating a complex, multi-app estimating and reporting tool from the ground up, working closely with Stakeholders, some of whom weren't even sure how the existing product worked, to redefine fragmented workflows into a single, coherent experience.
       </ProjectTopline>
 
       <ProjectText heading="About">
