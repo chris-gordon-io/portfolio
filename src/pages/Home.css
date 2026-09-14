@@ -97,7 +97,7 @@
 
 .hero h1 {
   font-family: var(--font-family);
-  font-size: var(--hero-font);
+  font-size: calc(var(--hero-font) * (44 / 52));
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -1px;
@@ -113,7 +113,6 @@
 .hero h1 em {
   color: #4F4F62;
   font-style: normal;
-  font-size: calc(var(--hero-font) * (44 / 52));
 }
 
 .hero h1.muted {
