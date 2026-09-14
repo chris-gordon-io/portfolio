@@ -30,6 +30,15 @@ export default function Benchmark() {
         Creating a complex App from the foundations up working with Stakeholders to redefine their workflows.
       </ProjectTopline>
 
+      <ProjectText heading="Section heading">
+        <p className="pc-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, bringing structure and clarity to complex workflows.
+        </p>
+        <p className="pc-body">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Working closely with stakeholders to validate assumptions and iterate toward a solution that scales.
+        </p>
+      </ProjectText>
+
       <ProjectImage
         variant="wide"
         caption="Work Break Down Structure Screen"
@@ -50,15 +59,6 @@ export default function Benchmark() {
         src="/images/benchmark/benchmark-3.png"
         alt="Settings Screen"
       />
-
-      <ProjectText heading="Section heading">
-        <p className="pc-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, bringing structure and clarity to complex workflows.
-        </p>
-        <p className="pc-body">
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Working closely with stakeholders to validate assumptions and iterate toward a solution that scales.
-        </p>
-      </ProjectText>
 
       <ProjectBackButton />
 
