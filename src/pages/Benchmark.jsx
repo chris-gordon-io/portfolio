@@ -71,7 +71,7 @@ export default function Benchmark() {
       />
 
       <ProjectImpact>
-        In an ambiguous, delivery-driven project, my biggest impact was spotting the need for a Design System early — winning stakeholder buy-in, building it from nothing, and partnering with an offshore dev team to ship it in code.
+        In an ambiguous, delivery-driven project, my biggest impact was spotting the need for a Design System early, winning stakeholder buy-in, building it from nothing, and partnering with an offshore dev team to ship it in code.
       </ProjectImpact>
 
       <ProjectBackButton />
