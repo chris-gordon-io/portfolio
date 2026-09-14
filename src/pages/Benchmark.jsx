@@ -30,12 +30,15 @@ export default function Benchmark() {
         Creating a complex App from the foundations up working with Stakeholders to redefine their workflows.
       </ProjectTopline>
 
-      <ProjectText heading="Section heading">
+      <ProjectText heading="About">
         <p className="pc-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, bringing structure and clarity to complex workflows.
+          Benchmark is a B2B SaaS business providing tools to the large scale construction Industries (think roads and water) globally.
         </p>
         <p className="pc-body">
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Working closely with stakeholders to validate assumptions and iterate toward a solution that scales.
+          I was brought in to Vigo agency as a Lead Designer to work with the newly formed Product team (BM side) and help shape the next generation of this tool.
+        </p>
+        <p className="pc-body">
+          The project was unique in the way that even some of the Senior Stakeholders at Benchmark were unsure how the current product actually worked.
         </p>
       </ProjectText>
 
