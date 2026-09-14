@@ -484,7 +484,7 @@
   height: 40px;
   background: #DA441B;
   border-radius: 12px;
-  margin: 0 0 var(--space-s);
+  margin: 0 0 var(--space-m);
   flex-shrink: 0;
   box-sizing: border-box;
 }
