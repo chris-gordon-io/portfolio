@@ -1,361 +1,35 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
-
-const AVAILABLE = [
-  'Title', 'Hero', 'Topline', 'Impact', 'Hypothesis',
-  'Callout', 'Text', 'Image', 'Metrics', 'Back Button',
-]
 
 export default function DevPanel() {
   if (!import.meta.env.DEV) return null
   return <Panel />
 }
 
-// The "root" moveable/deleteable node for a component element
-function getRootNode(el) {
-  return el.closest('.pc-intro-wrapper') || el
-}
-
-// Stable key: "name:indexWithinSameName"
-function makeKey(name, idx) { return `${name}:${idx}` }
-
-// Build a {key -> el} map from an elements array
-function buildElMap(els) {
-  const counts = {}
-  const map = {}
-  els.forEach(el => {
-    const name = el.getAttribute('data-dev-component')
-    const idx = counts[name] ?? 0
-    counts[name] = idx + 1
-    map[makeKey(name, idx)] = el
-  })
-  return map
-}
-
-// ── Content persistence ──────────────────────────────────────────────────────
-
-function contentKey(pathname, name, idx) {
-  return `dev:${pathname}:${name}:${idx}`
-}
-
-function structureKey(pathname) {
-  return `dev:${pathname}:__structure__`
-}
-
-function saveAll(pathname, els) {
-  // Save content
-  const counts = {}
-  els.forEach(el => {
-    const name = el.getAttribute('data-dev-component')
-    const idx = counts[name] ?? 0
-    counts[name] = idx + 1
-    localStorage.setItem(contentKey(pathname, name, idx), el.innerHTML)
-  })
-  // Save structure (ordered list of {name, idx})
-  const counts2 = {}
-  const structure = els.map(el => {
-    const name = el.getAttribute('data-dev-component')
-    const idx = counts2[name] ?? 0
-    counts2[name] = idx + 1
-    return { name, idx }
-  })
-  localStorage.setItem(structureKey(pathname), JSON.stringify(structure))
-}
-
-function restoreAll(pathname, els) {
-  const savedStructure = localStorage.getItem(structureKey(pathname))
-  if (!savedStructure) {
-    // No structure saved — just restore content
-    const counts = {}
-    els.forEach(el => {
-      const name = el.getAttribute('data-dev-component')
-      const idx = counts[name] ?? 0
-      counts[name] = idx + 1
-      const saved = localStorage.getItem(contentKey(pathname, name, idx))
-      if (saved) el.innerHTML = saved
-    })
-    return
-  }
-
-  const structure = JSON.parse(savedStructure)
-  const elMap = buildElMap(els)
-  const savedKeys = new Set(structure.map(({ name, idx }) => makeKey(name, idx)))
-
-  // Remove elements not in saved structure
-  els.forEach(el => {
-    // find this el's key
-    const name = el.getAttribute('data-dev-component')
-    // recompute idx inline: count how many same-name els come before this one
-    const sameNameBefore = els.slice(0, els.indexOf(el)).filter(e => e.getAttribute('data-dev-component') === name).length
-    const key = makeKey(name, sameNameBefore)
-    if (!savedKeys.has(key)) {
-      getRootNode(el).remove()
-    }
-  })
-
-  // Restore content on remaining elements
-  const remaining = Array.from(document.querySelectorAll('[data-dev-component]'))
-  const remainingMap = buildElMap(remaining)
-  structure.forEach(({ name, idx }) => {
-    const el = remainingMap[makeKey(name, idx)]
-    if (!el) return
-    const saved = localStorage.getItem(contentKey(pathname, name, idx))
-    if (saved) el.innerHTML = saved
-  })
-
-  // Reorder remaining root nodes to match saved structure
-  const orderedRoots = structure
-    .map(({ name, idx }) => remainingMap[makeKey(name, idx)])
-    .filter(Boolean)
-    .map(getRootNode)
-    // deduplicate (Title + Hero share the same pc-intro-wrapper root)
-    .filter((root, i, arr) => arr.indexOf(root) === i)
-
-  if (orderedRoots.length === 0) return
-  const parent = orderedRoots[0].parentElement
-  if (!parent) return
-  // appendChild moves each node to end in order — effectively sorts them
-  orderedRoots.forEach(root => {
-    if (root.parentElement === parent) parent.appendChild(root)
-  })
-}
-
 function Panel() {
   const location = useLocation()
   const [items, setItems] = useState([])
-  const [dragOver, setDragOver] = useState(null)
-  const [showAdd, setShowAdd] = useState(false)
   const [visible, setVisible] = useState(true)
-  const [editingUid, setEditingUid] = useState(null)
-  const dragSrc = useRef(null)
 
   const scan = useCallback(() => {
     const els = Array.from(document.querySelectorAll('[data-dev-component]'))
-    els.forEach(el => {
-      if (!el.dataset.devUid) {
-        el.dataset.devUid = Math.random().toString(36).slice(2)
-      }
-    })
-    restoreAll(location.pathname, els)
-    // Re-query after restore (removes may have happened)
-    const afterRestore = Array.from(document.querySelectorAll('[data-dev-component]'))
-    afterRestore.forEach(el => {
-      if (!el.dataset.devUid) {
-        el.dataset.devUid = Math.random().toString(36).slice(2)
-      }
-    })
-    setItems(afterRestore.map(el => ({
+    setItems(els.map((el, i) => ({
       label: el.getAttribute('data-dev-component'),
       el,
-      uid: el.dataset.devUid,
+      number: i + 1,
     })))
-  }, [location.pathname])
+  }, [])
 
   useEffect(() => {
     const t = setTimeout(scan, 50)
     return () => clearTimeout(t)
   }, [scan, location.pathname])
 
-  function persistCurrent() {
-    const els = Array.from(document.querySelectorAll('[data-dev-component]'))
-    saveAll(location.pathname, els)
-  }
-
-  // Turn edit mode on/off for a component
-  function toggleEdit(item) {
-    if (editingUid === item.uid) {
-      stopEditing(item)
-      persistCurrent()
-      setEditingUid(null)
-    } else {
-      if (editingUid) {
-        const prev = items.find(x => x.uid === editingUid)
-        if (prev) stopEditing(prev)
-      }
-      startEditing(item)
-      setEditingUid(item.uid)
-    }
-  }
-
-  function startEditing(item) {
-    item.el.setAttribute('contenteditable', 'true')
-    item.el.style.outline = '1.5px dashed #F4691A'
-    item.el.style.outlineOffset = '4px'
-    item.el.style.cursor = 'text'
-    // Instant, not smooth — a smooth scroll leaves a window where a click
-    // meant for the target lands on whatever is still under the cursor,
-    // stealing focus (and silently dropping every keystroke after it).
-    item.el.scrollIntoView({ behavior: 'instant', block: 'center' })
-
-    const pasteHandler = e => {
-      e.preventDefault()
-      const text = e.clipboardData.getData('text/plain')
-      document.execCommand('insertText', false, text)
-    }
-    item.el.addEventListener('paste', pasteHandler)
-    item.el._pasteHandler = pasteHandler
-
-    const inputHandler = () => persistCurrent()
-    item.el.addEventListener('input', inputHandler)
-    item.el._inputHandler = inputHandler
-
-    const first = item.el.querySelector('p, h1, h2, h3, div')
-    first?.focus()
-  }
-
-  function stopEditing(item) {
-    item.el.removeAttribute('contenteditable')
-    item.el.style.outline = ''
-    item.el.style.cursor = ''
-    if (item.el._pasteHandler) {
-      item.el.removeEventListener('paste', item.el._pasteHandler)
-      delete item.el._pasteHandler
-    }
-    if (item.el._inputHandler) {
-      item.el.removeEventListener('input', item.el._inputHandler)
-      delete item.el._inputHandler
-    }
-  }
-
-  function handleDragStart(i) {
-    dragSrc.current = i
-  }
-
-  function handleDrop(i) {
-    if (dragSrc.current === null || dragSrc.current === i) return
-    const src = items[dragSrc.current]
-    const target = items[i]
-    if (src.el.parentNode !== target.el.parentNode) {
-      const srcNode = getRootNode(src.el)
-      const targetNode = getRootNode(target.el)
-      if (dragSrc.current < i) {
-        targetNode.parentNode?.insertBefore(srcNode, targetNode.nextSibling)
-      } else {
-        targetNode.parentNode?.insertBefore(srcNode, targetNode)
-      }
-    } else {
-      if (dragSrc.current < i) {
-        target.el.parentNode.insertBefore(src.el, target.el.nextSibling)
-      } else {
-        target.el.parentNode.insertBefore(src.el, target.el)
-      }
-    }
-    dragSrc.current = null
-    setDragOver(null)
-    persistCurrent()
-    scan()
-  }
-
-  function handleDelete(i) {
-    const el = items[i].el
-    if (editingUid === items[i].uid) {
-      stopEditing(items[i])
-      setEditingUid(null)
-    }
-    getRootNode(el).remove()
-    persistCurrent()
-    scan()
-  }
-
   function scrollTo(el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    el.scrollIntoView({ behavior: 'instant', block: 'center' })
     el.style.outline = '2px solid #F4691A'
     el.style.outlineOffset = '4px'
     setTimeout(() => { el.style.outline = ''; el.style.outlineOffset = '' }, 1500)
-  }
-
-  function addPlaceholder(name) {
-    const div = document.createElement('div')
-    div.setAttribute('data-dev-component', name)
-
-    const templates = {
-      'Title': `
-        <div class="pc-title-block">
-          <h1 class="pc-title">Project title</h1>
-          <p class="pc-subtitle">Sub line information</p>
-        </div>`,
-      'Topline': `
-        <div class="pc-topline-section">
-          <div class="pc-topline-container">
-            <div class="pc-topline-inner">
-              <p class="pc-topline-eyebrow">Topline</p>
-              <div class="pc-topline-headline">How I identified a larger problem and created a holistic solution.</div>
-            </div>
-          </div>
-        </div>`,
-      'Impact': `
-        <div class="pc-impact-section">
-          <div class="pc-impact-container">
-            <div class="pc-topline-inner">
-              <p class="pc-impact-eyebrow">Impact</p>
-              <div class="pc-impact-headline">A meaningful outcome that changed how users experience the product.</div>
-            </div>
-          </div>
-        </div>`,
-      'Hypothesis': `
-        <div class="pc-section pc-section--slim">
-          <div class="pc-hypothesis">
-            <p class="pc-hypothesis-label">Hypothesis</p>
-            <p class="pc-hypothesis-text">We believe that if we do X, users will experience Y, resulting in Z.</p>
-          </div>
-        </div>`,
-      'Callout': `
-        <div class="pc-section">
-          <div class="pc-callout">
-            <p class="pc-callout-eyebrow">About</p>
-            <div class="pc-callout-body">
-              <p>Add context here — background, constraints, or the setup for this piece of work.</p>
-              <p>A second paragraph with supporting detail or framing of the challenge.</p>
-            </div>
-          </div>
-        </div>`,
-      'Text': `
-        <div class="pc-section">
-          <div class="pc-content-block">
-            <div class="pc-col-heading">
-              <h2 class="pc-heading">Section heading</h2>
-            </div>
-            <div class="pc-col-body">
-              <p class="pc-body">Add your body copy here — context, explanation, or supporting detail for this section of the case study.</p>
-              <p class="pc-body">A second paragraph. You can add as much content as needed.</p>
-            </div>
-          </div>
-        </div>`,
-      'Metrics': `
-        <div class="pc-metrics-section">
-          <div class="pc-metrics-block">
-            <div class="pc-content-block">
-              <div class="pc-col-heading"><h2 class="pc-heading muted">Results</h2></div>
-              <div class="pc-col-body">
-                <p class="pc-body light">Each change had a measurable positive impact.</p>
-                <div class="pc-stat-cards">
-                  <div class="pc-stat-card"><span class="pc-stat-number">+0.0%</span><span class="pc-stat-label">Metric label</span></div>
-                  <div class="pc-stat-card"><span class="pc-stat-number">+0.0%</span><span class="pc-stat-label">Metric label</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>`,
-      'Back Button': `
-        <div class="pb-wrapper">
-          <a href="/" class="pb-button">
-            <span class="pb-button-text">See all work</span>
-            <svg class="pb-button-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="2" y1="8" x2="14" y2="8" stroke="#23233B" stroke-width="1.5" stroke-linecap="round"/>
-              <polyline points="9,4 14,8 9,12" fill="none" stroke="#23233B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>`,
-    }
-
-    div.innerHTML = templates[name] || `<div style="padding:40px;text-align:center;color:#999">[${name}]</div>`
-
-    const last = items[items.length - 1]?.el
-    if (last) last.parentNode.insertBefore(div, last.nextSibling)
-    else document.body.appendChild(div)
-    setShowAdd(false)
-    persistCurrent()
-    scan()
   }
 
   // ── collapsed toggle ──────────────────────────────────────────
@@ -386,17 +60,7 @@ function Panel() {
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 8px 8px', borderBottom: '1px solid #f0f0f0', marginBottom: 6 }}>
         <span style={{ fontWeight: 600, fontSize: 11, color: '#888', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Dev · Components</span>
-        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-          <button
-            onClick={() => {
-              Object.keys(localStorage).filter(k => k.startsWith(`dev:${location.pathname}`)).forEach(k => localStorage.removeItem(k))
-              window.location.reload()
-            }}
-            title="Clear saved edits"
-            style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#bbb', fontSize: 10, padding: 0 }}
-          >reset</button>
-          <button onClick={() => setVisible(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#bbb', fontSize: 14, lineHeight: 1, padding: 0 }}>×</button>
-        </div>
+        <button onClick={() => setVisible(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#bbb', fontSize: 14, lineHeight: 1, padding: 0 }}>×</button>
       </div>
 
       {/* List */}
@@ -404,85 +68,23 @@ function Panel() {
         {items.length === 0 && (
           <p style={{ color: '#bbb', textAlign: 'center', padding: '12px 8px', margin: 0 }}>No components found</p>
         )}
-        {items.map((item, i) => {
-          const isEditing = editingUid === item.uid
-          return (
-            <div
-              key={item.uid}
-              draggable
-              onDragStart={() => handleDragStart(i)}
-              onDragOver={e => { e.preventDefault(); setDragOver(i) }}
-              onDragLeave={() => setDragOver(null)}
-              onDrop={() => handleDrop(i)}
-              style={{
-                display: 'flex', alignItems: 'center', gap: 4,
-                padding: '5px 6px', borderRadius: 8, cursor: 'grab',
-                background: isEditing ? '#fff8f4' : dragOver === i ? '#f5f5f5' : 'transparent',
-                borderTop: dragOver === i ? '2px solid #F4691A' : '2px solid transparent',
-                transition: 'background 0.1s',
-              }}
-            >
-              <span style={{ color: '#ccc', fontSize: 10, userSelect: 'none', flexShrink: 0 }}>⠿</span>
-
-              <span
-                onClick={() => scrollTo(item.el)}
-                style={{ flex: 1, color: '#23233B', cursor: 'pointer', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', userSelect: 'none', fontSize: 12 }}
-                title={item.label}
-              >
-                {item.label}
-              </span>
-
-              {/* Edit toggle */}
-              <button
-                onClick={() => toggleEdit(item)}
-                title={isEditing ? 'Done editing' : 'Edit content'}
-                style={{
-                  background: isEditing ? '#F4691A' : 'none',
-                  border: isEditing ? 'none' : '1px solid #e0e0e0',
-                  borderRadius: 4, cursor: 'pointer',
-                  color: isEditing ? '#fff' : '#aaa',
-                  fontSize: 10, lineHeight: 1, padding: '2px 4px', flexShrink: 0,
-                }}
-              >
-                {isEditing ? 'done' : '✏'}
-              </button>
-
-              {/* Delete */}
-              <button
-                onClick={() => handleDelete(i)}
-                title="Remove"
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#ddd', fontSize: 14, lineHeight: 1, padding: 0, flexShrink: 0 }}
-              >×</button>
-            </div>
-          )
-        })}
-      </div>
-
-      {/* Add */}
-      <div style={{ borderTop: '1px solid #f0f0f0', paddingTop: 6, marginTop: 6 }}>
-        {showAdd ? (
-          <div>
-            {AVAILABLE.map(name => (
-              <button
-                key={name}
-                onClick={() => addPlaceholder(name)}
-                style={{ display: 'block', width: '100%', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: '5px 8px', borderRadius: 6, color: '#23233B', fontSize: 12 }}
-                onMouseEnter={e => e.currentTarget.style.background = '#f5f5f5'}
-                onMouseLeave={e => e.currentTarget.style.background = 'none'}
-              >+ {name}</button>
-            ))}
-            <button onClick={() => setShowAdd(false)} style={{ display: 'block', width: '100%', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: '5px 8px', color: '#bbb', fontSize: 12 }}>Cancel</button>
-          </div>
-        ) : (
-          <button
-            onClick={() => setShowAdd(true)}
-            style={{ display: 'flex', alignItems: 'center', gap: 4, width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '6px 8px', borderRadius: 8, color: '#888', fontSize: 12 }}
+        {items.map(item => (
+          <div
+            key={item.number}
+            onClick={() => scrollTo(item.el)}
+            style={{
+              display: 'flex', alignItems: 'center', gap: 8,
+              padding: '5px 8px', borderRadius: 8, cursor: 'pointer',
+            }}
             onMouseEnter={e => e.currentTarget.style.background = '#f5f5f5'}
-            onMouseLeave={e => e.currentTarget.style.background = 'none'}
+            onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
           >
-            <span style={{ fontSize: 16, lineHeight: 1 }}>+</span> Add component
-          </button>
-        )}
+            <span style={{ color: '#bbb', fontSize: 11, flexShrink: 0, minWidth: 14, textAlign: 'right' }}>{item.number}</span>
+            <span style={{ flex: 1, color: '#23233B', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={item.label}>
+              {item.label}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   )
