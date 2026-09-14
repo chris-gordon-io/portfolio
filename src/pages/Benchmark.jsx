@@ -39,6 +39,15 @@ export default function Benchmark() {
         </p>
       </ProjectText>
 
+      <ProjectText heading="Section heading">
+        <p className="pc-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, bringing structure and clarity to complex workflows.
+        </p>
+        <p className="pc-body">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Working closely with stakeholders to validate assumptions and iterate toward a solution that scales.
+        </p>
+      </ProjectText>
+
       <ProjectImage
         variant="wide"
         caption="Work Break Down Structure Screen"
