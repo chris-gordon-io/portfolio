@@ -71,7 +71,7 @@ export default function Benchmark() {
       />
 
       <ProjectImpact>
-        While I helped guide a delivery-centric, often ambiguous project, I think my biggest impact was spotting the need for a Design System early on — winning stakeholder buy-in for the effort and value, building one from nothing, and working closely with an offshore dev team to bring it to life in code.
+        In an ambiguous, delivery-driven project, my biggest impact was spotting the need for a Design System early — winning stakeholder buy-in, building it from nothing, and partnering with an offshore dev team to ship it in code.
       </ProjectImpact>
 
       <ProjectBackButton />
