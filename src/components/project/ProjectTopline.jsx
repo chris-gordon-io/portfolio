@@ -3,7 +3,11 @@ import './ProjectComponents.css'
 function TopIcon() {
   return (
     <div className="pc-topline-icon">
-      <span className="pc-topline-icon-glyph">i</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="#ffffff" strokeWidth="2"/>
+        <circle cx="12" cy="12" r="6" stroke="#ffffff" strokeWidth="2"/>
+        <circle cx="12" cy="12" r="2" fill="#ffffff"/>
+      </svg>
     </div>
   )
 }

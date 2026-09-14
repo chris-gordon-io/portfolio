@@ -401,14 +401,6 @@
   box-sizing: border-box;
 }
 
-.pc-topline-icon-glyph {
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1;
-  color: #ffffff;
-}
-
 .pc-topline-eyebrow {
   font-size: 28px;
   font-weight: 700;
