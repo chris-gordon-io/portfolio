@@ -184,7 +184,9 @@ function ProjectCardWithCursor({ project }) {
 
 export default function Home() {
   const workLabelRef = useReveal()
-  const heroRef = useReveal({ threshold: 0.05, rootMargin: '0px' })
+  const heroRow1Ref = useReveal({ threshold: 0.05, rootMargin: '0px' })
+  const heroRow2Ref = useReveal({ threshold: 0.05, rootMargin: '0px' })
+  const heroRow3Ref = useReveal({ threshold: 0.05, rootMargin: '0px' })
 
   return (
     <div className="home">
@@ -194,8 +196,8 @@ export default function Home() {
       {/* Hero */}
       <section className="hero">
         <div className="hero-inner">
-        <div ref={heroRef} className="hero-text reveal reveal--hero">
-          <div className="hero-row">
+        <div className="hero-text reveal-group">
+          <div ref={heroRow1Ref} className="hero-row reveal reveal--hero">
             <h1>Hi, I'm <HeroPill
               src="https://framerusercontent.com/images/7JaK76epjAcaHSNBbj2wWGOWQI.jpeg"
               label="Chris"
@@ -204,10 +206,10 @@ export default function Home() {
               renderOverlay={({ x, y }) => <ChrisBubble x={x} y={y} />}
             />,</h1>
           </div>
-          <div className="hero-row">
+          <div ref={heroRow2Ref} className="hero-row reveal reveal--hero">
             <h1>a <CyclingDesignerPill /><br className="hero-mobile-break" /> who turns <em>trust into conversion</em>,</h1>
           </div>
-          <div className="hero-row">
+          <div ref={heroRow3Ref} className="hero-row reveal reveal--hero">
             <h1>based in <HeroPill
               label="East London"
               variant="outline"

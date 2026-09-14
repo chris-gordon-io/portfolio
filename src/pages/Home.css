@@ -88,14 +88,19 @@
   text-align: center;
 }
 
-/* More obvious, slower fade-up than the default .reveal--hero timing */
-.hero-text.reveal {
+/* Each hero row fades up individually, staggered — more obvious and
+   slower than the default .reveal--hero timing */
+.hero-row.reveal {
   transition-duration: 2.2s;
 }
 
-.hero-text.reveal:not(.revealed) {
+.hero-row.reveal:not(.revealed) {
   transform: translateY(56px);
 }
+
+.reveal-group .hero-row.reveal:nth-child(1) { transition-delay: 0ms; }
+.reveal-group .hero-row.reveal:nth-child(2) { transition-delay: 150ms; }
+.reveal-group .hero-row.reveal:nth-child(3) { transition-delay: 300ms; }
 
 .hero-row {
   display: flex;
