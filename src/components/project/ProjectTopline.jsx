@@ -1,3 +1,4 @@
+import { useReveal } from '../../hooks/useReveal'
 import './ProjectComponents.css'
 
 function TopIcon() {
@@ -13,8 +14,9 @@ function TopIcon() {
 }
 
 export default function ProjectTopline({ children }) {
+  const ref = useReveal()
   return (
-    <div className="pc-topline-section" data-dev-component="Topline">
+    <div ref={ref} className="pc-topline-section reveal" data-dev-component="Topline">
       <div className="pc-topline-container">
         <div className="pc-topline-inner">
           <TopIcon />

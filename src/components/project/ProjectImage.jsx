@@ -1,3 +1,4 @@
+import { useReveal } from '../../hooks/useReveal'
 import './ProjectComponents.css'
 
 /**
@@ -11,9 +12,10 @@ import './ProjectComponents.css'
  */
 export default function ProjectImage({ variant = 'wide', caption, src, alt, phones = [] }) {
   const isTrio = variant === 'phones' && phones.length >= 3
+  const ref = useReveal()
 
   return (
-    <div className="pc-image-section" data-dev-component={`Image${caption ? ` — ${caption}` : ''}`}>
+    <div ref={ref} className="pc-image-section reveal" data-dev-component={`Image${caption ? ` — ${caption}` : ''}`}>
       {variant === 'wide' && (
         <div className="pc-wide-card">
           {caption && <p className="pc-image-title">{caption}</p>}

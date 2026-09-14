@@ -1,3 +1,4 @@
+import { useReveal } from '../../hooks/useReveal'
 import './ProjectComponents.css'
 
 /**
@@ -17,8 +18,9 @@ import './ProjectComponents.css'
  *   />
  */
 export default function ProjectMetrics({ heading = 'Results', intro, metrics = [] }) {
+  const ref = useReveal()
   return (
-    <div className="pc-metrics-section" data-dev-component="Metrics">
+    <div ref={ref} className="pc-metrics-section reveal" data-dev-component="Metrics">
       <div className="pc-metrics-block">
         <div className="pc-content-block">
           <div className="pc-col-heading">

@@ -1,3 +1,4 @@
+import { useReveal } from '../../hooks/useReveal'
 import './ProjectComponents.css'
 
 function ImpactIcon() {
@@ -11,8 +12,9 @@ function ImpactIcon() {
 }
 
 export default function ProjectImpact({ children }) {
+  const ref = useReveal()
   return (
-    <div className="pc-impact-section" data-dev-component="Impact">
+    <div ref={ref} className="pc-impact-section reveal" data-dev-component="Impact">
       <div className="pc-impact-container">
         <div className="pc-topline-inner">
           <ImpactIcon />
