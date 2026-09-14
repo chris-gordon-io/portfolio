@@ -16,17 +16,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Page transition — opens from the bottom ──
-   clip-path, not transform: animating transform here (even to a
-   no-op value) makes this element a containing block for
-   position:fixed descendants like the nav, breaking its stickiness. */
-@keyframes page-open-up {
-  from { clip-path: inset(100% 0 0 0); }
-  to   { clip-path: inset(0 0 0 0); }
+/* ── Page transition ──
+   Opacity only — animating transform here (even to a no-op value)
+   makes this element a containing block for position:fixed
+   descendants like the nav, breaking its stickiness. */
+@keyframes page-fade-up {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .page-enter {
-  animation: page-open-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: page-fade-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* ── Scroll reveal ── */
