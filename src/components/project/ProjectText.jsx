@@ -10,7 +10,7 @@ import './ProjectComponents.css'
  * @param {ReactNode} children     Body content — <p>, lists, checklists, etc.
  */
 export default function ProjectText({ heading, accent = false, slim = false, children }) {
-  const ref = useReveal()
+  const ref = useReveal({ once: false })
   return (
     <div ref={ref} className={`pc-section reveal${slim ? ' pc-section--slim' : ''}`} data-dev-component={`Text${heading ? ` — ${heading}` : ''}`}>
       <div className="pc-content-block">

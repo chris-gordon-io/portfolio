@@ -8,8 +8,10 @@ import { useEffect, useRef } from 'react'
  * @param {object} options
  * @param {number} options.threshold  0–1, how much of the element must be visible. Default 0.15.
  * @param {string} options.rootMargin Offset. Default "0px 0px -40px 0px" (triggers slightly before bottom edge).
+ * @param {boolean} options.once      If false, the class is removed again when the element leaves
+ *                                    the viewport, so it fades in AND out every time. Default true.
  */
-export function useReveal({ threshold = 0.15, rootMargin = '0px 0px -40px 0px' } = {}) {
+export function useReveal({ threshold = 0.15, rootMargin = '0px 0px -40px 0px', once = true } = {}) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -20,7 +22,9 @@ export function useReveal({ threshold = 0.15, rootMargin = '0px 0px -40px 0px' }
       ([entry]) => {
         if (entry.isIntersecting) {
           el.classList.add('revealed')
-          observer.unobserve(el) // animate once
+          if (once) observer.unobserve(el)
+        } else if (!once) {
+          el.classList.remove('revealed')
         }
       },
       { threshold, rootMargin }
@@ -28,7 +32,7 @@ export function useReveal({ threshold = 0.15, rootMargin = '0px 0px -40px 0px' }
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [threshold, rootMargin])
+  }, [threshold, rootMargin, once])
 
   return ref
 }
