@@ -90,8 +90,11 @@
 
 /* More obvious, slower fade-up than the default .reveal--hero timing */
 .hero-text.reveal {
-  transform: translateY(56px);
   transition-duration: 2.2s;
+}
+
+.hero-text.reveal:not(.revealed) {
+  transform: translateY(56px);
 }
 
 .hero-row {
