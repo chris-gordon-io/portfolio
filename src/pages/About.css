@@ -183,9 +183,10 @@
 }
 
 .bento-memoji {
-  width: 72px;
-  height: 72px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
+  align-self: center;
   margin-bottom: 8px;
 }
 
