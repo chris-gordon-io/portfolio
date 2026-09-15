@@ -59,6 +59,7 @@ export default function About() {
               Read CV
               <BentoArrow size={16} className="btn-icon" />
             </Button>
+            <p className="bento-cta-caption">Opens in Notion</p>
           </div>
           {/* CV page-fan visual — disabled for now, bring back later
           <div className="cv-stack" aria-hidden="true">
