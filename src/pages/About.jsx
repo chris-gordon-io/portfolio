@@ -5,6 +5,7 @@ import bikesImg from '../assets/Photo15_11A.jpg'
 import listeningToImg from '../assets/ListeningTo.jpg'
 import girlHoodImg from '../assets/GirlHood.jpg'
 import pizzaImg from '../assets/Pizza.webp'
+import memojiImg from '../assets/memoji.png'
 import './About.css'
 
 function BentoArrow({ size = 14 }) {
@@ -43,6 +44,7 @@ export default function About() {
         {/* C — centre hero, tall */}
         <div className="bento-cell bento-cell--c">
           <div className="bento-cell__body">
+            <img src={memojiImg} alt="" className="bento-memoji" />
             <p className="bento-cell__label">About me</p>
             <h2 className="bento-cell__title bento-cell__title--hero">A few of my other interests</h2>
             <p className="bento-cell__text bento-cell__text--hero">Just here for the work history? Skip to my CV.</p>

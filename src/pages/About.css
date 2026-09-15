@@ -182,6 +182,13 @@
   z-index: 1;
 }
 
+.bento-memoji {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
 .bento-cell__label {
   font-size: 13px;
   font-weight: 400;
