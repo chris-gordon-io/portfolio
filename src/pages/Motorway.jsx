@@ -2,7 +2,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import ProjectHero from '../components/project/ProjectHero'
 import ProjectTopline from '../components/project/ProjectTopline'
-import ProjectCallout from '../components/project/ProjectCallout'
+import ProjectText from '../components/project/ProjectText'
 import ProjectImage from '../components/project/ProjectImage'
 import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
@@ -28,21 +28,21 @@ export default function Motorway() {
         How I ran multiple A/B tests in a high focus area to optimise the customer activation flow and increase primary KPIs multiple times.
       </ProjectTopline>
 
-      <ProjectCallout eyebrow="About">
-        <p>Motorway started in 2017 with a vision to build a better car market for everyone, operating in a very competitive market against companies such as Carwow, Webuyanycar and Cinch.</p>
-        <p>I joined Motorway in summer 2023 and after an "easy in" learning the way the company works on internal tools was moved over to the Growth team tasked with optimising top of funnel — in this case the first four pages a (new) user would see when landing on Motorway.co.uk with the intent of (potentially) selling their car.</p>
-      </ProjectCallout>
+      <ProjectText heading="About">
+        <p className="pc-body">Motorway started in 2017 with a vision to build a better car market for everyone, operating in a very competitive market against companies such as Carwow, Webuyanycar and Cinch.</p>
+        <p className="pc-body">I joined Motorway in summer 2023 and after an "easy in" learning the way the company works on internal tools was moved over to the Growth team tasked with optimising top of funnel — in this case the first four pages a (new) user would see when landing on Motorway.co.uk with the intent of (potentially) selling their car.</p>
+      </ProjectText>
 
-      <ProjectCallout eyebrow="Heuristic evaluation of current experience">
-        <p>The first thing I did when joining this team was to go through the current experience and making some potentially quick and easy optimisation recommendations, these included things such as:</p>
+      <ProjectText heading="Heuristic evaluation of current experience">
+        <p className="pc-body">The first thing I did when joining this team was to go through the current experience and making some potentially quick and easy optimisation recommendations, these included things such as:</p>
         <div>
-          <p>✅ Making sure CTA's were visible across all viewports</p>
-          <p>✅ One Primary CTA on each page</p>
-          <p>✅ Increase Accessibility of form fields</p>
+          <p className="pc-body">✅ Making sure CTA's were visible across all viewports</p>
+          <p className="pc-body">✅ One Primary CTA on each page</p>
+          <p className="pc-body">✅ Increase Accessibility of form fields</p>
         </div>
-        <p>I shared the findings with the wider team (Lead Product Owner and full Dev team) to gauge thoughts and feelings as well as get a rough idea of effort involved (from an engineering perspective).</p>
-        <p>With the whole team aligned we wrote up tickets for refinement and rolled out each optimisation separately and measuring impact.</p>
-      </ProjectCallout>
+        <p className="pc-body">I shared the findings with the wider team (Lead Product Owner and full Dev team) to gauge thoughts and feelings as well as get a rough idea of effort involved (from an engineering perspective).</p>
+        <p className="pc-body">With the whole team aligned we wrote up tickets for refinement and rolled out each optimisation separately and measuring impact.</p>
+      </ProjectText>
 
       <ProjectImage
         variant="phones"
@@ -61,9 +61,9 @@ export default function Motorway() {
         ]}
       />
 
-      <ProjectCallout eyebrow="Additional action">
-        <p>Off the back of this we also rebuilt the header to reduce the amount of space it took up as during User Lab testing people were aware and confident that the valuation was related to the car details they had inputted and act as an enabler for more space for more valuable content.</p>
-      </ProjectCallout>
+      <ProjectText heading="Additional action">
+        <p className="pc-body">Off the back of this we also rebuilt the header to reduce the amount of space it took up as during User Lab testing people were aware and confident that the valuation was related to the car details they had inputted and act as an enabler for more space for more valuable content.</p>
+      </ProjectText>
 
       <ProjectImage
         variant="phones"
@@ -74,15 +74,15 @@ export default function Motorway() {
         ]}
       />
 
-      <ProjectCallout eyebrow="Problem / Opportunity space">
-        <p>A previous study and continual discovery (through moderated user testing) pointed to 3 key drivers for users to sell their car to design to:</p>
+      <ProjectText heading="Problem / Opportunity space">
+        <p className="pc-body">A previous study and continual discovery (through moderated user testing) pointed to 3 key drivers for users to sell their car to design to:</p>
         <div>
-          <p>💰 Price (how much)</p>
-          <p>💰 Price (how did MW get this price and can I trust I will get it)</p>
-          <p>⚙️ Process (Understanding/Confidence in what happens next)</p>
+          <p className="pc-body">💰 Price (how much)</p>
+          <p className="pc-body">💰 Price (how did MW get this price and can I trust I will get it)</p>
+          <p className="pc-body">⚙️ Process (Understanding/Confidence in what happens next)</p>
         </div>
-        <p>Looking at our funnel data we had two big opportunity spaces, the home page and the offer select page (offer select page being the larger of the two based on the numbers 15.3% vs 30.3% vs Previous). The Home page had recently been fully redesigned and A/B tested on with little to no impact so there was little appetite to focus on that for now.</p>
-      </ProjectCallout>
+        <p className="pc-body">Looking at our funnel data we had two big opportunity spaces, the home page and the offer select page (offer select page being the larger of the two based on the numbers 15.3% vs 30.3% vs Previous). The Home page had recently been fully redesigned and A/B tested on with little to no impact so there was little appetite to focus on that for now.</p>
+      </ProjectText>
 
       <ProjectImage
         variant="wide"
@@ -91,9 +91,9 @@ export default function Motorway() {
         alt="Conversion funnel data"
       />
 
-      <ProjectCallout eyebrow="How we tackled this">
-        <p>To kick this new focus off I ran a team wide workshop to pull in everyone's knowledge, opinions and ideas around the current experience.</p>
-      </ProjectCallout>
+      <ProjectText heading="How we tackled this">
+        <p className="pc-body">To kick this new focus off I ran a team wide workshop to pull in everyone's knowledge, opinions and ideas around the current experience.</p>
+      </ProjectText>
 
       <ProjectImage
         variant="wide"
@@ -102,9 +102,9 @@ export default function Motorway() {
         alt="Full squad FigJam workshops"
       />
 
-      <ProjectCallout eyebrow="Creating a North Star">
-        <p>Off the back of the team workshops and research gathering sessions I started to create a North Star vision for the offer select page, focussing on why the page exists, identifying value for users, while making it achievable within a rough year timeframe.</p>
-      </ProjectCallout>
+      <ProjectText heading="Creating a North Star">
+        <p className="pc-body">Off the back of the team workshops and research gathering sessions I started to create a North Star vision for the offer select page, focussing on why the page exists, identifying value for users, while making it achievable within a rough year timeframe.</p>
+      </ProjectText>
 
       <ProjectImage
         variant="wide"
@@ -113,9 +113,9 @@ export default function Motorway() {
         alt="North star wireframes"
       />
 
-      <ProjectCallout eyebrow="How are we going to get there?">
-        <p>I broke down each element of the offer select page and mapped it out to a testable plan to work out our path to our North Star, validating and understanding the value of each element along the way.</p>
-      </ProjectCallout>
+      <ProjectText heading="How are we going to get there?">
+        <p className="pc-body">I broke down each element of the offer select page and mapped it out to a testable plan to work out our path to our North Star, validating and understanding the value of each element along the way.</p>
+      </ProjectText>
 
       <ProjectImage
         variant="wide"
@@ -124,9 +124,9 @@ export default function Motorway() {
         alt="Test mapping and user journey"
       />
 
-      <ProjectCallout eyebrow="How we got the price modal and button">
-        <p>All research pointed strongly towards customers wanting to know more about how the price quoted was got (as well as questions around how it relates to their specific car). We already had an explainer "?" but it wasn't tagged up to track interaction and also did not pass accessibility colour contrast checks.</p>
-      </ProjectCallout>
+      <ProjectText heading="How we got the price modal and button">
+        <p className="pc-body">All research pointed strongly towards customers wanting to know more about how the price quoted was got (as well as questions around how it relates to their specific car). We already had an explainer "?" but it wasn't tagged up to track interaction and also did not pass accessibility colour contrast checks.</p>
+      </ProjectText>
 
       <ProjectHypothesis>
         We believe people will want to learn more about how we calculated their quote and if we build trust and confidence around their quote they are more likely to offer accept (primary KPI).
@@ -152,13 +152,13 @@ export default function Motorway() {
         ]}
       />
 
-      <ProjectCallout eyebrow="How we got there">
+      <ProjectText heading="How we got there">
         <div>
-          <p>✅ Rebuilt current experience on new tech stack to enable tracking, also make sure icon passes colour contrast checks.</p>
-          <p>✅ Measure current interaction and conversion rates on rebuild.</p>
-          <p>✅ 50/50 A/B test live and proposed.</p>
+          <p className="pc-body">✅ Rebuilt current experience on new tech stack to enable tracking, also make sure icon passes colour contrast checks.</p>
+          <p className="pc-body">✅ Measure current interaction and conversion rates on rebuild.</p>
+          <p className="pc-body">✅ 50/50 A/B test live and proposed.</p>
         </div>
-      </ProjectCallout>
+      </ProjectText>
 
       <ProjectMetrics
         metrics={[
@@ -167,9 +167,9 @@ export default function Motorway() {
         ]}
       />
 
-      <ProjectCallout eyebrow="Next">
-        <p>Continuing our journey towards our North Star and a whole new experience.</p>
-      </ProjectCallout>
+      <ProjectText heading="Next">
+        <p className="pc-body">Continuing our journey towards our North Star and a whole new experience.</p>
+      </ProjectText>
 
       <ProjectBackButton />
 
