@@ -14,6 +14,7 @@ import HeroExperiments from './pages/HeroExperiments'
 import { useLenis } from './hooks/useLenis'
 import GlobalCursor from './components/GlobalCursor'
 import DevPanel from './components/DevPanel'
+import FaviconWink from './components/FaviconWink'
 
 function ScrollApp() {
   useLenis()
@@ -33,6 +34,7 @@ function ScrollApp() {
     <>
     <GlobalCursor />
     <DevPanel />
+    <FaviconWink />
     <div key={location.pathname} className="page-enter">
       <Routes>
         <Route path="/" element={<Home />} />
