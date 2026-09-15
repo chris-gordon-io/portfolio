@@ -28,7 +28,7 @@
   flex: none;
   display: grid;
   grid-template-columns: 1.1fr 1fr 1.1fr 1.1fr;
-  grid-template-rows: 1.2fr 1.2fr 1fr;
+  grid-template-rows: 1fr 1fr 1.1fr;
   gap: 12px;
   padding: 120px var(--space-m) 24px;
   height: 110vh;
@@ -309,7 +309,7 @@ a.bento-cell:hover .bento-cell__img {
 
   .bento-cell--a { grid-column: 1 / 2; grid-row: auto; min-height: 160px; }
   .bento-cell--b { grid-column: 2 / 3; grid-row: auto; min-height: 300px; }
-  .bento-cell--c { grid-column: 1 / 3; grid-row: auto; min-height: 300px; }
+  .bento-cell--c { grid-column: 1 / 3; grid-row: auto; min-height: 360px; }
   .bento-cell--d { grid-column: 1 / 3; grid-row: auto; min-height: 180px; }
   .bento-cell--e { grid-column: 1 / 2; grid-row: auto; min-height: 160px; }
   .bento-cell--f { grid-column: 2 / 3; grid-row: auto; min-height: 160px; }
