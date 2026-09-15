@@ -45,7 +45,7 @@ export default function About() {
         <div className="bento-cell bento-cell--c">
           <div className="bento-cell__body">
             <img src={memojiImg} alt="" className="bento-memoji" />
-            <h2 className="bento-cell__title bento-cell__title--hero">A few of my other interests</h2>
+            <h2 className="bento-cell__title bento-cell__title--hero">A few of my interests</h2>
             <p className="bento-cell__text bento-cell__text--hero">Just here for the work history? Skip to my CV.</p>
             <a className="bento-cta" href="https://chrisgordon-cv.notion.site/?source=copy_link" target="_blank" rel="noopener noreferrer">
               Read CV
