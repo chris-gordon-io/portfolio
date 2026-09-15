@@ -24,14 +24,14 @@ export default function About() {
       <section className="bento">
 
         {/* A — top left: music */}
-        <div className="bento-cell bento-cell--a" style={{ backgroundImage: `url(${listeningToImg})`, backgroundSize: 'cover', backgroundPosition: '70% 45%' }}>
-          <a className="bento-link-btn" href="https://www.youtube.com/watch?v=tSwHdfXPR7o" target="_blank" rel="noopener noreferrer"><BentoArrow size={12} /></a>
+        <a className="bento-cell bento-cell--a" href="https://www.youtube.com/watch?v=tSwHdfXPR7o" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${listeningToImg})`, backgroundSize: 'cover', backgroundPosition: '70% 45%' }}>
+          <span className="bento-link-btn" aria-hidden="true"><BentoArrow size={12} /></span>
           <div className="bento-cell__body">
             <p className="bento-cell__label">Listening to</p>
             <h2 className="bento-cell__title">Zac Bryan</h2>
             <p className="bento-cell__text">Oak Island</p>
           </div>
-        </div>
+        </a>
 
         {/* B — bottom left: bikes, tall */}
         <div className="bento-cell bento-cell--b" style={{ backgroundImage: `url(${bikesImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -71,23 +71,23 @@ export default function About() {
         </div>
 
         {/* D — right tall: project */}
-        <div className="bento-cell bento-cell--d" style={{ backgroundImage: `url(${pizzaImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-          <div className="bento-link-btn"><BentoArrow size={12} /></div>
+        <a className="bento-cell bento-cell--d" href="https://cg-shares.notion.site/how-to-pizza?source=copy_link" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${pizzaImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <span className="bento-link-btn" aria-hidden="true"><BentoArrow size={12} /></span>
           <div className="bento-cell__body">
             <p className="bento-cell__label">Eating</p>
             <h2 className="bento-cell__title">Pizza</h2>
             <p className="bento-cell__text">Bore yourself with 5 years of research and experiments on my Notion page.</p>
           </div>
-        </div>
+        </a>
 
         {/* E — bottom centre: watching */}
-        <div className="bento-cell bento-cell--e" style={{ backgroundImage: `url(${girlHoodImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-          <a className="bento-link-btn" href="https://www.youtube.com/watch?v=4luwYVfhmks" target="_blank" rel="noopener noreferrer"><BentoArrow size={12} /></a>
+        <a className="bento-cell bento-cell--e" href="https://www.youtube.com/watch?v=4luwYVfhmks" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${girlHoodImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <span className="bento-link-btn" aria-hidden="true"><BentoArrow size={12} /></span>
           <div className="bento-cell__body">
             <p className="bento-cell__label">Watching</p>
             <h2 className="bento-cell__title">GirlHood</h2>
           </div>
-        </div>
+        </a>
 
         {/* F — bottom right: architecture */}
         <div className="bento-cell bento-cell--f" style={{ backgroundImage: `url(${architectureImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
