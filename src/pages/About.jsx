@@ -1,5 +1,6 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import Button from '../components/Button'
 import architectureImg from '../assets/Gemini_Generated_Image_4vqocy4vqocy4vqo.jpg'
 import bikesImg from '../assets/Photo15_11A.jpg'
 import listeningToImg from '../assets/ListeningTo.jpg'
@@ -8,9 +9,9 @@ import pizzaImg from '../assets/Pizza.webp'
 import memojiImg from '../assets/memoji.png'
 import './About.css'
 
-function BentoArrow({ size = 14 }) {
+function BentoArrow({ size = 14, className }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
@@ -47,10 +48,17 @@ export default function About() {
             <img src={memojiImg} alt="" className="bento-memoji" />
             <h2 className="bento-cell__title bento-cell__title--hero">A few of my interests</h2>
             <p className="bento-cell__text bento-cell__text--hero">Just here for the work history? Skip to my CV.</p>
-            <a className="bento-cta" href="https://chrisgordon-cv.notion.site/?source=copy_link" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="primary"
+              size="md"
+              href="https://chrisgordon-cv.notion.site/?source=copy_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bento-cta"
+            >
               Read CV
-              <span className="bento-cta__icon"><BentoArrow /></span>
-            </a>
+              <BentoArrow size={16} className="btn-icon" />
+            </Button>
           </div>
           {/* CV page-fan visual — disabled for now, bring back later
           <div className="cv-stack" aria-hidden="true">
