@@ -136,7 +136,7 @@
 .bento-cta-caption {
   font-size: 12px;
   color: rgba(35, 35, 59, 0.6);
-  margin: 6px 0 0;
+  margin: 2px 0 0;
 }
 
 /* Hero cell — text centred */
@@ -165,7 +165,7 @@
   height: 120px;
   object-fit: contain;
   align-self: center;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .bento-cell__label {
