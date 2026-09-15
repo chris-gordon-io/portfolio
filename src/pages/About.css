@@ -84,6 +84,27 @@
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
+  z-index: 1;
+}
+
+.bento-cell__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a.bento-cell:hover .bento-cell__img {
+  transform: scale(1.08);
+}
+
+.bento-cell--a .bento-cell__body,
+.bento-cell--e .bento-cell__body {
+  position: relative;
+  z-index: 1;
 }
 
 /* Image cells — white text with shadow */
@@ -124,10 +145,6 @@
 
 .bento-cell--d .bento-cell__body {
   padding-right: 60px;
-}
-
-.bento-cell--d .bento-link-btn {
-  z-index: 1;
 }
 
 .bento-cta {

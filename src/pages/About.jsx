@@ -24,7 +24,8 @@ export default function About() {
       <section className="bento">
 
         {/* A — top left: music */}
-        <a className="bento-cell bento-cell--a" href="https://www.youtube.com/watch?v=tSwHdfXPR7o" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${listeningToImg})`, backgroundSize: 'cover', backgroundPosition: '70% 45%' }}>
+        <a className="bento-cell bento-cell--a" href="https://www.youtube.com/watch?v=tSwHdfXPR7o" target="_blank" rel="noopener noreferrer">
+          <img src={listeningToImg} alt="" className="bento-cell__img" style={{ objectPosition: '70% 45%' }} />
           <span className="bento-link-btn" aria-hidden="true"><BentoArrow size={12} /></span>
           <div className="bento-cell__body">
             <p className="bento-cell__label">Listening to</p>
@@ -71,7 +72,8 @@ export default function About() {
         </div>
 
         {/* D — right tall: project */}
-        <a className="bento-cell bento-cell--d" href="https://cg-shares.notion.site/how-to-pizza?source=copy_link" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${pizzaImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <a className="bento-cell bento-cell--d" href="https://cg-shares.notion.site/how-to-pizza?source=copy_link" target="_blank" rel="noopener noreferrer">
+          <img src={pizzaImg} alt="" className="bento-cell__img" />
           <span className="bento-link-btn" aria-hidden="true"><BentoArrow size={12} /></span>
           <div className="bento-cell__body">
             <p className="bento-cell__label">Eating</p>
@@ -81,7 +83,8 @@ export default function About() {
         </a>
 
         {/* E — bottom centre: watching */}
-        <a className="bento-cell bento-cell--e" href="https://www.youtube.com/watch?v=4luwYVfhmks" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${girlHoodImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <a className="bento-cell bento-cell--e" href="https://www.youtube.com/watch?v=4luwYVfhmks" target="_blank" rel="noopener noreferrer">
+          <img src={girlHoodImg} alt="" className="bento-cell__img" />
           <span className="bento-link-btn" aria-hidden="true"><BentoArrow size={12} /></span>
           <div className="bento-cell__body">
             <p className="bento-cell__label">Watching</p>
