@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import Button from '../components/Button'
+import VideoModal from '../components/VideoModal'
 import architectureImg from '../assets/Gemini_Generated_Image_4vqocy4vqocy4vqo.jpg'
 import bikesImg from '../assets/Photo15_11A.jpg'
 import listeningToImg from '../assets/ListeningTo.jpg'
@@ -18,13 +20,15 @@ function BentoArrow({ size = 14, className }) {
 }
 
 export default function About() {
+  const [activeVideo, setActiveVideo] = useState(null)
+
   return (
     <div className="about-page">
       <Nav />
       <section className="bento">
 
         {/* A — top left: music */}
-        <a className="bento-cell bento-cell--a" href="https://www.youtube.com/watch?v=tSwHdfXPR7o" target="_blank" rel="noopener noreferrer">
+        <button type="button" className="bento-cell bento-cell--a" onClick={() => setActiveVideo({ id: 'tSwHdfXPR7o', title: 'Zac Bryan — Oak Island' })}>
           <img src={listeningToImg} alt="" className="bento-cell__img" style={{ objectPosition: '70% 45%' }} />
           <span className="bento-link-btn" aria-hidden="true"><BentoArrow size={12} /></span>
           <div className="bento-cell__body">
@@ -32,7 +36,7 @@ export default function About() {
             <h2 className="bento-cell__title">Zac Bryan</h2>
             <p className="bento-cell__text">Oak Island</p>
           </div>
-        </a>
+        </button>
 
         {/* B — bottom left: bikes, tall */}
         <div className="bento-cell bento-cell--b" style={{ backgroundImage: `url(${bikesImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -83,14 +87,14 @@ export default function About() {
         </a>
 
         {/* E — bottom centre: watching */}
-        <a className="bento-cell bento-cell--e" href="https://www.youtube.com/watch?v=4luwYVfhmks" target="_blank" rel="noopener noreferrer">
+        <button type="button" className="bento-cell bento-cell--e" onClick={() => setActiveVideo({ id: '4luwYVfhmks', title: 'GirlHood' })}>
           <img src={girlHoodImg} alt="" className="bento-cell__img" />
           <span className="bento-link-btn" aria-hidden="true"><BentoArrow size={12} /></span>
           <div className="bento-cell__body">
             <p className="bento-cell__label">Watching</p>
             <h2 className="bento-cell__title">GirlHood</h2>
           </div>
-        </a>
+        </button>
 
         {/* F — bottom right: architecture */}
         <div className="bento-cell bento-cell--f" style={{ backgroundImage: `url(${architectureImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -103,6 +107,13 @@ export default function About() {
 
       </section>
       <Footer />
+      {activeVideo && (
+        <VideoModal
+          videoId={activeVideo.id}
+          title={activeVideo.title}
+          onClose={() => setActiveVideo(null)}
+        />
+      )}
     </div>
   )
 }

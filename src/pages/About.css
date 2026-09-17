@@ -63,6 +63,12 @@
   position: relative;
   text-decoration: none;
   color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  width: 100%;
 }
 
 .bento-cell--c {
@@ -97,7 +103,7 @@
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-a.bento-cell:hover .bento-cell__img {
+.bento-cell:hover .bento-cell__img {
   transform: scale(1.08);
 }
 
