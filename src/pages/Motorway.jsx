@@ -156,10 +156,6 @@ export default function Motorway() {
         ]}
       />
 
-      <ProjectText heading="Next">
-        <p className="pc-body">Continuing our journey towards our North Star and a whole new experience.</p>
-      </ProjectText>
-
       <ProjectImpact>
         Across the customer activation flow, test after test delivered 5%+ uplifts and shipped to 100%, from +6.65% on CTA visibility to a 106% lift in interaction on the price modal. Beyond the wins, I set the strategy and vision behind them: a North Star for the offer select page and a testable roadmap the team could keep building on.
       </ProjectImpact>
