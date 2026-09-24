@@ -50,24 +50,18 @@ export default function Benchmark() {
       </ProjectText>
 
       <ProjectImage
-        variant="wide"
         caption="Work Break Down Structure Screen"
-        src="/images/benchmark/benchmark-1.png"
-        alt="Work Break Down Structure Screen"
+        images={[{ src: "/images/benchmark/benchmark-1.png", alt: "Work Break Down Structure Screen" }]}
       />
 
       <ProjectImage
-        variant="wide"
         caption="Operations and Maintenance Screen"
-        src="/images/benchmark/benchmark-2.png"
-        alt="Operations and Maintenance Screen"
+        images={[{ src: "/images/benchmark/benchmark-2.png", alt: "Operations and Maintenance Screen" }]}
       />
 
       <ProjectImage
-        variant="wide"
         caption="Settings Screen"
-        src="/images/benchmark/benchmark-3.png"
-        alt="Settings Screen"
+        images={[{ src: "/images/benchmark/benchmark-3.png", alt: "Settings Screen" }]}
       />
 
       <ProjectImpact>

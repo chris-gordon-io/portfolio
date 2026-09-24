@@ -45,9 +45,8 @@ export default function Project1() {
       </ProjectText>
 
       <ProjectImage
-        variant="phones"
         caption="Brining Primary CTA into all Viewports on initial load"
-        phones={[
+        images={[
           { src: `${IMG}FnEmfUZAKnbq8a80ysIObovXuc.png`, alt: 'Before', caption: 'Before — Initial load iPhone 13 Mini' },
           { src: `${IMG}GmrADgk3K9jvWLY5YHz0eHjYps.png`, alt: 'After', caption: 'After — Initial load iPhone 13 Mini' },
         ]}
@@ -66,9 +65,8 @@ export default function Project1() {
       </ProjectText>
 
       <ProjectImage
-        variant="phones"
         caption="Page header before and after"
-        phones={[
+        images={[
           { src: `${IMG}9nWLGN9u0mBFcQsFZta5K1Kytek.jpg`, alt: 'Original Header', caption: 'Original Header' },
           { src: `${IMG}4OWA1jO5O3Fl9T50L3w80qqpz98.jpg`, alt: 'Optimised Header', caption: 'Optimised Header' },
         ]}
@@ -85,10 +83,8 @@ export default function Project1() {
       </ProjectText>
 
       <ProjectImage
-        variant="wide"
         caption="The funnel data"
-        src={`${IMG}eKOTtOc2Rl52Y6KgALb1gX00mg.jpg`}
-        alt="Conversion funnel data"
+        images={[{ src: `${IMG}eKOTtOc2Rl52Y6KgALb1gX00mg.jpg`, alt: "Conversion funnel data" }]}
       />
 
       <ProjectText heading="How we tackled this">
@@ -96,10 +92,8 @@ export default function Project1() {
       </ProjectText>
 
       <ProjectImage
-        variant="wide"
         caption="Full squad workshops"
-        src={`${IMG}GpXx6AKZLG4GjZX23tSF7dUSpY.jpg`}
-        alt="Full squad FigJam workshops"
+        images={[{ src: `${IMG}GpXx6AKZLG4GjZX23tSF7dUSpY.jpg`, alt: "Full squad FigJam workshops" }]}
       />
 
       <ProjectText heading="Creating a North Star">
@@ -107,10 +101,8 @@ export default function Project1() {
       </ProjectText>
 
       <ProjectImage
-        variant="wide"
         caption="Northstar wires"
-        src={`${IMG}4kNdDkXfJQGVz6sJXwdIFLCWE.png`}
-        alt="North star wireframes"
+        images={[{ src: `${IMG}4kNdDkXfJQGVz6sJXwdIFLCWE.png`, alt: "North star wireframes" }]}
       />
 
       <ProjectText heading="How are we going to get there?">
@@ -118,10 +110,8 @@ export default function Project1() {
       </ProjectText>
 
       <ProjectImage
-        variant="wide"
         caption="Test mapping"
-        src={`${IMG}ECGerZ9sJcYtJV8nQPbpPiatQs.jpg`}
-        alt="Test mapping and user journey"
+        images={[{ src: `${IMG}ECGerZ9sJcYtJV8nQPbpPiatQs.jpg`, alt: "Test mapping and user journey" }]}
       />
 
       <ProjectText heading="How we got the price modal and button">
@@ -133,9 +123,8 @@ export default function Project1() {
       </ProjectHypothesis>
 
       <ProjectImage
-        variant="phones"
         caption="Current experience"
-        phones={[
+        images={[
           { src: `${IMG}Mo5jOj0hktd1x8y6UqpC3MH9Nc.png`, alt: 'Current tooltip', caption: 'Current tooltip' },
           { src: `${IMG}Y9OdRzkcodxmHQaCagTDbAiYc.png`, alt: 'Current modal', caption: 'Current modal' },
           { src: `${IMG}X6zbhmQnKXjf1XsWvpY1gMNR1Q.png`, alt: 'Back to Offer Select page', caption: 'Back to Offer Select page' },
@@ -143,9 +132,8 @@ export default function Project1() {
       />
 
       <ProjectImage
-        variant="phones"
         caption="Proposed experience"
-        phones={[
+        images={[
           { src: `${IMG}luiAXpfx9nqVPOLBRLjesUZ4EI.png`, alt: 'Proposed button', caption: 'Proposed button' },
           { src: `${IMG}ZK0gq5CZdBd0IODerBLSKEXpBEw.png`, alt: 'Proposed modal', caption: 'Proposed modal' },
           { src: `${IMG}vkG9S3ZxaXouMKN9sm6aqLsbTI.png`, alt: 'Proposed onward journey', caption: 'Proposed onward journey' },

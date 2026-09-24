@@ -47,7 +47,6 @@ export default function Toyota() {
       </ProjectCallout>
 
       <ProjectImage
-        variant="wide"
         caption="Current experience — Connected Services carousel"
       />
 
@@ -61,9 +60,8 @@ export default function Toyota() {
       </ProjectCallout>
 
       <ProjectImage
-        variant="phones"
         caption="Original carousel vs. revised service cards"
-        phones={[
+        images={[
           { src: '', alt: 'Before — original carousel', caption: 'Before — original carousel' },
           { src: '', alt: 'After — revised service cards', caption: 'After — revised service cards' },
         ]}
@@ -91,7 +89,6 @@ export default function Toyota() {
       </ProjectCallout>
 
       <ProjectImage
-        variant="wide"
         caption="Two new concepts presented to stakeholders"
       />
 

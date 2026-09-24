@@ -43,19 +43,16 @@ export default function Components() {
       </ProjectText>
 
       <ProjectImage
-        variant="phones"
         caption="Two-up phone comparison"
-        phones={[
+        images={[
           { src: `${IMG}FnEmfUZAKnbq8a80ysIObovXuc.png`, caption: 'Before' },
           { src: `${IMG}GmrADgk3K9jvWLY5YHz0eHjYps.png`, caption: 'After' },
         ]}
       />
 
       <ProjectImage
-        variant="wide"
         caption="Full-width image"
-        src={`${IMG}eKOTtOc2Rl52Y6KgALb1gX00mg.jpg`}
-        alt="Dashboard screenshot"
+        images={[{ src: `${IMG}eKOTtOc2Rl52Y6KgALb1gX00mg.jpg`, alt: "Dashboard screenshot" }]}
       />
 
       <ProjectMetrics

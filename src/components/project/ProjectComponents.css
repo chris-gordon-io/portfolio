@@ -265,57 +265,47 @@
   width: 100%;
 }
 
-/* ── Phone card ── */
-.pc-phone-card {
+/* ── Image card (one component: 1 image = wide, 2+ = side by side) ── */
+.pc-image-card {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-m);
   align-items: flex-start;
   justify-content: center;
-  background: #fdf5f3;
+  background: #FDF5F3;
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
   width: 100%;
+  box-sizing: border-box;
 }
 
-.pc-phone-fig {
+.pc-image-fig {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-m);
   margin: 0;
   flex: 1;
+  min-width: 0;
   max-width: 280px;
 }
 
-.pc-phone-fig img {
+.pc-image-fig img {
   width: 100%;
   display: block;
 }
 
-.pc-phone-fig figcaption {
+.pc-image-fig figcaption {
   font-size: 14px;
   color: #7B7B89;
   text-align: center;
 }
 
-/* ── Wide card ── */
-.pc-wide-card {
-  background: #FDF5F3;
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-m);
+.pc-image-card--single .pc-image-fig {
+  max-width: 1200px;
 }
 
-.pc-wide-card img {
-  width: 100%;
-  max-width: 1200px;
-  display: block;
-  margin: 0 auto;
+.pc-image-card--single .pc-image-fig img {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
@@ -577,16 +567,15 @@
     font-size: 24px;
   }
 
-  .pc-phone-card {
-    flex-wrap: wrap;
+  .pc-image-card {
     padding: var(--space-m);
   }
 
-  .pc-phone-fig {
+  .pc-image-fig {
     max-width: 100%;
   }
 
-  .pc-phone-card--trio .pc-phone-fig {
+  .pc-image-card--trio .pc-image-fig {
     flex: 1 1 calc(50% - 12px);
   }
 

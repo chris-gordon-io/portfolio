@@ -50,16 +50,13 @@ export default function Tu() {
       />
 
       <ProjectImage
-        variant="wide"
         caption="Current Help home page Desktop"
-        src={`${IMG}52n66YpAvHj15n6gaPDrBwgqIo.jpg`}
-        alt="Current Tu Help home page on desktop"
+        images={[{ src: `${IMG}52n66YpAvHj15n6gaPDrBwgqIo.jpg`, alt: "Current Tu Help home page on desktop" }]}
       />
 
       <ProjectImage
-        variant="phones"
         caption="Heatmaps"
-        phones={[
+        images={[
           { src: `${IMG}m6CGSLp9gwy2nKWIjy0uSZbga0.jpg`, alt: 'Help page heatmap' },
           { src: `${IMG}Hd7cMKNL2m2tP0iDmcqI6KOZlc.jpg`, alt: 'Help page heatmap 2' },
         ]}
@@ -81,18 +78,16 @@ export default function Tu() {
       </ProjectCallout>
 
       <ProjectImage
-        variant="phones"
         caption="Competitor benchmarking"
-        phones={[
+        images={[
           { src: `${IMG}33c2tA1f7tm6hcXhP8FZziHGc.jpg`, alt: 'Competitor 1' },
           { src: `${IMG}Oa26cYT53bMJ5LzQlOFT6ce2s.jpg`, alt: 'Competitor 2' },
         ]}
       />
 
       <ProjectImage
-        variant="phones"
         caption="Test results and anatomy of a winner"
-        phones={[
+        images={[
           { src: `${IMG}FMX5MAmojmNeTXvPMiidRy7IJlU.jpg`, alt: 'Test results' },
           { src: `${IMG}XdYiX3rYiBX2d17RUDOxjpITAk.jpg`, alt: 'Anatomy of a winner' },
         ]}
@@ -115,10 +110,8 @@ export default function Tu() {
       </ProjectHypothesis>
 
       <ProjectImage
-        variant="wide"
         caption="Wires and flows"
-        src={`${IMG}y0NJqNOpl2gx8DsGmw7SUTFc.jpg`}
-        alt="Wires and flows for new Help experience"
+        images={[{ src: `${IMG}y0NJqNOpl2gx8DsGmw7SUTFc.jpg`, alt: "Wires and flows for new Help experience" }]}
       />
 
       <ProjectCallout eyebrow="Wires">
@@ -126,10 +119,8 @@ export default function Tu() {
       </ProjectCallout>
 
       <ProjectImage
-        variant="wide"
         caption="Wires and potential CMS components"
-        src={`${IMG}BomKm67Y67dlTitmtKz6WySX0L4.jpg`}
-        alt="Wires mapped to CMS components"
+        images={[{ src: `${IMG}BomKm67Y67dlTitmtKz6WySX0L4.jpg`, alt: "Wires mapped to CMS components" }]}
       />
 
       <ProjectCallout eyebrow="Visuals and testing">
@@ -149,16 +140,13 @@ export default function Tu() {
       />
 
       <ProjectImage
-        variant="wide"
         caption="Old vs new"
-        src={`${IMG}CKaOuqCXNIYWCs2C5Lf2WfvC0I.jpg`}
-        alt="Old vs new Help experience comparison"
+        images={[{ src: `${IMG}CKaOuqCXNIYWCs2C5Lf2WfvC0I.jpg`, alt: "Old vs new Help experience comparison" }]}
       />
 
       <ProjectImage
-        variant="phones"
         caption="Help home page and primary task page"
-        phones={[
+        images={[
           { src: `${IMG}tJj0bdTi12BXRFtL5ZYIncdKE.jpg`, alt: 'Help home page desktop', caption: 'Help home page' },
           { src: `${IMG}wHmrshlfvRjWXKAl0mlpzIlH0wg.jpg`, alt: 'Help primary task page', caption: 'Primary task page' },
         ]}
