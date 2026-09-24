@@ -508,7 +508,7 @@
   gap: 10px;
   width: 40px;
   height: 40px;
-  background: #DA441B;
+  background: var(--color-neutral-80);
   border-radius: var(--radius-md);
   margin: 0 0 var(--space-m);
   flex-shrink: 0;
