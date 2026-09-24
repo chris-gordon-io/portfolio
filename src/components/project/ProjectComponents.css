@@ -509,6 +509,7 @@
   width: 40px;
   height: 40px;
   background: var(--color-neutral-80);
+  color: var(--color-neutral-20);
   border-radius: var(--radius-md);
   margin: 0 0 var(--space-m);
   flex-shrink: 0;
