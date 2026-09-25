@@ -19,7 +19,7 @@ export default function Benchmark() {
       <Nav />
 
       <div className="pc-intro-wrapper">
-        <ProjectTitle title="Benchmark" subtitle="B2B SaaS App calculating Carbon and Cost over Construction projects lifecycle" />
+        <ProjectTitle title="Benchmark" subtitle="Laying the foundations and an MVP design system for a B2B construction SaaS" />
         <ProjectHero
           background="linear-gradient(180deg, #5DD39D 0%, #469E77 100%)"
           image={{ src: '/images/benchmark-hero.png', alt: 'Benchmark estimating app' }}
