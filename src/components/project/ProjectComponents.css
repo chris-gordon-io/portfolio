@@ -54,6 +54,8 @@
   line-height: 1.4;
   color: var(--color-ink);
   margin: 0;
+  max-width: 520px;
+  text-wrap: balance;
 }
 
 /* ── Layout shell ── */
