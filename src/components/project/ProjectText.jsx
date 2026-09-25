@@ -15,7 +15,7 @@ export default function ProjectText({ heading, accent = false, slim = false, chi
     <div ref={ref} className={`pc-section reveal${slim ? ' pc-section--slim' : ''}`} data-dev-component={`Text${heading ? ` — ${heading}` : ''}`}>
       <div className="pc-content-block">
         <div className="pc-col-heading">
-          <h2 className={`pc-heading${accent ? ' accent' : ''}`}>{heading}</h2>
+          <h2 className={`heading-3${accent ? ' accent' : ''}`}>{heading}</h2>
         </div>
         <div className="pc-col-body">
           {children}
