@@ -400,15 +400,6 @@
   margin: 0 0 var(--space-s);
 }
 
-.pc-topline-headline {
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.3px;
-  line-height: 1.4;
-  color: #4F4F62;
-  margin: 0;
-}
-
 .pc-callout-body {
   display: flex;
   flex-direction: column;
@@ -500,12 +491,7 @@
 }
 
 .pc-impact-headline {
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.3px;
-  line-height: 1.4;
   color: #E9E9EB;
-  margin: 0;
 }
 
 /* ── See all work ── */

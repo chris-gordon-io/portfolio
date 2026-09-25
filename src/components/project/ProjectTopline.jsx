@@ -21,7 +21,7 @@ export default function ProjectTopline({ children }) {
         <div className="pc-topline-inner">
           <TopIcon />
           <h2 className="heading-2 pc-topline-eyebrow">Topline</h2>
-          <div className="pc-topline-headline">{children}</div>
+          <div className="body-large">{children}</div>
         </div>
       </div>
     </div>

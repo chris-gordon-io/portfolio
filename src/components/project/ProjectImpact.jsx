@@ -19,7 +19,7 @@ export default function ProjectImpact({ children }) {
         <div className="pc-topline-inner">
           <ImpactIcon />
           <h2 className="heading-2 pc-impact-eyebrow">Impact</h2>
-          <div className="pc-impact-headline">{children}</div>
+          <div className="body-large pc-impact-headline">{children}</div>
         </div>
       </div>
     </div>
