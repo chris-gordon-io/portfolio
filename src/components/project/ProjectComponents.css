@@ -3,9 +3,9 @@
    prefix: pc-
 ───────────────────────────────────────── */
 
-/* ── Intro wrapper (title + hero = 100vh) ── */
+/* ── Intro wrapper (title + hero, at least 100vh) ── */
 .pc-intro-wrapper {
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 76px;
   box-sizing: border-box;
   display: flex;
@@ -14,7 +14,6 @@
 
 .pc-intro-wrapper .pc-hero-section {
   flex: 1;
-  min-height: 0;
   padding: 0 var(--space-m);
   display: flex;
   flex-direction: column;
@@ -210,21 +209,6 @@
   width: 100%;
   height: auto;
   display: block;
-}
-
-/* In the 100vh intro the image must fit the hero's height, not just its
-   width — otherwise it overruns the fold on wide-but-short viewports. */
-.pc-intro-wrapper .pc-hero-image--wide {
-  height: 100%;
-  min-height: 0;
-}
-
-.pc-intro-wrapper .pc-hero-image--wide img {
-  width: auto;
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0 auto;
-  object-fit: contain;
 }
 
 /* ── Headings ── */
