@@ -38,15 +38,6 @@
   text-align: center;
 }
 
-.pc-title {
-  font-size: 42px;
-  font-weight: 700;
-  letter-spacing: -1.5px;
-  line-height: 1.1;
-  color: var(--color-ink);
-  margin: 0;
-}
-
 .pc-subtitle {
   font-size: 16px;
   font-weight: 400;
@@ -406,13 +397,7 @@
 }
 
 .pc-topline-eyebrow {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -0.4px;
-  line-height: 1.3;
-  color: #23233B;
   margin: 0 0 var(--space-s);
-  text-transform: none;
 }
 
 .pc-topline-headline {
