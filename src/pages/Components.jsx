@@ -34,10 +34,10 @@ export default function Components() {
       </ProjectHypothesis>
 
       <ProjectText heading="Section heading">
-        <p className="pc-body">
+        <p className="body">
           This is regular body copy. Use it for the main content of a section — context, explanation, or supporting detail.
         </p>
-        <p className="pc-body">
+        <p className="body">
           A second paragraph. You can pass as many children as you like — paragraphs, checklists, or any other inline content.
         </p>
       </ProjectText>

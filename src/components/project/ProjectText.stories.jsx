@@ -13,8 +13,8 @@ export const Default = {
     heading: 'About',
     children: (
       <>
-        <p className="pc-body">Benchmark is a B2B SaaS business providing tools to large scale construction industries.</p>
-        <p className="pc-body">I was brought in as a Lead Designer to work with the newly formed Product team.</p>
+        <p className="body">Benchmark is a B2B SaaS business providing tools to large scale construction industries.</p>
+        <p className="body">I was brought in as a Lead Designer to work with the newly formed Product team.</p>
       </>
     ),
   },
@@ -36,6 +36,6 @@ export const Slim = {
   args: {
     heading: 'Additional action',
     slim: true,
-    children: <p className="pc-body">Shown directly after an image section, with no top padding.</p>,
+    children: <p className="body">Shown directly after an image section, with no top padding.</p>,
   },
 }

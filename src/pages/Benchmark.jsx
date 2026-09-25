@@ -32,19 +32,19 @@ export default function Benchmark() {
       </ProjectTopline>
 
       <ProjectText heading="About">
-        <p className="pc-body">
+        <p className="body">
           Benchmark is a B2B SaaS business providing tools to the large scale construction Industries (think roads and water) globally.
         </p>
-        <p className="pc-body">
+        <p className="body">
           I was brought in to Vigo agency as a Lead Designer to work with the newly formed Product team (BM side) and help shape the next generation of this tool.
         </p>
-        <p className="pc-body">
+        <p className="body">
           The project was unique in the way that even some of the Senior Stakeholders at Benchmark were unsure how the current product actually worked.
         </p>
       </ProjectText>
 
       <ProjectText heading="The Problem/Opportunity">
-        <p className="pc-body">
+        <p className="body">
           Benchmarks current workflow involved multiple Apps (including Excel) and ran on a legacy tech stack that was no longer fit for purpose. We had the opportunity to design a whole new experience … Users also needed a way to maintain visibility of Items across whole projects.
         </p>
       </ProjectText>
