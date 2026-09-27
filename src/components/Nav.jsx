@@ -12,15 +12,16 @@ export default function Nav() {
 
   function moveTo(e) {
     const el = e.currentTarget
-    const parent = pillRef.current.parentElement
-    const parentRect = parent.getBoundingClientRect()
-    const rect = el.getBoundingClientRect()
+    // offsetLeft/offsetTop are relative to the pill's padding box — the same
+    // box position:absolute uses — so this stays pixel-aligned even though
+    // the pill has a border (getBoundingClientRect diffing was off by the
+    // border-width because it measured from the border box instead).
     setPill({
       opacity: 1,
-      left: rect.left - parentRect.left,
-      top: rect.top - parentRect.top,
-      width: rect.width,
-      height: rect.height,
+      left: el.offsetLeft,
+      top: el.offsetTop,
+      width: el.offsetWidth,
+      height: el.offsetHeight,
     })
   }
 
