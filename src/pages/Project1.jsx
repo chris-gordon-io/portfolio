@@ -5,7 +5,6 @@ import ProjectText from '../components/project/ProjectText'
 import ProjectImage from '../components/project/ProjectImage'
 import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
-import ProjectTitle from '../components/project/ProjectTitle'
 import Footer from '../components/Footer'
 import './Project1.css'
 
@@ -18,8 +17,9 @@ export default function Project1() {
       <Nav />
 
       <div className="pc-intro-wrapper">
-        <ProjectTitle title="Motorway" subtitle="Customer activation journey" />
         <ProjectHero
+          title="Motorway"
+          subtitle="Customer activation journey"
           image={{ src: `${IMG}Mo5jOj0hktd1x8y6UqpC3MH9Nc.png`, alt: 'Motorway offer select page' }}
         />
       </div>

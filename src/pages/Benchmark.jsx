@@ -7,7 +7,6 @@ import ProjectHypothesis from '../components/project/ProjectHypothesis'
 import ProjectTopline from '../components/project/ProjectTopline'
 import ProjectImpact from '../components/project/ProjectImpact'
 import ProjectText from '../components/project/ProjectText'
-import ProjectTitle from '../components/project/ProjectTitle'
 import ProjectBackButton from '../components/project/ProjectBackButton'
 import Footer from '../components/Footer'
 import './Benchmark.css'
@@ -19,8 +18,9 @@ export default function Benchmark() {
       <Nav />
 
       <div className="pc-intro-wrapper">
-        <ProjectTitle title="Benchmark" subtitle="Laying the foundations and an MVP design system for a B2B construction SaaS" />
         <ProjectHero
+          title="Benchmark"
+          subtitle="Laying the foundations and an MVP design system for a B2B construction SaaS"
           background="linear-gradient(180deg, #5DD39D 0%, #469E77 100%)"
           image={{ src: '/images/benchmark-hero.png', alt: 'Benchmark estimating app' }}
           wide

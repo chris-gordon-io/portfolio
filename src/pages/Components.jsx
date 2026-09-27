@@ -6,7 +6,6 @@ import ProjectImage from '../components/project/ProjectImage'
 import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectTopline from '../components/project/ProjectTopline'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
-import ProjectTitle from '../components/project/ProjectTitle'
 import phonePlaceholder from '../assets/phone-placeholder.svg'
 
 const IMG = 'https://framerusercontent.com/images/'
@@ -18,8 +17,9 @@ export default function Components() {
       <Nav />
 
       <div className="pc-intro-wrapper">
-        <ProjectTitle title="Project title" subtitle="Sub line information" />
         <ProjectHero
+          title="Project title"
+          subtitle="Sub line information"
           background="linear-gradient(180deg, #0560cc 0%, #063165 100%)"
           image={{ src: phonePlaceholder, alt: 'Phone placeholder' }}
         />

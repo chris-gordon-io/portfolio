@@ -5,8 +5,8 @@
 
 /* ── Intro wrapper (title + hero, at least 100vh) ── */
 .pc-intro-wrapper {
-  min-height: 100vh;
-  padding-top: 76px;
+  min-height: 90vh;
+  padding-top: var(--space-m);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -150,6 +150,24 @@
   border-radius: var(--radius-lg);
 }
 
+.pc-hero-title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s);
+  flex: 0 0 auto;
+  padding: 0 var(--space-m) var(--space-l);
+  text-align: center;
+}
+
+.pc-hero-title {
+  color: #ffffff;
+}
+
+.pc-hero-subtitle.pc-hero-subtitle {
+  color: rgba(255, 255, 255, 0.72);
+}
+
 /* More obvious, slower fade-up than the default .reveal--hero timing */
 .pc-hero.reveal {
   transition-duration: 2.2s;
@@ -183,6 +201,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .pc-hero-image img {
@@ -195,7 +214,7 @@
   width: 90%;
   max-width: 1200px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 }
 
