@@ -5,11 +5,11 @@
    To pick up a DS change: push it, then replace the hash below with the
    new `git rev-parse HEAD` from the Design-System repo.
 ───────────────────────────────────────── */
-@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@6a90c2f8dae0873473f7c9f5c128e49497da528c/css/colors.css");
-@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@6a90c2f8dae0873473f7c9f5c128e49497da528c/css/typography.css");
-@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@6a90c2f8dae0873473f7c9f5c128e49497da528c/css/spacing.css");
-@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@6a90c2f8dae0873473f7c9f5c128e49497da528c/css/radius.css");
-@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@6a90c2f8dae0873473f7c9f5c128e49497da528c/css/buttons.css");
+@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@52352d86f7312010cf13b91a43dc8c8135f99067/css/colors.css");
+@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@52352d86f7312010cf13b91a43dc8c8135f99067/css/typography.css");
+@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@52352d86f7312010cf13b91a43dc8c8135f99067/css/spacing.css");
+@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@52352d86f7312010cf13b91a43dc8c8135f99067/css/radius.css");
+@import url("https://cdn.jsdelivr.net/gh/chris-gordon-io/Design-System@52352d86f7312010cf13b91a43dc8c8135f99067/css/buttons.css");
 
 /* ─────────────────────────────────────────
    Fonts — Safiro (from chrisgordon.io)
