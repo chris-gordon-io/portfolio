@@ -36,7 +36,7 @@ export default function Benchmark() {
           Benchmark is a B2B SaaS business providing tools to the large scale construction Industries (think roads and water) globally.
         </p>
         <p className="body">
-          I was brought in to Vigo agency as a Lead Designer to work with the newly formed Product team (BM side) and help shape the next generation of this tool.
+          I was brought in to Vigo agency as a Lead Designer to work with the newly formed Product team (Benchmark side) and help shape the next generation of this tool.
         </p>
         <p className="body">
           The project was unique in the way that even some of the Senior Stakeholders at Benchmark were unsure how the current product actually worked.
