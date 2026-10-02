@@ -27,7 +27,7 @@
 }
 
 /* Links expand sideways out of the logo circle (grid 0fr -> 1fr animates the
-   intrinsic width). The 6px right padding lives on the track, not the pill, so
+   intrinsic width). The 4px right padding lives on the track, not the pill, so
    the collapsed pill is a perfect circle. */
 .nav-links {
   display: grid;
@@ -52,22 +52,16 @@
 
 .nav-links-track {
   display: flex;
-  padding-right: 6px;
+  padding-right: 4px;
 }
 
-/* Sliding background pill */
+/* Sliding background pill — positioned by its left/right edges (see Nav.jsx,
+   which gives each edge its own timing so it stretches like a drop of water) */
 .nav-hover-pill {
   position: absolute;
-  top: 0;
-  left: 0;
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.9);
   pointer-events: none;
-  transition:
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.2s ease;
 }
 
 .nav-logo {
