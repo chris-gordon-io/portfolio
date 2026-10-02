@@ -24,6 +24,12 @@
   box-shadow: 0px 4px 40px 0px rgba(39, 39, 55, 0.1);
   position: relative;
   pointer-events: all;
+  transition: padding 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scrolled-down, logo-only state: same logo, tighter container */
+.nav-pill--scrolled {
+  padding: 2px;
 }
 
 /* Links expand sideways out of the logo circle (grid 0fr -> 1fr animates the

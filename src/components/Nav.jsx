@@ -104,7 +104,7 @@ export default function Nav() {
 
   return (
     <nav className="nav">
-      <div ref={navPillRef} className="nav-pill" onMouseLeave={hide}>
+      <div ref={navPillRef} className={`nav-pill${open && collapsed ? ' nav-pill--scrolled' : ''}`} onMouseLeave={hide}>
 
         {/* Sliding background pill */}
         <div
