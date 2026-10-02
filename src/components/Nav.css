@@ -15,7 +15,7 @@
   flex-flow: row;
   align-items: center;
   gap: 0px;
-  padding: 4px 10px 4px 4px;
+  padding: 4px;
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -24,6 +24,35 @@
   box-shadow: 0px 4px 40px 0px rgba(39, 39, 55, 0.1);
   position: relative;
   pointer-events: all;
+}
+
+/* Links expand sideways out of the logo circle (grid 0fr -> 1fr animates the
+   intrinsic width). The 6px right padding lives on the track, not the pill, so
+   the collapsed pill is a perfect circle. */
+.nav-links {
+  display: grid;
+  grid-template-columns: 0fr;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    grid-template-columns 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease 0.1s;
+}
+
+.nav-links--open {
+  grid-template-columns: 1fr;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-links-clip {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.nav-links-track {
+  display: flex;
+  padding-right: 6px;
 }
 
 /* Sliding background pill */
@@ -52,6 +81,15 @@
   text-decoration: none;
   position: relative;
   z-index: 1;
+}
+
+/* Glyph's ink sits ~1.4px right / ~1.7px high of its (centred) bounding box;
+   nudge it back optically so it reads centred in the circle */
+.nav-logo svg {
+  transform: translate(-1px, 1px);
+  /* The artwork touches the viewBox edges on the left and right, so the
+     antialiased fringe there was being clipped flat */
+  overflow: visible;
 }
 
 .nav-link {
