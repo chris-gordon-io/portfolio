@@ -21,7 +21,8 @@ export default function Motorway() {
         <ProjectHero
           title="Motorway"
           subtitle="Customer activation journey"
-          image={{ src: `${IMG}Mo5jOj0hktd1x8y6UqpC3MH9Nc.png`, alt: 'Motorway offer select page' }}
+          image={{ src: '/images/motorway-hero.png', alt: 'Motorway offer select page on desktop and mobile' }}
+          wide
         />
       </div>
 
