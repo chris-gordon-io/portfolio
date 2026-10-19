@@ -129,4 +129,10 @@
   .hero .hx-copy {
     width: 100%;
   }
+
+  /* The hero is 90vh tall, so a 10vh top padding puts the text block's centre
+     exactly on the middle of the viewport (the old 40px bottom padding pulled it high) */
+  .hero:has(.hx-copy) {
+    padding: 10vh 24px 0;
+  }
 }
