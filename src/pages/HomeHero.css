@@ -45,6 +45,34 @@
   border: 1px solid var(--color-neutral-30);
 }
 
+/* ── Line-by-line reveal (see useLineReveal) ── */
+.hx-copy.is-measuring {
+  visibility: hidden;
+}
+
+.hx-copy .hx-unit {
+  display: inline-block;
+}
+
+.hx-copy.is-split .hx-unit {
+  opacity: 0;
+  transform: translateY(0.5em);
+  transition:
+    opacity 0.9s ease,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--line, 0) * 110ms + 150ms);
+}
+
+.hx-copy.is-revealed .hx-unit {
+  opacity: 1;
+  transform: none;
+}
+
+/* Once settled, drop the transitions so hover styles on pills/chips are untouched */
+.hx-copy.is-done .hx-unit {
+  transition: none;
+}
+
 /* Keeps a chip (and the word before it / punctuation after it) on one line */
 .hx-keep {
   white-space: nowrap;

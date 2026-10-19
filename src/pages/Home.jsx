@@ -4,6 +4,7 @@ import PillOverlay from '../components/PillOverlay'
 import ChrisBubble from '../components/ChrisBubble'
 import ProjectCursor from '../components/ProjectCursor'
 import { useReveal } from '../hooks/useReveal'
+import { useLineReveal } from '../hooks/useLineReveal'
 import CGLogo from '../components/CGLogo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
@@ -49,6 +50,14 @@ function HeroPill({ src, icon, label, body, chip, variant = 'light', renderOverl
       {label}
       {open && renderOverlay && renderOverlay({ x: pos.x, y: pos.y, cx: chipCenter.cx, cy: chipCenter.cy, rect: chipCenter.rect, entryX })}
     </span>
+  )
+}
+
+// Splits copy into word units (spaces stay as plain text so wrapping is
+// unchanged) so useLineReveal can animate each rendered line separately.
+function Words({ children }) {
+  return children.split(/(\s+)/).map((t, i) =>
+    t === '' || /^\s+$/.test(t) ? t : <span key={i} className="hx-unit">{t}</span>
   )
 }
 
@@ -141,7 +150,7 @@ function ProjectCardWithCursor({ project }) {
 
 export default function Home() {
   const workLabelRef = useReveal()
-  const heroRef = useReveal({ threshold: 0.05, rootMargin: '0px' })
+  const heroRef = useLineReveal()
 
   return (
     <div className="home">
@@ -150,17 +159,31 @@ export default function Home() {
 
       {/* Hero */}
       <section className="hero">
-        <div ref={heroRef} className="hero-text hx-copy reveal reveal--hero">
-          <h1>Hi, I'm <HeroPill
-            src="https://framerusercontent.com/images/7JaK76epjAcaHSNBbj2wWGOWQI.jpeg"
-            label="Chris"
-            icon={memojiImg}
-            variant="chip"
-            cursor="none"
-            renderOverlay={({ x, y }) => <ChrisBubble x={x} y={y} />}
-          />, currently a Lead Product Designer across Data and Insights <span className="hx-keep">at <BrandChip name="Sony Music" logo={sonyMusicLogo} href="https://www.sonymusic.com" />.</span></h1>
-          <p>Previously at UK start <span className="hx-keep">up <BrandChip name="Motorway" logo={motorwayLogo} href="https://www.motorway.co.uk" /></span> <span className="hx-keep">and <BrandChip name="Toyota" logo={toyotaLogo} href="https://www.toyota.com" />,</span> working on onboarding and funnel conversion.</p>
-          <p>Before that I was <span className="hx-keep">at <BrandChip name="Sainsbury's" logo={sainsburysLogo} href="https://www.sainsburys.co.uk" />,</span> working across multiple squads.</p>
+        <div ref={heroRef} className="hero-text hx-copy is-measuring">
+          <h1>
+            <Words>{"Hi, I'm "}</Words>
+            <span className="hx-keep hx-unit"><HeroPill
+              src="https://framerusercontent.com/images/7JaK76epjAcaHSNBbj2wWGOWQI.jpeg"
+              label="Chris"
+              icon={memojiImg}
+              variant="chip"
+              cursor="none"
+              renderOverlay={({ x, y }) => <ChrisBubble x={x} y={y} />}
+            />,</span>
+            <Words>{' currently a Lead Product Designer across Data and Insights '}</Words>
+            <span className="hx-keep hx-unit">at <BrandChip name="Sony Music" logo={sonyMusicLogo} href="https://www.sonymusic.com" />.</span>
+          </h1>
+          <p>
+            <Words>{'Previously at UK start '}</Words>
+            <span className="hx-keep hx-unit">up <BrandChip name="Motorway" logo={motorwayLogo} href="https://www.motorway.co.uk" /></span>{' '}
+            <span className="hx-keep hx-unit">and <BrandChip name="Toyota" logo={toyotaLogo} href="https://www.toyota.com" />,</span>
+            <Words>{' working on onboarding and funnel conversion.'}</Words>
+          </p>
+          <p>
+            <Words>{'Before that I was '}</Words>
+            <span className="hx-keep hx-unit">at <BrandChip name="Sainsbury's" logo={sainsburysLogo} href="https://www.sainsburys.co.uk" />,</span>
+            <Words>{' working across multiple squads.'}</Words>
+          </p>
         </div>
       </section>
 
