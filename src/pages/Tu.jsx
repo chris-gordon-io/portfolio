@@ -20,6 +20,7 @@ export default function Tu() {
         <ProjectHero
           title="Tu"
           subtitle="Reimagining the Help experience for TU"
+          background="linear-gradient(180deg, #52525E 0%, #000000 100%)"
           image={{ src: `${IMG}zmvDVSiKkFHUyUYT7SD4nH0US8E.png`, alt: 'Tu Help experience desktop and mobile' }}
         />
       </div>
