@@ -1,18 +1,15 @@
-import { useState, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ChrisBubble from '../components/ChrisBubble'
 import EastLondonCursor from '../components/EastLondonCursor'
-import ProductDesignerBurst from '../components/ProductDesignerBurst'
 import { useReveal } from '../hooks/useReveal'
 import Nav from '../components/Nav'
-import memojiImg from '../assets/memoji.png'
-import sonyMusicLogo from '../assets/logos/sony-music.png'
-import motorwayLogo from '../assets/logos/motorway.png'
-import toyotaLogo from '../assets/logos/toyota.png'
-import sainsburysLogo from '../assets/logos/sainsburys.png'
 import './Home.css'
-import './HeroExperiments.css'
 
-function HeroPill({ src, icon, label, body, chip, variant = 'light', renderOverlay, cursor }) {
+// Previous live home-page hero (static pills + cycling "Product Designer" pill),
+// kept here for reference after the long-form hero went live on Home.
+
+/* variant: "light" | "solid" | "outline" */
+function HeroPill({ src, label, body, chip, variant = 'light', renderOverlay, cursor, children, onMouseEnter: onMouseEnterProp }) {
   const [open, setOpen] = useState(false)
   const [pos, setPos] = useState({ x: 0, y: 0 })
   const [chipCenter, setChipCenter] = useState({ cx: 0, cy: 0 })
@@ -30,6 +27,7 @@ function HeroPill({ src, icon, label, body, chip, variant = 'light', renderOverl
       setEntryX(e.clientX)
     }
     setOpen(true)
+    onMouseEnterProp?.()
   }
 
   return (
@@ -41,44 +39,106 @@ function HeroPill({ src, icon, label, body, chip, variant = 'light', renderOverl
       onMouseLeave={() => setOpen(false)}
       onMouseMove={handleMouseMove}
     >
-      {icon && <img className="brand-chip__logo" src={icon} alt="" />}
-      {label}
+      {children ?? label}
       {open && renderOverlay && renderOverlay({ x: pos.x, y: pos.y, cx: chipCenter.cx, cy: chipCenter.cy, rect: chipCenter.rect, entryX })}
     </span>
   )
 }
 
-// Outlined brand chip (Mobbin-style): app-icon logo + name, inline with the copy.
-function BrandChip({ name, logo, href }) {
+const PREFIXES = ['Digital', 'Interaction', 'UI/UX', 'Experience', 'Product']
+
+function CyclingDesignerPill() {
+  const [index, setIndex] = useState(0)
+  const [phase, setPhase] = useState('entering')
+  const [containerWidth, setContainerWidth] = useState(null)
+  const currentRef = useRef(null)
+  const nextRef = useRef(null)
+
+  useEffect(() => {
+    if (currentRef.current) setContainerWidth(currentRef.current.offsetWidth)
+    requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
+  }, [])
+
+  useEffect(() => {
+    if (index >= PREFIXES.length - 1) return
+
+    const delay = index === 0 ? 200 : 450
+    const timer = setTimeout(() => {
+      const nextWidth = nextRef.current?.offsetWidth
+      if (nextWidth) setContainerWidth(nextWidth)
+      setPhase('exiting')
+      setTimeout(() => {
+        setIndex(i => i + 1)
+        setPhase('entering')
+        requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
+      }, 110)
+    }, delay)
+    return () => clearTimeout(timer)
+  }, [index])
+
+  const wordStyle = {
+    visible:  { opacity: 1, transform: 'translateY(0)',     transition: 'opacity 0.1s ease-out, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1)' },
+    exiting:  { opacity: 0, transform: 'translateY(8px)',   transition: 'opacity 0.08s, transform 0.08s' },
+    entering: { opacity: 0, transform: 'translateY(-14px)', transition: 'none' },
+  }[phase]
+
+  const nextIndex = (index + 1) % PREFIXES.length
+
+  function handleReplay() {
+    if (index < PREFIXES.length - 1) return
+    setIndex(0)
+    setPhase('entering')
+    requestAnimationFrame(() => requestAnimationFrame(() => setPhase('visible')))
+  }
+
   return (
-    <a className="brand-chip" href={href} target="_blank" rel="noopener noreferrer">
-      <img className="brand-chip__logo" src={logo} alt="" />
-      {name}
-    </a>
+    <HeroPill variant="solid" onMouseEnter={handleReplay}>
+      <span style={{ display: 'inline-block', position: 'relative', width: containerWidth ? `${containerWidth}px` : 'auto', transition: 'width 0.28s ease', marginRight: '0.25em' }}>
+        <span ref={currentRef} style={{ display: 'inline-block', whiteSpace: 'nowrap', color: index === PREFIXES.length - 1 ? 'inherit' : 'rgba(251, 236, 232, 0.55)', ...wordStyle }}>{PREFIXES[index]}</span>
+        <span ref={nextRef} style={{ position: 'absolute', visibility: 'hidden', whiteSpace: 'nowrap', pointerEvents: 'none', top: 0, left: 0 }} aria-hidden="true">{PREFIXES[nextIndex]}</span>
+      </span>
+      <span>Designer</span>
+    </HeroPill>
   )
 }
 
 export default function HeroExperiments() {
-  const heroRef = useReveal({ threshold: 0.05, rootMargin: '0px' })
+  const heroRow1Ref = useReveal({ threshold: 0.05, rootMargin: '0px' })
+  const heroRow2Ref = useReveal({ threshold: 0.05, rootMargin: '0px' })
+  const heroRow3Ref = useReveal({ threshold: 0.05, rootMargin: '0px' })
 
   return (
     <div className="home">
+
       <Nav />
 
+      {/* Hero */}
       <section className="hero">
-        <div ref={heroRef} className="hero-text hx-copy reveal reveal--hero">
-          <h1>Hi, I'm <HeroPill
-            src="https://framerusercontent.com/images/7JaK76epjAcaHSNBbj2wWGOWQI.jpeg"
-            label="Chris"
-            icon={memojiImg}
-            variant="chip"
-            cursor="none"
-            renderOverlay={({ x, y }) => <ChrisBubble x={x} y={y} />}
-          />, currently a Lead Product Designer across Data and Insights <span className="hx-keep">at <BrandChip name="Sony Music" logo={sonyMusicLogo} href="https://www.sonymusic.com" />.</span></h1>
-          <p>Previously at UK start <span className="hx-keep">up <BrandChip name="Motorway" logo={motorwayLogo} href="https://www.motorway.co.uk" /></span> <span className="hx-keep">and <BrandChip name="Toyota" logo={toyotaLogo} href="https://www.toyota.com" />,</span> working on onboarding and funnel conversion.</p>
-          <p>Before that I was <span className="hx-keep">at <BrandChip name="Sainsbury's" logo={sainsburysLogo} href="https://www.sainsburys.co.uk" />,</span> working across multiple squads.</p>
+        <div className="hero-inner">
+        <div className="hero-text reveal-group">
+          <div ref={heroRow1Ref} className="hero-row reveal reveal--hero">
+            <h1>Hi, I'm <HeroPill
+              src="https://framerusercontent.com/images/7JaK76epjAcaHSNBbj2wWGOWQI.jpeg"
+              label="Chris"
+              variant="light"
+              cursor="none"
+              renderOverlay={({ x, y }) => <ChrisBubble x={x} y={y} />}
+            />,</h1>
+          </div>
+          <div ref={heroRow2Ref} className="hero-row reveal reveal--hero">
+            <h1>a <CyclingDesignerPill /><br className="hero-mobile-break" /> who turns <em>trust into conversion</em>,</h1>
+          </div>
+          <div ref={heroRow3Ref} className="hero-row reveal reveal--hero">
+            <h1>based in <HeroPill
+              label="East London"
+              variant="outline"
+              renderOverlay={({ x, y, rect }) => <EastLondonCursor x={x} y={y} rect={rect} />}
+            /></h1>
+          </div>
+        </div>
         </div>
       </section>
+
     </div>
   )
 }
