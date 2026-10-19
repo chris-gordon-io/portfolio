@@ -12,8 +12,9 @@ const TAIL = 1200   // ms for the last line's transition to finish
  * layout, so it follows the viewport width and the webfont once it loads.
  *
  * States on the container: is-measuring (hidden until the first measure),
- * is-split (units hidden), is-revealed (units animate in), is-done (transitions
- * off again so hover styles aren't affected).
+ * is-split (units hidden), is-prep (hide without transitions), is-revealed
+ * (units animate in), is-done (transitions off again so hover styles aren't
+ * affected).
  */
 export function useLineReveal() {
   const ref = useRef(null)
@@ -29,8 +30,6 @@ export function useLineReveal() {
     }
 
     let maxLine = 0
-    let started = false
-    let doneTimer
 
     function assignLines() {
       const units = [...el.querySelectorAll('.hx-unit')]
@@ -54,28 +53,32 @@ export function useLineReveal() {
 
     function start() {
       assignLines()
-      el.classList.add('is-split')
+      // Hide instantly (is-prep turns transitions off) and force that state to
+      // be computed, then switch transitions back on and reveal in the same tick.
+      // Without the committed hidden state the hide itself would transition and
+      // the text would never visibly start hidden.
+      el.classList.add('is-split', 'is-prep')
       el.classList.remove('is-measuring')
-      void el.offsetWidth // commit the hidden state before animating
-      requestAnimationFrame(() => {
-        el.classList.add('is-revealed')
-        started = true
-        doneTimer = setTimeout(() => el.classList.add('is-done'), maxLine * STAGGER + TAIL)
-      })
+      void el.offsetWidth
+      el.classList.remove('is-prep')
+      el.classList.add('is-revealed')
+      setTimeout(() => el.classList.add('is-done'), maxLine * STAGGER + TAIL)
     }
 
-    start()
+    // Once per element: React's dev double-run of effects would otherwise hide the
+    // text again mid-reveal and snap it straight to visible
+    if (!el.dataset.lineRevealStarted) {
+      el.dataset.lineRevealStarted = '1'
+      start()
+    }
 
     // Re-measure if the font loads or the width changes (lines may re-wrap)
-    const remeasure = () => { if (started) assignLines() }
+    const remeasure = () => { if (el.classList.contains('is-revealed')) assignLines() }
     document.fonts?.ready.then(remeasure)
     const ro = new ResizeObserver(remeasure)
     ro.observe(el)
 
-    return () => {
-      clearTimeout(doneTimer)
-      ro.disconnect()
-    }
+    return () => ro.disconnect()
   }, [])
 
   return ref

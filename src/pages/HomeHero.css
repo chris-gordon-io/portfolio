@@ -63,6 +63,10 @@
   transition-delay: calc(var(--line, 0) * 110ms + 150ms);
 }
 
+.hx-copy.is-prep .hx-unit {
+  transition: none;
+}
+
 .hx-copy.is-revealed .hx-unit {
   opacity: 1;
   transform: none;
