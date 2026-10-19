@@ -20,10 +20,8 @@ export default function Toyota() {
         <ProjectHero
           title="Toyota One App"
           subtitle="Connected Services Onboarding"
-          background="linear-gradient(180deg, #23233B 0%, #23233B 100%)"
-          image={{ src: '/images/toyota/0.0.0 Splash - OPT02.png', alt: 'Toyota One App splash screen' }}
-          wide
-          fullWidth
+          background="linear-gradient(180deg, #EA0A1D 0%, #AF0817 100%)"
+          image={{ src: '/images/toyota/toyota-hero.webp', alt: 'Toyota One App Connected Services onboarding screens' }}
         />
       </div>
 
