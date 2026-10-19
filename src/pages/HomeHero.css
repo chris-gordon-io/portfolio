@@ -2,11 +2,14 @@
    Scoped to .hx-copy so the shared hero styles in Home.css are untouched. */
 
 .hero .hx-copy {
-  /* narrow reading column (full width on small screens) */
-  width: 65%;
+  /* Type size lives here so the column can be sized in em: the line breaks then
+     stay identical at every viewport width (full width on small screens) */
+  font-size: clamp(24.2px, 2.42vw, 26.4px);
+  width: 28.6em;
+  max-width: 100%;
   gap: 0;
-  /* the column is centred in the hero; the text inside stays flush left */
-  align-self: center;
+  /* left-aligned: the column sits at the hero's left padding edge */
+  align-self: flex-start;
   align-items: flex-start;
   text-align: left;
 }
@@ -14,7 +17,7 @@
 .hero .hx-copy h1,
 .hero .hx-copy p {
   font-family: var(--font-family);
-  font-size: clamp(22px, 2.2vw, 24px);
+  font-size: inherit;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.02em;
