@@ -9,15 +9,8 @@ import listeningToImg from '../assets/ListeningTo.jpg'
 import girlHoodImg from '../assets/GirlHood.jpg'
 import pizzaImg from '../assets/Pizza.webp'
 import memojiImg from '../assets/memoji.png'
+import BentoArrow from '../components/BentoArrow'
 import './About.css'
-
-function BentoArrow({ size = 14, className }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  )
-}
 
 export default function About() {
   const [activeVideo, setActiveVideo] = useState(null)
