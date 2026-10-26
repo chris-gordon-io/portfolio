@@ -304,6 +304,58 @@
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
+/* ── Image block: two stacked on the left, one tall on the right ── */
+.pc-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-m);
+  width: 100%;
+}
+
+.pc-split-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  min-width: 0;
+}
+
+.pc-split-fig {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  margin: 0;
+  min-width: 0;
+}
+
+.pc-split-frame {
+  background: #ffffff; /* shows as an empty container until an image is set */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 4 / 3;
+}
+
+.pc-split-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.pc-split-fig figcaption {
+  font-size: 14px;
+  color: #7B7B89;
+  text-align: center;
+}
+
+/* The right container takes the full height of the two on the left */
+.pc-split-fig--tall .pc-split-frame {
+  flex: 1;
+  aspect-ratio: auto;
+  min-height: 0;
+}
+
 /* ── Metrics section wrapper ── */
 .pc-metrics-section {
   padding: 0 var(--space-m) var(--space-xl);
@@ -547,6 +599,15 @@
 
   .pc-image-card--trio .pc-image-fig {
     flex: 1 1 calc(50% - 12px);
+  }
+
+  .pc-split-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pc-split-fig--tall .pc-split-frame {
+    flex: none;
+    aspect-ratio: 4 / 5;
   }
 
   .pc-stat-label {

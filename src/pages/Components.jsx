@@ -3,6 +3,7 @@ import Footer from '../components/Footer'
 import ProjectHero from '../components/project/ProjectHero'
 import ProjectText from '../components/project/ProjectText'
 import ProjectImage from '../components/project/ProjectImage'
+import ProjectImageSplit from '../components/project/ProjectImageSplit'
 import ProjectMetrics from '../components/project/ProjectMetrics'
 import ProjectTopline from '../components/project/ProjectTopline'
 import ProjectHypothesis from '../components/project/ProjectHypothesis'
@@ -54,6 +55,8 @@ export default function Components() {
         caption="Full-width image"
         images={[{ src: `${IMG}eKOTtOc2Rl52Y6KgALb1gX00mg.jpg`, alt: "Dashboard screenshot" }]}
       />
+
+      <ProjectImageSplit caption="Image block — two left, one right" />
 
       <ProjectMetrics
         intro="Each change had a measurable positive impact during 50/50 A/B testing."
