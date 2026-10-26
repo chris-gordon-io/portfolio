@@ -255,22 +255,6 @@
   padding: 0;
 }
 
-.work-label {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: #ffffff;
-  border: none;
-  align-self: center;
-  position: relative;
-  z-index: 2;
-  margin-bottom: -20px;
-}
-
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -368,17 +352,6 @@
   .work-bottom {
     margin: 0 -24px;
     padding: 24px;
-  }
-
-  .work-label {
-    width: 32px;
-    height: 32px;
-    margin-bottom: -16px;
-  }
-
-  .work-label svg {
-    width: 20px;
-    height: 20px;
   }
 
   .project-grid {

@@ -130,7 +130,49 @@
   vertical-align: -0.15em;
 }
 
+/* ── Secondary CTA: sits 12px above the project card container (the hero's
+   bottom edge is where the container starts), left-aligned with the copy ── */
+.hero .hero-cta {
+  position: absolute;
+  left: 40px;
+  bottom: 12px;
+  /* Compact: visibly smaller than the company chips in the copy (DS sm is 38px tall) */
+  padding: 7px 12px; /* 7px, not 6: with no border it stays 32px tall */
+  font-size: 14px;
+  line-height: 18px;
+  /* white fill, no outline */
+  background: #ffffff;
+  border: none;
+  /* Fades in and up in step with the nav, which fades down and in (Home.css:
+     same 1.8s delay, 0.8s duration and easing) */
+  animation: hero-cta-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both;
+}
+
+.hero .hero-cta:hover {
+  background: var(--color-neutral-10);
+}
+
+.hero .hero-cta .btn-icon {
+  width: 14px;
+  height: 14px;
+}
+
+@keyframes hero-cta-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-cta {
+    animation: none;
+  }
+}
+
 @media (max-width: 768px) {
+  .hero .hero-cta {
+    left: 24px;
+  }
+
   .hero .hx-copy {
     width: 100%;
   }

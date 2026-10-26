@@ -8,6 +8,7 @@ import { useLineReveal } from '../hooks/useLineReveal'
 import CGLogo from '../components/CGLogo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import Button from '../components/Button'
 import toyotaThumb from '../assets/ToyotaThumb.jpg'
 import memojiImg from '../assets/memoji.png'
 import sonyMusicLogo from '../assets/logos/sony-music.png'
@@ -149,7 +150,6 @@ function ProjectCardWithCursor({ project }) {
 }
 
 export default function Home() {
-  const workLabelRef = useReveal()
   const heroRef = useLineReveal()
 
   return (
@@ -185,19 +185,28 @@ export default function Home() {
             <Words>{' working across multiple squads.'}</Words>
           </p>
         </div>
+
+        {/* Secondary CTA, 12px above the project card container */}
+        <Button
+          variant="secondary"
+          size="sm"
+          className="hero-cta"
+          onClick={() => {
+            if (window.lenis) window.lenis.scrollTo('#work')
+            else document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })
+          }}
+        >
+          View selected work
+          {/* Same arrow as the project cursor */}
+          <svg className="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            <polyline points="9,4 13,8 9,12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </Button>
       </section>
 
-      {/* Work — label + cards stagger in on scroll */}
+      {/* Work — cards stagger in on scroll */}
       <section id="work" className="work">
-        <div
-          className="work-label"
-          onClick={() => document.getElementById('project-grid')?.scrollIntoView({ behavior: 'smooth' })}
-          style={{ cursor: 'pointer' }}
-        >
-          <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 3.5L8 12.5M8 12.5L4.5 9M8 12.5L11.5 9" stroke="#4F4F62" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </div>
         <div className="work-bottom">
           <div id="project-grid" className="project-grid">
             {projects.map((project, i) => (
