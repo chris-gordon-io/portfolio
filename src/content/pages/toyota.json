@@ -1,0 +1,481 @@
+{
+  "title": "Toyota",
+  "pageClass": "toyota-page",
+  "blocks": [
+    {
+      "id": "b01",
+      "type": "Hero",
+      "props": {
+        "title": "Toyota One App",
+        "subtitle": "Connected Services Onboarding",
+        "background": "linear-gradient(180deg, #EA0A1D 0%, #AF0817 100%)",
+        "image": {
+          "src": "/images/toyota/toyota-hero.webp",
+          "alt": "Toyota One App Connected Services onboarding screens"
+        }
+      }
+    },
+    {
+      "id": "b02",
+      "type": "Topline",
+      "props": {
+        "text": "Redesigning a first-time user experience for a global automotive app, shifting the goal from education to speed."
+      }
+    },
+    {
+      "id": "b03",
+      "type": "Text",
+      "props": {
+        "heading": "Why are we doing this?",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "Toyota's app had a 1.4-star rating. A new CEO wanted to rebuild it from scratch."
+          },
+          {
+            "style": "body",
+            "html": "Toyota had built different car companion apps for different regions, car generations, and markets. The new CEO wanted a single, unified global app to align experiences, reduce development and speed up releases."
+          },
+          {
+            "style": "body",
+            "html": "I was Lead UX Designer on the Onboarding team, working with 5 Product Owners and an offshore engineering team across three time zones, creating an Onboarding experience that works for everyone..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b04",
+      "type": "Metrics",
+      "props": {
+        "heading": "App store rating",
+        "metrics": [
+          {
+            "number": "1.4★",
+            "label": "App Store rating before the rebuild"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b05",
+      "type": "Text",
+      "props": {
+        "heading": "The Complexity",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "This wasn't a simple onboarding problem."
+          },
+          {
+            "style": "body",
+            "html": "The experience had to work across:"
+          },
+          {
+            "style": "body",
+            "html": "• Multiple regions"
+          },
+          {
+            "style": "body-small",
+            "html": "Different legal requirements, language, services",
+            "tight": true
+          },
+          {
+            "style": "body",
+            "html": "• Multiple car generations"
+          },
+          {
+            "style": "body-small",
+            "html": "Affects how vehicle pairing works",
+            "tight": true
+          },
+          {
+            "style": "body",
+            "html": "• Multiple trim levels"
+          },
+          {
+            "style": "body-small",
+            "html": "Determines which trials are included",
+            "tight": true
+          },
+          {
+            "style": "body",
+            "html": "• Multiple user types"
+          },
+          {
+            "style": "body-small",
+            "html": "New buyers, second-hand, partners, second vehicle owners",
+            "tight": true
+          },
+          {
+            "style": "body",
+            "html": "• Multiple entry points"
+          },
+          {
+            "style": "body-small",
+            "html": "Pre-car delivery, in-car first launch, returning users",
+            "tight": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b06",
+      "type": "Image",
+      "props": {
+        "caption": "Current design — first-time user set-up from car",
+        "images": [
+          {
+            "src": "/images/uploads/toyota-connected-services-carousel.webp",
+            "alt": "Current Connected Services carousel with research notes",
+            "shadow": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "b07",
+      "type": "Text",
+      "props": {
+        "heading": "The Broken Experience",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "Users had no idea what they were being asked to engage with."
+          },
+          {
+            "style": "body",
+            "html": "The existing onboarding asked users to engage with Connected Services trials before explaining what those services were or what they were worth. Users skipped past them, ignored them, or left confused."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b08",
+      "type": "Text",
+      "props": {
+        "heading": "The Broken Experience",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "The root cause: no mental model, no value proposition, no trust."
+          },
+          {
+            "style": "body",
+            "html": "Users encountered trial offers with no context for what Connected Services were, how long they lasted, what they cost after trial, or how data consent related to any of it. Without that foundation, they couldn't make an informed choice — so they skipped."
+          },
+          {
+            "style": "body",
+            "html": "The result: poor trial activation, 1.4-star reviews citing confusion, and a product that was actively eroding trust at the first moment of use."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b09",
+      "type": "Hypothesis",
+      "props": {
+        "text": "If we make Connected Services clearer — what they are, what they cost, how consent works — users will engage with them more confidently."
+      }
+    },
+    {
+      "id": "b10",
+      "type": "Text",
+      "props": {
+        "heading": "Goals",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "What we set out to prove."
+          },
+          {
+            "style": "body",
+            "html": "<strong>For users:</strong> If we improve clarity around trials and data consent, users will feel confident enough to engage with Connected Services."
+          },
+          {
+            "style": "body",
+            "html": "<strong>For the business:</strong> Increased trial activation → higher post-trial subscription conversion."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b11",
+      "type": "Text",
+      "props": {
+        "heading": "My Approach",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "I started by getting everyone in a room, then getting in front of real users."
+          },
+          {
+            "style": "body",
+            "html": "I ran a 2-day discovery workshop with the Global Head of Onboarding, bringing in designers from across the team for ideation and input from previous experience phases. The goal was to surface what we thought we knew, what we didn't, and where the biggest risks were."
+          },
+          {
+            "style": "body",
+            "html": "<strong>From there, I led:</strong>"
+          },
+          {
+            "style": "body",
+            "html": "• Cross-functional workshops with PMs, stakeholders, and designers"
+          },
+          {
+            "style": "body",
+            "html": "• Prototype concepts tested in moderated user sessions",
+            "tight": true
+          },
+          {
+            "style": "body",
+            "html": "<strong>We also:</strong>"
+          },
+          {
+            "style": "body",
+            "html": "• Interviewed dealers and car buyers to understand the sales-side experience"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b12",
+      "type": "Text",
+      "props": {
+        "heading": "The Broken Experience",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "Our first concept: show the service value clearly, upfront."
+          },
+          {
+            "style": "body",
+            "html": "We rebuilt the Connected Services cards, replacing the generic carousel with individual service tiles that named the benefit, the trial length, and the cost transparency users were missing."
+          },
+          {
+            "style": "body",
+            "html": "We tested this with 8 users in moderated sessions..."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b13",
+      "type": "Image",
+      "props": {
+        "caption": "First concept — Safety Connect detail and trial summary",
+        "images": [
+          {
+            "lottie": "/animations/service-connect-accordion.json",
+            "alt": "First concept: the Service Connect card expanding to show the trial summary",
+            "width": 375,
+            "shadow": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "b14",
+      "type": "Text",
+      "props": {
+        "heading": "The pivot",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "We were solving the wrong problem."
+          },
+          {
+            "style": "body",
+            "html": "Testing showed users understood Connected Services better with our redesign. But something more important surfaced: <strong>they didn't actually care.</strong>"
+          },
+          {
+            "style": "body",
+            "html": "When no money was being asked for upfront, users weren't motivated to understand the services in detail. What they were motivated to do was get through onboarding as fast as possible — get to their car, get into the app, and explore later on their own terms."
+          },
+          {
+            "style": "body",
+            "html": "<em>\"People cared more about completing onboarding than being forced to learn everything upfront.\"</em>"
+          },
+          {
+            "style": "body",
+            "html": "This wasn't a UX failure to fix — it was a product strategy question. We took it back to Product and Business."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b15",
+      "type": "Text",
+      "props": {
+        "heading": "The Design Evolution",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "The goal evolved four times. That was the point."
+          },
+          {
+            "style": "body",
+            "html": "Each shift was driven by evidence, not opinion. The final goal, optimise for speed, was a direct result of what users showed us in testing."
+          },
+          {
+            "style": "body",
+            "html": "<strong>1. Original Design</strong> — Matched existing product strategy."
+          },
+          {
+            "style": "body",
+            "html": "<strong>2. Design to match function</strong> — Design was misaligned with actual technical capabilities, fixed first.",
+            "tight": true
+          },
+          {
+            "style": "body",
+            "html": "<strong>3. Design for clarity</strong> — Initial hypothesis: help users understand services.",
+            "tight": true
+          },
+          {
+            "style": "body",
+            "html": "<strong>4. Design for speed (new goal)</strong> — Insight from testing: users want through, not educated.",
+            "tight": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b16",
+      "type": "Text",
+      "props": {
+        "heading": "The New Experience",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "Data consent moved forward and simplified. Education moved to where users were ready for it."
+          },
+          {
+            "style": "body",
+            "html": "The new experience reflected the user's actual mental model: get through setup, then discover what the app can do. Connected Services are introduced contextually, where users can engage with them on their own terms."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b17",
+      "type": "Image",
+      "props": {
+        "caption": "New experience — contextual Connected Services, introduced post-onboarding",
+        "images": []
+      }
+    },
+    {
+      "id": "b18",
+      "type": "Text",
+      "props": {
+        "heading": "What actually changed",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "The research changed more than the design."
+          },
+          {
+            "style": "body",
+            "html": "By the time the project moved into delivery, several things had shifted that went beyond UI:"
+          },
+          {
+            "style": "body",
+            "html": "<strong>Business:</strong> The business reconsidered how it packaged its trials — moving away from forcing education upfront in favour of contextual discovery post-onboarding."
+          },
+          {
+            "style": "body",
+            "html": "<strong>Product:</strong> Data consent was repositioned to the front of the experience — a decision that affected how the product was structured, not just designed."
+          },
+          {
+            "style": "body",
+            "html": "<strong>Strategy:</strong> The onboarding goal shifted from \"increase comprehension of Connected Services\" to \"optimise for completion speed, educate in the right place\" — a fundamental reframe of what success meant."
+          },
+          {
+            "style": "body",
+            "html": "<strong>What I'd measure:</strong>"
+          },
+          {
+            "style": "body",
+            "html": "• App store rating improvement (baseline: 1.4★)"
+          },
+          {
+            "style": "body",
+            "html": "• Data consent completion rate",
+            "tight": true
+          },
+          {
+            "style": "body",
+            "html": "• Onboarding completion rate and drop-off by step",
+            "tight": true
+          },
+          {
+            "style": "body",
+            "html": "• Dealership sentiment (qualitative, via interviews)",
+            "tight": true
+          },
+          {
+            "style": "body",
+            "html": "• Trial activation rates post-launch",
+            "tight": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b19",
+      "type": "Text",
+      "props": {
+        "heading": "Hand off",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "I left the project at a strong handover point."
+          },
+          {
+            "style": "body",
+            "html": "When I was approached by Motorway for a new role, the Toyota onboarding project had reached a clear strategic milestone: the goal was redefined, the approach was validated through testing, and the design was ready to move into build."
+          },
+          {
+            "style": "body",
+            "html": "I worked my full notice period to ensure continuity. I fully onboarded the incoming designer, documented the design rationale, and handed over a project with a clear direction and aligned stakeholders entering the delivery phase with a solid foundation."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b20",
+      "type": "Text",
+      "props": {
+        "heading": "What I'd Do Differently",
+        "body": [
+          {
+            "style": "body-large",
+            "html": "What I learned."
+          },
+          {
+            "style": "body",
+            "html": "Earlier alignment on what \"success\" meant: we spent time designing for clarity when the real metric should have been completion speed. Getting Product, Business, and Design aligned on the success definition at the start would have shortened the discovery phase."
+          },
+          {
+            "style": "body",
+            "html": "Dealer interviews informing the brief: the insights from dealer interviews were valuable but came mid-process. Earlier integration of the sales-side perspective might have surfaced the \"get through onboarding fast\" insight sooner."
+          },
+          {
+            "style": "body",
+            "html": "Get everyone in the room, and keep them there. Some of the struggles and challenges we came up against as a team were due to not having a mutual agreement on certain approaches (amount of up-front education and where)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b21",
+      "type": "Impact",
+      "props": {
+        "text": "The research reframed what success meant for this project — from comprehension to completion speed — repositioning data consent and reshaping how the business packaged Connected Services trials. The App Store rating has since climbed to 4.5★, up from 1.4★ at the start of the engagement."
+      }
+    },
+    {
+      "id": "b22",
+      "type": "BackButton",
+      "props": {}
+    }
+  ]
+}

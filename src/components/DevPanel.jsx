@@ -36,6 +36,7 @@ function Panel() {
   if (!visible) {
     return (
       <button
+        data-dev-panel=""
         onClick={() => setVisible(true)}
         style={{
           position: 'fixed', left: 16, top: '50%', transform: 'translateY(-50%)',
@@ -49,7 +50,7 @@ function Panel() {
 
   // ── panel ────────────────────────────────────────────────────
   return (
-    <div style={{
+    <div data-dev-panel="" style={{
       position: 'fixed', left: 16, top: '50%', transform: 'translateY(-50%)',
       zIndex: 9999, background: '#fff', borderRadius: 14, padding: '10px 6px',
       boxShadow: '0 4px 32px rgba(0,0,0,0.14)', width: 210,

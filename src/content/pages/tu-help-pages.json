@@ -1,0 +1,233 @@
+{
+  "title": "Tu",
+  "pageClass": "project-page",
+  "blocks": [
+    {
+      "id": "b01",
+      "type": "Hero",
+      "props": {
+        "title": "Tu",
+        "subtitle": "Reimagining the Help experience for TU",
+        "background": "linear-gradient(180deg, #52525E 0%, #000000 100%)",
+        "image": { "src": "https://framerusercontent.com/images/zmvDVSiKkFHUyUYT7SD4nH0US8E.png", "alt": "Tu Help experience desktop and mobile" }
+      }
+    },
+    {
+      "id": "b02",
+      "type": "Topline",
+      "props": {
+        "text": "How I identified a larger problem within an experience and created a holistic vision for self serve Help."
+      }
+    },
+    {
+      "id": "b03",
+      "type": "Callout",
+      "props": {
+        "eyebrow": "About",
+        "body": [
+          { "style": "plain", "html": "There is a large scale migration piece happening at Sainsburys Argos in a cost saving move (all Products on a single tech stack). As a result of the replatforming there is a need to look at each part of the experience and look for opportunities to update and improve." },
+          { "style": "plain", "html": "This project was started off with the ask to sense check the UX of the accordion component in the new Design System and how it compared to the current implementation, it ended with a complete reimagine of the Help experience across all brands." }
+        ]
+      }
+    },
+    {
+      "id": "b04",
+      "type": "Hypothesis",
+      "props": {
+        "text": "\"Hey Chris, can you do the UX for this accordion?\" led to the realisation that the Help section of the site was not being properly considered in the replatforming work."
+      }
+    },
+    {
+      "id": "b05",
+      "type": "Callout",
+      "props": {
+        "eyebrow": "Discovery",
+        "body": [
+          { "style": "plain", "html": "Help is a massive area, so this required reaching out to both content team and the CMC (Call centre Team) to get an understanding on what's been done so far, what's worked, what hasn't and what is the current direction for Help from a content perspective." },
+          { "style": "plain", "html": "Tu's current help pages are very information heavy — as a result customers are having to phone up the CMC on average approx 1 in every 5 orders to get help. High number of CMC calls add additional cost to the business as well as being a more lengthy way for customers to complete their tasks. There is an opportunity to reimagine the experience to allow customers to self serve, reducing CMC costs and increasing customer satisfaction." }
+        ]
+      }
+    },
+    {
+      "id": "b06",
+      "type": "Metrics",
+      "props": {
+        "heading": "The problem",
+        "metrics": [{ "number": "1 in 5", "label": "Orders result in a CMC call for help" }]
+      }
+    },
+    {
+      "id": "b07",
+      "type": "Image",
+      "props": {
+        "caption": "Current Help home page Desktop",
+        "images": [{ "src": "https://framerusercontent.com/images/52n66YpAvHj15n6gaPDrBwgqIo.jpg", "alt": "Current Tu Help home page on desktop" }]
+      }
+    },
+    {
+      "id": "b08",
+      "type": "Image",
+      "props": {
+        "caption": "Heatmaps",
+        "images": [
+          { "src": "https://framerusercontent.com/images/m6CGSLp9gwy2nKWIjy0uSZbga0.jpg", "alt": "Help page heatmap" },
+          { "src": "https://framerusercontent.com/images/Hd7cMKNL2m2tP0iDmcqI6KOZlc.jpg", "alt": "Help page heatmap 2" }
+        ]
+      }
+    },
+    {
+      "id": "b09",
+      "type": "Callout",
+      "props": {
+        "eyebrow": "Discovery continued",
+        "body": [
+          { "style": "plain", "html": "In-between the cross-team collaboration work I set about benchmarking our competitors, looking at time on task, confidence and NPS of comparable journeys based on heatmaps and CMC data (what are our customers trying to do the most)." },
+          { "style": "plain", "html": "Brands tested:" },
+          { "style": "plain", "html": "✦ Argos" },
+          { "style": "plain", "html": "✦ Tu", "tight": true },
+          { "style": "plain", "html": "✦ M&amp;S", "tight": true },
+          { "style": "plain", "html": "✦ ASOS", "tight": true },
+          { "style": "plain", "html": "✦ Next", "tight": true },
+          { "style": "plain", "html": "✦ George", "tight": true },
+          { "style": "plain", "html": "✦ John Lewis", "tight": true },
+          { "style": "plain", "html": "How we measured: Time on task, NPS, Confidence." }
+        ]
+      }
+    },
+    {
+      "id": "b10",
+      "type": "Image",
+      "props": {
+        "caption": "Competitor benchmarking",
+        "images": [
+          { "src": "https://framerusercontent.com/images/33c2tA1f7tm6hcXhP8FZziHGc.jpg", "alt": "Competitor 1" },
+          { "src": "https://framerusercontent.com/images/Oa26cYT53bMJ5LzQlOFT6ce2s.jpg", "alt": "Competitor 2" }
+        ]
+      }
+    },
+    {
+      "id": "b11",
+      "type": "Image",
+      "props": {
+        "caption": "Test results and anatomy of a winner",
+        "images": [
+          { "src": "https://framerusercontent.com/images/FMX5MAmojmNeTXvPMiidRy7IJlU.jpg", "alt": "Test results" },
+          { "src": "https://framerusercontent.com/images/XdYiX3rYiBX2d17RUDOxjpITAk.jpg", "alt": "Anatomy of a winner" }
+        ]
+      }
+    },
+    {
+      "id": "b12",
+      "type": "Callout",
+      "props": {
+        "eyebrow": "Design goals / Success metrics",
+        "body": [
+          { "style": "plain", "html": "✅ Reduce customers' reliance on the call centre (drive down calls per order)" },
+          { "style": "plain", "html": "✅ Help customers self serve — completing tasks quicker and easier", "tight": true },
+          { "style": "plain", "html": "✅ Increase UX benchmarking to match or exceed top scoring competitors", "tight": true }
+        ]
+      }
+    },
+    {
+      "id": "b13",
+      "type": "Callout",
+      "props": {
+        "eyebrow": "Ideation",
+        "body": [
+          { "style": "plain", "html": "Based on what the CMC and heatmaps were telling us (and with an eye on high benchmarking competitor references) it appeared the majority of customers wanted to be able to complete or find info on three main tasks. Pulling these out and creating self-service journeys made sense, so a new Help home page was wired up based on the hypothesis that separating content into primary tasks and secondary information would benefit the majority of customers." }
+        ]
+      }
+    },
+    {
+      "id": "b14",
+      "type": "Hypothesis",
+      "props": {
+        "text": "We believe users will be able to navigate quicker and more efficiently if the content is broken up into blocks of tasks and information, resulting in decreased time on task and increased NPS — ultimately reducing CMC usage."
+      }
+    },
+    {
+      "id": "b15",
+      "type": "Image",
+      "props": {
+        "caption": "Wires and flows",
+        "images": [{ "src": "https://framerusercontent.com/images/y0NJqNOpl2gx8DsGmw7SUTFc.jpg", "alt": "Wires and flows for new Help experience" }]
+      }
+    },
+    {
+      "id": "b16",
+      "type": "Callout",
+      "props": {
+        "eyebrow": "Wires",
+        "body": [
+          { "style": "plain", "html": "Going back to the replatforming objective the visuals were created using as close to possible the current CMS components available for builds. I iterated slightly on a couple of visual styles to make them more suitable for specific usage — for example reducing the size of imagery to use an icon — in the hopes others would agree on ROI once we got to build." }
+        ]
+      }
+    },
+    {
+      "id": "b17",
+      "type": "Image",
+      "props": {
+        "caption": "Wires and potential CMS components",
+        "images": [{ "src": "https://framerusercontent.com/images/BomKm67Y67dlTitmtKz6WySX0L4.jpg", "alt": "Wires mapped to CMS components" }]
+      }
+    },
+    {
+      "id": "b18",
+      "type": "Callout",
+      "props": {
+        "eyebrow": "Visuals and testing",
+        "body": [
+          { "style": "plain", "html": "The research and wires were shared around both the design team and the content team (who have ownership of the content on Tu) to gather thoughts and feedback — all largely positive. Next step was skinning the wires using the Tu Design System (a reskinned version of Sainsbury's Luna Design System, that I also contributed to)." },
+          { "style": "plain", "html": "Testing was done on both desktop and mobile using the same method as the benchmarking testing — so while not concrete, it at least gives a steer and would highlight any potential issues." },
+          { "style": "plain", "html": "This is also an example where A/B testing would not work (the usual way to test more robustly) as one of the design goals is to reduce CMC call frequency — not something we'd be able to link to either design in an A/B test." }
+        ]
+      }
+    },
+    {
+      "id": "b19",
+      "type": "Metrics",
+      "props": {
+        "heading": "Results",
+        "intro": "Current vs proposed redesign",
+        "metrics": [
+          { "number": "34s → 24s", "label": "Time on task" },
+          { "number": "13 → 36", "label": "NPS" },
+          { "number": "71% → 86%", "label": "Confidence (5–7 rating)" }
+        ]
+      }
+    },
+    {
+      "id": "b20",
+      "type": "Image",
+      "props": {
+        "caption": "Old vs new",
+        "images": [{ "src": "https://framerusercontent.com/images/CKaOuqCXNIYWCs2C5Lf2WfvC0I.jpg", "alt": "Old vs new Help experience comparison" }]
+      }
+    },
+    {
+      "id": "b21",
+      "type": "Image",
+      "props": {
+        "caption": "Help home page and primary task page",
+        "images": [
+          { "src": "https://framerusercontent.com/images/tJj0bdTi12BXRFtL5ZYIncdKE.jpg", "alt": "Help home page desktop", "caption": "Help home page" },
+          { "src": "https://framerusercontent.com/images/wHmrshlfvRjWXKAl0mlpzIlH0wg.jpg", "alt": "Help primary task page", "caption": "Primary task page" }
+        ]
+      }
+    },
+    {
+      "id": "b22",
+      "type": "Callout",
+      "props": {
+        "eyebrow": "Next steps",
+        "body": [
+          { "style": "plain", "html": "🧑‍💼 Getting CMS and Help Product Managers to understand the value beyond the replatforming and get the new experience into the backlogs (done)." },
+          { "style": "plain", "html": "✍️ Content audit with the Content team. Continuing CMC workshops to dive into the details of what people are calling about.", "tight": true },
+          { "style": "plain", "html": "🛠️ Get an understanding of MVP with Engineering while continuing to design out journeys and explore opportunities.", "tight": true },
+          { "style": "plain", "html": "📐 Measure calls to Call Centre post launch.", "tight": true }
+        ]
+      }
+    },
+    { "id": "b23", "type": "BackButton", "props": {} }
+  ]
+}

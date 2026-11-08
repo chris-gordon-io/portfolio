@@ -1,3 +1,18 @@
+# Portfolio
+
+## Editing project pages
+
+Case-study pages (Motorway, Toyota, Tu, Benchmark) are built from JSON in `src/content/pages/`, and global component spacing lives in `src/content/theme.json`.
+
+1. `npm run dev`, open a project page, click **Edit page** (bottom right).
+2. Click any text to type into it. Click a block to edit its content and spacing, or to move, duplicate or delete it. Use **+** or the **Add** tab to insert blocks. **Global styles** changes spacing for every block of a type.
+3. **Save** (⌘S) writes the JSON files. Uploaded images go to `public/images/uploads/`.
+4. Commit and push to deploy on Vercel.
+
+The editor only runs on the dev server. It is never included in the production build.
+
+---
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

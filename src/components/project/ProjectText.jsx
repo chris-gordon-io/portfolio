@@ -12,7 +12,7 @@ import './ProjectComponents.css'
 export default function ProjectText({ heading, accent = false, slim = false, children }) {
   const ref = useReveal({ once: false })
   return (
-    <div ref={ref} className={`pc-section reveal${slim ? ' pc-section--slim' : ''}`} data-dev-component={`Text${heading ? ` — ${heading}` : ''}`}>
+    <div ref={ref} className={`pc-section reveal${slim ? ' pc-section--slim' : ''}`} data-dev-component={`Text${typeof heading === 'string' ? ` — ${heading}` : ''}`}>
       <div className="pc-content-block">
         <div className="pc-col-heading">
           <h2 className={`heading-3${accent ? ' accent' : ''}`}>{heading}</h2>

@@ -1,0 +1,240 @@
+{
+  "title": "Motorway",
+  "pageClass": "project-page",
+  "blocks": [
+    {
+      "id": "b01",
+      "type": "Hero",
+      "props": {
+        "title": "Motorway",
+        "subtitle": "Customer activation journey",
+        "background": "linear-gradient(180deg, #0560cc 0%, #063165 100%)",
+        "image": { "src": "/images/motorway-hero.png", "alt": "Motorway offer select page on desktop and mobile" },
+        "wide": true
+      }
+    },
+    {
+      "id": "b02",
+      "type": "Topline",
+      "props": {
+        "text": "How I ran multiple A/B tests in a high focus area to optimise the customer activation flow and increase primary KPIs multiple times."
+      }
+    },
+    {
+      "id": "b03",
+      "type": "Text",
+      "props": {
+        "heading": "About",
+        "body": [
+          { "style": "body", "html": "Motorway started in 2017 with a vision to build a better car market for everyone, operating in a very competitive market against companies such as Carwow, Webuyanycar and Cinch." },
+          { "style": "body", "html": "I joined Motorway in summer 2023 and after an \"easy in\" learning the way the company works on internal tools was moved over to the Growth team tasked with optimising top of funnel — in this case the first four pages a (new) user would see when landing on Motorway.co.uk with the intent of (potentially) selling their car." }
+        ]
+      }
+    },
+    {
+      "id": "b04",
+      "type": "Text",
+      "props": {
+        "heading": "Heuristic evaluation of current experience",
+        "body": [
+          { "style": "body", "html": "The first thing I did when joining this team was to go through the current experience and making some potentially quick and easy optimisation recommendations, these included things such as:" },
+          { "style": "body", "html": "✅ Making sure CTA's were visible across all viewports" },
+          { "style": "body", "html": "✅ One Primary CTA on each page", "tight": true },
+          { "style": "body", "html": "✅ Increase Accessibility of form fields", "tight": true },
+          { "style": "body", "html": "I shared the findings with the wider team (Lead Product Owner and full Dev team) to gauge thoughts and feelings as well as get a rough idea of effort involved (from an engineering perspective)." },
+          { "style": "body", "html": "With the whole team aligned we wrote up tickets for refinement and rolled out each optimisation separately and measuring impact." }
+        ]
+      }
+    },
+    {
+      "id": "b05",
+      "type": "Image",
+      "props": {
+        "caption": "Brining Primary CTA into all Viewports on initial load",
+        "images": [
+          { "src": "https://framerusercontent.com/images/FnEmfUZAKnbq8a80ysIObovXuc.png", "alt": "Before", "caption": "Before — Initial load iPhone 13 Mini" },
+          { "src": "https://framerusercontent.com/images/GmrADgk3K9jvWLY5YHz0eHjYps.png", "alt": "After", "caption": "After — Initial load iPhone 13 Mini" }
+        ]
+      }
+    },
+    {
+      "id": "b06",
+      "type": "Metrics",
+      "props": {
+        "intro": "Each one of these changes had 5%+ positive impact during 50/50 A/B testing and was subsequently rolled out to 100%.",
+        "metrics": [
+          { "number": "+6.65%", "label": "CTA in all viewports" },
+          { "number": "+3.21%", "label": "CTA updates" }
+        ]
+      }
+    },
+    {
+      "id": "b07",
+      "type": "Text",
+      "props": {
+        "heading": "Additional action",
+        "body": [
+          { "style": "body", "html": "Off the back of this we also rebuilt the header to reduce the amount of space it took up as during User Lab testing people were aware and confident that the valuation was related to the car details they had inputted and act as an enabler for more space for more valuable content." }
+        ]
+      }
+    },
+    {
+      "id": "b08",
+      "type": "Image",
+      "props": {
+        "caption": "Page header before and after",
+        "images": [
+          { "src": "https://framerusercontent.com/images/9nWLGN9u0mBFcQsFZta5K1Kytek.jpg", "alt": "Original Header", "caption": "Original Header" },
+          { "src": "https://framerusercontent.com/images/4OWA1jO5O3Fl9T50L3w80qqpz98.jpg", "alt": "Optimised Header", "caption": "Optimised Header" }
+        ]
+      }
+    },
+    {
+      "id": "b09",
+      "type": "Text",
+      "props": {
+        "heading": "Problem / Opportunity space",
+        "body": [
+          { "style": "body", "html": "A previous study and continual discovery (through moderated user testing) pointed to 3 key drivers for users to sell their car to design to:" },
+          { "style": "body", "html": "💰 Price (how much)" },
+          { "style": "body", "html": "💰 Price (how did MW get this price and can I trust I will get it)", "tight": true },
+          { "style": "body", "html": "⚙️ Process (Understanding/Confidence in what happens next)", "tight": true },
+          { "style": "body", "html": "Looking at our funnel data we had two big opportunity spaces, the home page and the offer select page (offer select page being the larger of the two based on the numbers 15.3% vs 30.3% vs Previous). The Home page had recently been fully redesigned and A/B tested on with little to no impact so there was little appetite to focus on that for now." }
+        ]
+      }
+    },
+    {
+      "id": "b10",
+      "type": "Image",
+      "props": {
+        "caption": "The funnel data",
+        "images": [{ "src": "https://framerusercontent.com/images/eKOTtOc2Rl52Y6KgALb1gX00mg.jpg", "alt": "Conversion funnel data" }]
+      }
+    },
+    {
+      "id": "b11",
+      "type": "Text",
+      "props": {
+        "heading": "How we tackled this",
+        "body": [
+          { "style": "body", "html": "To kick this new focus off I ran a team wide workshop to pull in everyone's knowledge, opinions and ideas around the current experience." }
+        ]
+      }
+    },
+    {
+      "id": "b12",
+      "type": "Image",
+      "props": {
+        "caption": "Full squad workshops",
+        "images": [{ "src": "https://framerusercontent.com/images/GpXx6AKZLG4GjZX23tSF7dUSpY.jpg", "alt": "Full squad FigJam workshops" }]
+      }
+    },
+    {
+      "id": "b13",
+      "type": "Text",
+      "props": {
+        "heading": "Creating a North Star",
+        "body": [
+          { "style": "body", "html": "Off the back of the team workshops and research gathering sessions I started to create a North Star vision for the offer select page, focussing on why the page exists, identifying value for users, while making it achievable within a rough year timeframe." }
+        ]
+      }
+    },
+    {
+      "id": "b14",
+      "type": "Image",
+      "props": {
+        "caption": "Northstar wires",
+        "images": [{ "src": "https://framerusercontent.com/images/4kNdDkXfJQGVz6sJXwdIFLCWE.png", "alt": "North star wireframes" }]
+      }
+    },
+    {
+      "id": "b15",
+      "type": "Text",
+      "props": {
+        "heading": "How are we going to get there?",
+        "body": [
+          { "style": "body", "html": "I broke down each element of the offer select page and mapped it out to a testable plan to work out our path to our North Star, validating and understanding the value of each element along the way." }
+        ]
+      }
+    },
+    {
+      "id": "b16",
+      "type": "Image",
+      "props": {
+        "caption": "Test mapping",
+        "images": [{ "src": "https://framerusercontent.com/images/ECGerZ9sJcYtJV8nQPbpPiatQs.jpg", "alt": "Test mapping and user journey" }]
+      }
+    },
+    {
+      "id": "b17",
+      "type": "Text",
+      "props": {
+        "heading": "How we got the price modal and button",
+        "body": [
+          { "style": "body", "html": "All research pointed strongly towards customers wanting to know more about how the price quoted was got (as well as questions around how it relates to their specific car). We already had an explainer \"?\" but it wasn't tagged up to track interaction and also did not pass accessibility colour contrast checks." }
+        ]
+      }
+    },
+    {
+      "id": "b18",
+      "type": "Hypothesis",
+      "props": {
+        "text": "We believe people will want to learn more about how we calculated their quote and if we build trust and confidence around their quote they are more likely to offer accept (primary KPI)."
+      }
+    },
+    {
+      "id": "b19",
+      "type": "Image",
+      "props": {
+        "caption": "Current experience",
+        "images": [
+          { "src": "https://framerusercontent.com/images/Mo5jOj0hktd1x8y6UqpC3MH9Nc.png", "alt": "Current tooltip", "caption": "Current tooltip" },
+          { "src": "https://framerusercontent.com/images/Y9OdRzkcodxmHQaCagTDbAiYc.png", "alt": "Current modal", "caption": "Current modal" },
+          { "src": "https://framerusercontent.com/images/X6zbhmQnKXjf1XsWvpY1gMNR1Q.png", "alt": "Back to Offer Select page", "caption": "Back to Offer Select page" }
+        ]
+      }
+    },
+    {
+      "id": "b20",
+      "type": "Image",
+      "props": {
+        "caption": "Proposed experience",
+        "images": [
+          { "src": "https://framerusercontent.com/images/luiAXpfx9nqVPOLBRLjesUZ4EI.png", "alt": "Proposed button", "caption": "Proposed button" },
+          { "src": "https://framerusercontent.com/images/ZK0gq5CZdBd0IODerBLSKEXpBEw.png", "alt": "Proposed modal", "caption": "Proposed modal" },
+          { "src": "https://framerusercontent.com/images/vkG9S3ZxaXouMKN9sm6aqLsbTI.png", "alt": "Proposed onward journey", "caption": "Proposed onward journey" }
+        ]
+      }
+    },
+    {
+      "id": "b21",
+      "type": "Text",
+      "props": {
+        "heading": "How we got there",
+        "body": [
+          { "style": "body", "html": "✅ Rebuilt current experience on new tech stack to enable tracking, also make sure icon passes colour contrast checks." },
+          { "style": "body", "html": "✅ Measure current interaction and conversion rates on rebuild.", "tight": true },
+          { "style": "body", "html": "✅ 50/50 A/B test live and proposed.", "tight": true }
+        ]
+      }
+    },
+    {
+      "id": "b22",
+      "type": "Metrics",
+      "props": {
+        "metrics": [
+          { "number": "106%", "label": "Interaction rate" },
+          { "number": "+10%", "label": "Conversion on interaction rate" }
+        ]
+      }
+    },
+    {
+      "id": "b23",
+      "type": "Impact",
+      "props": {
+        "text": "Across the customer activation flow, test after test delivered 5%+ uplifts and shipped to 100%, from +6.65% on CTA visibility to a 106% lift in interaction on the price modal. Beyond the wins, I set the strategy and vision behind them: a North Star for the offer select page and a testable roadmap the team could keep building on."
+      }
+    },
+    { "id": "b24", "type": "BackButton", "props": {} }
+  ]
+}

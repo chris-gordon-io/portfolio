@@ -36,7 +36,7 @@ export default function ProjectImageSplit({ caption, images = [] }) {
   const [topLeft, bottomLeft, right] = images
 
   return (
-    <div ref={ref} className="pc-image-section reveal" data-dev-component={`Image block${caption ? ` — ${caption}` : ''}`}>
+    <div ref={ref} className="pc-image-section reveal" data-dev-component={`Image block${typeof caption === 'string' ? ` — ${caption}` : ''}`}>
       <div className="pc-image-card pc-split-card">
         {caption && <p className="pc-image-title">{caption}</p>}
         <div className="pc-split-grid">
