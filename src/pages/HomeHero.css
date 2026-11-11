@@ -48,6 +48,17 @@
   border: 1px solid var(--color-neutral-30);
 }
 
+/* The face icon is larger than the brand logos; negative margins let it grow
+   without making the pill taller than a brand chip */
+.hero .hx-copy .hero-pill--chip .brand-chip__logo {
+  /* image is cropped to the face, so these are the true visible sizes */
+  width: auto;
+  height: calc(1.15em - 4px);
+  margin: -0.25em 0.25em -0.25em 0;
+  /* +2px keeps the smaller face centred where it was */
+  vertical-align: calc(0.045em + 2px);
+}
+
 /* ── Line-by-line reveal (see useLineReveal) ── */
 .hx-copy.is-measuring {
   visibility: hidden;

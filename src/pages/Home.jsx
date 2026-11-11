@@ -10,7 +10,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import Button from '../components/Button'
 import toyotaThumb from '../assets/ToyotaThumb.jpg'
-import memojiImg from '../assets/memoji.png'
+import chrisIcon from '../assets/chris-icon.png'
 import sonyMusicLogo from '../assets/logos/sony-music.png'
 import motorwayLogo from '../assets/logos/motorway.png'
 import toyotaLogo from '../assets/logos/toyota.png'
@@ -165,7 +165,7 @@ export default function Home() {
             <span className="hx-keep hx-unit"><HeroPill
               src="https://framerusercontent.com/images/7JaK76epjAcaHSNBbj2wWGOWQI.jpeg"
               label="Chris"
-              icon={memojiImg}
+              icon={chrisIcon}
               variant="chip"
               cursor="none"
               renderOverlay={({ x, y }) => <ChrisBubble x={x} y={y} />}
