@@ -314,8 +314,13 @@
   max-width: 280px;
 }
 
+/* Images fill the figure width but are never taller than 96vh (the proportions
+   hold: width shrinks with the height). Centred when narrower than the figure. */
 .pc-image-fig img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 96vh;
   display: block;
 }
 
@@ -340,8 +345,18 @@
   width: min(100%, calc(90vh * var(--lottie-ratio, 0.46)));
   margin: 0 auto;
   min-height: 200px;
-  border-radius: var(--radius-lg);
+  /* iPhone-style screen corners: ~12% of the width, written as percentages so
+     they scale with the animation (12% of 375px ≈ 45px, matching the real screen) */
+  border-radius: 12% / 5.5%;
   overflow: hidden;
+  /* 1px white stroke (the site's card stroke), drawn as a shadow ring so it
+     doesn't change the size or aspect ratio, then a soft layered drop shadow:
+     a tight contact shadow plus two wide ambient ones */
+  box-shadow:
+    0 0 0 1px #ffffff,
+    0 2px 6px rgba(35, 35, 59, 0.06),
+    0 12px 28px rgba(35, 35, 59, 0.12),
+    0 32px 64px rgba(35, 35, 59, 0.12);
 }
 
 /* image.shadow === false */
