@@ -1,0 +1,172 @@
+/* Home playground: every project is a full-width layer that sticks to the top
+   of the viewport while the next one slides up and covers it. */
+
+.pg-work {
+  position: relative;
+  z-index: 1; /* above the sticky hero */
+  background: #FBECE8; /* page colour, so the stuck hero never shows through the gaps */
+}
+
+.pg-stack {
+  position: relative;
+  /* page side margins, like the rest of the site */
+  padding: 0 var(--space-m);
+}
+
+/* Each layer hugs its card and sticks near the top; the next one slides up
+   over it. */
+.pg-layer {
+  position: sticky;
+  top: var(--space-m);
+  margin-bottom: var(--space-m);
+  --cover: 0;
+}
+
+.pg-card {
+  position: relative;
+  display: grid;
+  /* image column: 58% of the card, but never so wide the card outgrows the viewport */
+  grid-template-columns: min(58%, calc((100svh - 6 * var(--space-m)) * 4 / 3)) minmax(0, 1fr);
+  /* height comes from the 4:3 image; the text column spans the same height */
+  padding: var(--space-m);
+  overflow: hidden;
+  color: var(--color-neutral-100);
+  text-decoration: none;
+  background: #FDF5F3;
+  border-top: 1px solid #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 32px rgba(39, 39, 55, 0.1);
+  transform-origin: center top;
+  /* the layer underneath recedes (shrinks and blurs) as the next one covers it */
+  transform: scale(calc(1 - var(--cover) * 0.05));
+  filter: blur(calc(var(--cover) * 8px));
+  will-change: transform, filter;
+}
+
+/* Image — left */
+.pg-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3; /* the thumbnails are 4:3, so nothing is cropped */
+  margin: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-border);
+}
+
+.pg-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pg-card:hover .pg-card__image {
+  transform: scale(1.03);
+}
+
+/* Text — right */
+.pg-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--space-s);
+  padding: var(--space-m) var(--space-m) var(--space-m) var(--space-l);
+}
+
+.pg-card__index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: #fff;
+  font-size: 14px;
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.02em;
+  color: var(--color-neutral-80);
+  margin-bottom: auto;
+}
+
+.pg-card__name {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: clamp(28px, 3.4vw, 56px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.pg-card__description {
+  margin: 0;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--color-muted);
+  max-width: 28em;
+}
+
+.pg-card__body {
+  margin: var(--space-s) 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-muted);
+  max-width: 32em;
+}
+
+.pg-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: var(--space-s) 0 0;
+  padding: 0;
+}
+
+.pg-card__tags li {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 6px 14px;
+  border: 1.5px solid var(--color-neutral-40, #c4c4cc);
+  border-radius: var(--radius-full);
+  color: var(--color-neutral-80);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Footer slides over the last layer once it has been scrolled past */
+.pg-footer {
+  position: relative;
+  z-index: 2;
+  background: #FDF5F3;
+  padding: var(--space-m);
+}
+
+.pg-footer .footer-outer {
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .pg-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    padding: var(--space-s);
+  }
+
+  .pg-card__info {
+    padding: var(--space-m) var(--space-s) var(--space-s);
+    gap: var(--space-s);
+  }
+
+  .pg-card__index {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-card { transform: none; filter: none; }
+}
