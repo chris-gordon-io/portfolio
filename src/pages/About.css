@@ -259,7 +259,7 @@
      below shrink with them, so the composition keeps its proportions) */
   --cv-scale: 0.9;
   --cv-peek: 203px;
-  --cv-fan-space: 172px;
+  --cv-fan-space: 152px;
 }
 
 .bento-cell--c .bento-cell__body {
