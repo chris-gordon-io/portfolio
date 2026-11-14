@@ -312,6 +312,21 @@
   margin: 0;
 }
 
+/* logo at the top of the first page, in a white circle; the mark itself is
+   the same shade as the headings */
+.cv-page__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-neutral-70);
+  line-height: 0;
+}
+
 .cv-page__title {
   color: var(--color-neutral-70);
   font-size: 14px;

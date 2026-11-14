@@ -10,6 +10,7 @@ import girlHoodImg from '../assets/GirlHood.jpg'
 import pizzaImg from '../assets/Pizza.webp'
 import BentoArrow from '../components/BentoArrow'
 import BentoPlay from '../components/BentoPlay'
+import CGLogo from '../components/CGLogo'
 import './About.css'
 
 export default function About() {
@@ -95,6 +96,7 @@ export default function About() {
               </div>
             </div>
             <div className="cv-page cv-page--front">
+              <div className="cv-page__logo"><CGLogo size={13} color="currentColor" /></div>
               <p className="cv-page__title">Chris Gordon CV</p>
               <p className="cv-page__links">
                 <u>chrisgordon.io</u> • <u>LinkedIn</u> • <u>Figma Community</u> • <u>c.p.gordon@me.com</u>
