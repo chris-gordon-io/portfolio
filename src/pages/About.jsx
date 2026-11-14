@@ -45,7 +45,8 @@ export default function About() {
         <div className="bento-cell bento-cell--c">
           <div className="bento-cell__body">
             <h2 className="bento-cell__title bento-cell__title--hero">A few of my interests</h2>
-            <p className="bento-cell__text bento-cell__text--hero">Just here for the work history?</p>
+            <p className="bento-cell__text bento-cell__text--hero">Things I enjoy outside of work, in no particular order.</p>
+            <p className="bento-cell__text bento-cell__text--hero bento-cell__text--alt">Alternatively</p>
             <Button
               variant="primary"
               size="md"
