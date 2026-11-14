@@ -11,10 +11,12 @@ import pizzaImg from '../assets/Pizza.webp'
 import BentoArrow from '../components/BentoArrow'
 import BentoPlay from '../components/BentoPlay'
 import CGLogo from '../components/CGLogo'
+import useDraggablePages from '../hooks/useDraggablePages'
 import './About.css'
 
 export default function About() {
   const [activeVideo, setActiveVideo] = useState(null)
+  const pageDrag = useDraggablePages()
 
   return (
     <div className="about-page">
@@ -63,7 +65,7 @@ export default function About() {
           {/* Two CV pages rise from the bottom of the card, then fan out.
               The left page (in front) is the real design; the back page is the
               Experience design (clipped by the page, so only the top shows). Decorative, so aria-hidden. */}
-          <div className="cv-fan" aria-hidden="true">
+          <div className="cv-fan" aria-hidden="true" {...pageDrag}>
             <div className="cv-page cv-page--back">
               <div className="cv-exp">
                 <p className="cv-exp__title">Experience</p>

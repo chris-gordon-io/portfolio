@@ -443,14 +443,29 @@
      in the DOM), which would otherwise swallow its hover; front is 2. */
   pointer-events: auto;
   z-index: 1;
-  transition: translate 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* --dx / --dy hold the drag offset (see useDraggablePages) */
+  translate: var(--dx, 0px) var(--dy, 0px);
+  transition: translate 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
 }
 
 /* each page lifts on its own hover, independently of the other */
 @media (hover: hover) {
   .cv-page:hover {
-    translate: 0 -14px;
+    translate: var(--dx, 0px) calc(var(--dy, 0px) - 14px);
   }
+}
+
+/* while dragging: stays lifted, follows the pointer with no easing, and the
+   shadow deepens a touch */
+.cv-page.is-dragging {
+  translate: var(--dx, 0px) calc(var(--dy, 0px) - 14px);
+  transition: box-shadow 0.25s;
+  cursor: grabbing;
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--color-neutral-100) 12%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
