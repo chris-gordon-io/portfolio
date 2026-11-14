@@ -246,6 +246,31 @@
     color-mix(in srgb, var(--color-neutral-30) 55%, var(--color-orange-10)) 100%);
 }
 
+/* ── Hero grain ──
+   Fine film grain over the gradient (and the cursor glow), behind the copy.
+   Tiled SVG turbulence, so there is no image file to load. Multiplied in
+   (soft-light does nothing on near-white), with the noise contrast boosted. */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='3.4' intercept='-0.95'/%3E%3CfeFuncG type='linear' slope='3.4' intercept='-0.95'/%3E%3CfeFuncB type='linear' slope='3.4' intercept='-0.95'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  mix-blend-mode: multiply;
+  opacity: 0.28;
+}
+
+/* The gradient and grain fade out over the last stretch of the hero, so they
+   melt into the page peach instead of ending in a hard line where the work
+   section starts. */
+.hero::before,
+.hero::after {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 75%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 75%, transparent 100%);
+}
+
 /* ── Cursor glow: soft white blob that eases after the pointer (see HeroGlow).
    Sits above the gradient (::before) but behind the copy. */
 .hero-glow {
