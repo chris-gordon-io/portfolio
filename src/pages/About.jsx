@@ -37,7 +37,7 @@ export default function About() {
         {/* B — bottom left: bikes, tall */}
         <div className="bento-cell bento-cell--b" style={{ backgroundImage: `url(${bikesImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="bento-cell__body">
-            <p className="bento-cell__label">Hobby</p>
+            <p className="bento-cell__label">Activity</p>
             <h2 className="bento-cell__title">Bikes</h2>
             <p className="bento-cell__text">Mainly BMX, but learning to enjoy adult sized bikes too.</p>
           </div>
