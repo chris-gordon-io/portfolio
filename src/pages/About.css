@@ -233,6 +233,12 @@
   text-wrap: balance;
 }
 
+/* the big card's subline stays on one line whenever the card is wide enough
+   (balance still splits it evenly into two lines when it isn't) */
+.bento-cell--c .bento-cell__text--hero {
+  max-width: none;
+}
+
 /* lead-in to the CV button: same size as the "Opens in Notion" caption, set
    apart from the line above */
 .bento-cell__text--alt {
