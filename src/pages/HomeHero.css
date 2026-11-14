@@ -196,20 +196,21 @@
 }
 
 /* ── Hero gradient ──
-   A soft diagonal wash (sanjaylal.design style): cool neutral in the bottom
-   left, warming through the page peach to DS orange in the top right. */
+   Corner to corner: the page peach holds in the top left, then eases into a
+   light cool grey in the bottom right (matched to the Figma gradient). The
+   greys are neutral-30 mixed into orange-10, so it stays in DS colours. */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(to top right,
-    var(--color-neutral-20) 0%,
-    var(--color-neutral-10) 22%,
-    var(--color-orange-10) 50%,
-    var(--color-orange-20) 78%,
-    var(--color-orange-40) 100%);
+  background: linear-gradient(to bottom right,
+    var(--color-orange-10) 0%,
+    var(--color-orange-10) 22%,
+    color-mix(in srgb, var(--color-neutral-30) 25%, var(--color-orange-10)) 50%,
+    color-mix(in srgb, var(--color-neutral-30) 55%, var(--color-orange-10)) 80%,
+    color-mix(in srgb, var(--color-neutral-30) 55%, var(--color-orange-10)) 100%);
 }
 
 /* ── Cursor glow: soft white blob that eases after the pointer (see HeroGlow).
