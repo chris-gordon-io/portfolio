@@ -265,7 +265,26 @@
      below shrink with them, so the composition keeps its proportions) */
   --cv-scale: 0.9;
   --cv-peek: 203px;
-  --cv-fan-space: 152px;
+
+  /* The copy sits as close to the card's vertical centre as the CV pages
+     allow. Centring it needs no reserved space; the pages only force it up
+     when the card is short. So --cv-fan-space (the bottom padding that lifts
+     it) is just what is needed to keep --cv-clear between copy and pages:
+       space = max(0, copy height + 2 × (pages height + clearance) − card height)
+     The card is 2 grid rows of the 110vh bento (see .bento), which comes to
+     roughly 70.97vh − 69.3px on desktop. */
+  --cv-text-h: 184px;   /* height of the copy block (one-line subline) */
+  --cv-pages-h: 180px;  /* how far the fanned pages reach up from the card bottom */
+  --cv-clear: 23px;     /* tuned so the real gap to the pages is ~14px (allows for the card's border and padding) */
+  --cv-card-h: calc(70.97vh - 69.3px);
+  --cv-fan-space: max(0px, calc(var(--cv-text-h) + 2 * (var(--cv-pages-h) + var(--cv-clear)) - var(--cv-card-h)));
+}
+
+/* the subline wraps to two lines below this width, so the copy is taller */
+@media (max-width: 960px) {
+  .bento-cell--c {
+    --cv-text-h: 208px;
+  }
 }
 
 .bento-cell--c .bento-cell__body {
@@ -492,6 +511,8 @@
   .bento-cell--a { grid-column: 1 / 2; grid-row: auto; min-height: 160px; }
   .bento-cell--b { grid-column: 2 / 3; grid-row: auto; min-height: 300px; }
   .bento-cell--c { grid-column: 1 / 3; grid-row: auto; min-height: 460px; }
+  /* single column: the card isn't tied to the window height, so lift the copy by a fixed amount */
+  .bento-cell--c { --cv-fan-space: 152px; }
   .bento-cell--d { grid-column: 1 / 3; grid-row: auto; min-height: 180px; }
   .bento-cell--e { grid-column: 1 / 2; grid-row: auto; min-height: 160px; }
   .bento-cell--f { grid-column: 2 / 3; grid-row: auto; min-height: 160px; }
