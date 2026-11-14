@@ -10,6 +10,7 @@ import girlHoodImg from '../assets/GirlHood.jpg'
 import pizzaImg from '../assets/Pizza.webp'
 import memojiImg from '../assets/memoji.png'
 import BentoArrow from '../components/BentoArrow'
+import BentoPlay from '../components/BentoPlay'
 import './About.css'
 
 export default function About() {
@@ -23,7 +24,7 @@ export default function About() {
         {/* A — top left: music */}
         <button type="button" className="bento-cell bento-cell--a" onClick={() => setActiveVideo({ id: 'tSwHdfXPR7o', title: 'Zac Bryan — Oak Island' })}>
           <img src={listeningToImg} alt="" className="bento-cell__img" style={{ objectPosition: '70% 45%' }} />
-          <span className="bento-link-btn" aria-hidden="true"><BentoArrow size={12} /></span>
+          <span className="bento-link-btn" aria-hidden="true"><BentoPlay size={12} /></span>
           <div className="bento-cell__body">
             <p className="bento-cell__label">Listening to</p>
             <h2 className="bento-cell__title">Zac Bryan</h2>
@@ -82,7 +83,7 @@ export default function About() {
         {/* E — bottom centre: watching */}
         <button type="button" className="bento-cell bento-cell--e" onClick={() => setActiveVideo({ id: '4luwYVfhmks', title: 'GirlHood' })}>
           <img src={girlHoodImg} alt="" className="bento-cell__img" />
-          <span className="bento-link-btn" aria-hidden="true"><BentoArrow size={12} /></span>
+          <span className="bento-link-btn" aria-hidden="true"><BentoPlay size={12} /></span>
           <div className="bento-cell__body">
             <p className="bento-cell__label">Watching</p>
             <h2 className="bento-cell__title">GirlHood</h2>

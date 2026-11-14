@@ -30,7 +30,8 @@
   grid-template-columns: 1.1fr 1fr 1.1fr 1.1fr;
   grid-template-rows: 1fr 1fr 1.1fr;
   gap: 12px;
-  padding: 120px var(--space-m) 24px;
+  /* nav pill bottom is at 66px; +12px matches the gap between cells */
+  padding: 78px var(--space-m) 24px;
   height: 110vh;
   box-sizing: border-box;
 }
