@@ -186,7 +186,7 @@ export default function Home() {
           <p>
             <Words>{'Before that I was '}</Words>
             <span className="hx-keep hx-unit">at <BrandChip name="Sainsbury's" logo={sainsburysLogo} href="https://www.sainsburys.co.uk" />,</span>
-            <Words>{' working across multiple squads.'}</Words>
+            <Words>{' leading strategy across multiple squads.'}</Words>
           </p>
         </div>
 

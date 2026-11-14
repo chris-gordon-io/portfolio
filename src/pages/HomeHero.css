@@ -296,3 +296,22 @@
 @media (hover: none) {
   .hero-glow { display: none; }
 }
+
+/* ── Phones: a touch smaller type and more line height, so chips on adjacent
+   lines no longer touch. The chips get their own fixed line-height; they
+   would otherwise inherit the taller one and grow with it. ── */
+@media (max-width: 600px) {
+  .hero .hx-copy {
+    font-size: 21px;
+  }
+
+  .hero .hx-copy h1,
+  .hero .hx-copy p {
+    line-height: 1.7;
+  }
+
+  .hero .hx-copy .brand-chip,
+  .hero .hx-copy .hero-pill--chip {
+    line-height: 1.2;
+  }
+}
