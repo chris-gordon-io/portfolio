@@ -10,6 +10,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import Button from '../components/Button'
 import HeroGlow from '../components/HeroGlow'
+import BentoArrow from '../components/BentoArrow'
 import toyotaThumb from '../assets/ToyotaThumb.jpg'
 import chrisIcon from '../assets/chris-icon.png'
 import sonyMusicLogo from '../assets/logos/sony-music.png'
@@ -70,6 +71,7 @@ function BrandChip({ name, logo, href }) {
     <a className="brand-chip" href={href} target="_blank" rel="noopener noreferrer">
       <img className="brand-chip__logo" src={logo} alt="" />
       {name}
+      <BentoArrow size={14} className="brand-chip__arrow" />
     </a>
   )
 }

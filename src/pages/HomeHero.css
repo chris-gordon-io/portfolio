@@ -129,6 +129,29 @@
   outline-offset: 2px;
 }
 
+/* Diagonal "opens a new page" arrow, same glyph as the About bento cards */
+.brand-chip__arrow {
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  margin-left: 0.2em;
+  /* raised so the arrow's top lines up with the top of the capitals */
+  vertical-align: 0.3em;
+  /* a step lighter than the chip's type (neutral-100) */
+  color: var(--color-neutral-70);
+  transition: transform 0.2s;
+}
+
+/* Heavier stroke than the About version (1.8) so it holds up at this small size */
+.brand-chip__arrow path {
+  stroke-width: 3;
+}
+
+
+.brand-chip:hover .brand-chip__arrow {
+  transform: translate(1px, -1px);
+}
+
 .brand-chip__logo {
   display: inline-block;
   width: 1em;
