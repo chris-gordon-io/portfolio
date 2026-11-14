@@ -194,3 +194,46 @@
     padding: 10vh 24px 0;
   }
 }
+
+/* ── Hero gradient ──
+   A soft diagonal wash (sanjaylal.design style): cool neutral in the bottom
+   left, warming through the page peach to DS orange in the top right. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to top right,
+    var(--color-neutral-20) 0%,
+    var(--color-neutral-10) 22%,
+    var(--color-orange-10) 50%,
+    var(--color-orange-20) 78%,
+    var(--color-orange-40) 100%);
+}
+
+/* ── Cursor glow: soft white blob that eases after the pointer (see HeroGlow).
+   Sits above the gradient (::before) but behind the copy. */
+.hero-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0;
+  filter: blur(70px);
+  pointer-events: none;
+  will-change: transform;
+  transition: opacity 0.6s ease;
+}
+
+.hero-glow.is-visible {
+  opacity: 0.85;
+}
+
+@media (hover: none) {
+  .hero-glow { display: none; }
+}

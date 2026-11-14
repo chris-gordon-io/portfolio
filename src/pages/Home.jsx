@@ -9,6 +9,7 @@ import CGLogo from '../components/CGLogo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import Button from '../components/Button'
+import HeroGlow from '../components/HeroGlow'
 import toyotaThumb from '../assets/ToyotaThumb.jpg'
 import chrisIcon from '../assets/chris-icon.png'
 import sonyMusicLogo from '../assets/logos/sony-music.png'
@@ -159,6 +160,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="hero">
+        <HeroGlow />
         <div ref={heroRef} className="hero-text hx-copy is-measuring">
           <h1>
             <Words>{"Hi, I'm "}</Words>
