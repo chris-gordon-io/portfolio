@@ -181,24 +181,23 @@
   left: 40px;
   bottom: 12px;
   /* Compact: visibly smaller than the company chips in the copy (DS sm is 38px tall) */
-  padding: 7px 12px; /* 7px, not 6: with no border it stays 32px tall */
+  padding: 6px 12px; /* 6px + the 1px border = 32px tall */
   font-size: 14px;
   line-height: 18px;
-  /* white fill, no outline */
-  background: #ffffff;
-  border: none;
+  /* same glass as the nav pill: translucent white, blur, 1px white stroke */
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid #ffffff;
   /* Fades in and up in step with the nav, which fades down and in (Home.css:
      same 1.8s delay, 0.8s duration and easing) */
-  animation: hero-cta-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both;
+  /* `backwards`, not `both`: once it has faded in, the animation lets go of
+     opacity so the scroll fade (useHeroScrollFade) can drive it */
+  animation: hero-cta-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.8s backwards;
 }
 
 .hero .hero-cta:hover {
-  background: var(--color-neutral-10);
-}
-
-.hero .hero-cta .btn-icon {
-  width: 14px;
-  height: 14px;
+  background: rgba(255, 255, 255, 0.85);
 }
 
 @keyframes hero-cta-in {

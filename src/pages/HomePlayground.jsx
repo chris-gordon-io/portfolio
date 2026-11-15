@@ -5,6 +5,7 @@ import ChrisBubble from '../components/ChrisBubble'
 import ProjectCursor from '../components/ProjectCursor'
 import { useReveal } from '../hooks/useReveal'
 import { useLineReveal } from '../hooks/useLineReveal'
+import useHeroScrollFade from '../hooks/useHeroScrollFade'
 import CGLogo from '../components/CGLogo'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
@@ -193,6 +194,7 @@ function useLayerDepth(ref) {
 
 export default function HomePlayground() {
   const heroRef = useLineReveal()
+  useHeroScrollFade()
   const stackRef = useRef(null)
   useLayerDepth(stackRef)
 
@@ -241,12 +243,7 @@ export default function HomePlayground() {
             else document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })
           }}
         >
-          View selected work
-          {/* Same arrow as the project cursor */}
-          <svg className="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <polyline points="9,4 13,8 9,12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          Selected work
         </Button>
       </section>
 
